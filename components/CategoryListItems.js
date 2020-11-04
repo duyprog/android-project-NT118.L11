@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     containter:{
         alignItems: 'center',
         padding: 16,
-        borderRadius: 8,
+        borderRadius: 12,
         backgroundColor: '#FFF',
         elevation: 8,
         marginBottom: 16
