@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, FlatList, TouchableOpacity} from 'react-native'
+import { Text, View, StyleSheet, TouchableOpacity} from 'react-native'
 import CategoryListItems from '../components/CategoryListItems'
-import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { ScrollView } from 'react-native-gesture-handler';
 
 const Categories = ({navigation}) => {
