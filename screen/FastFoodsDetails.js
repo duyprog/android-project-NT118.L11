@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, FlatList} from 'react-native'
 import FoodItems from '../items/FoodItems'
-export default class FoodDetails extends Component {
+export default class FastFoodsDetails extends Component {
     constructor(props){
         super(props);
         this.state =({

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, FlatList} from 'react-native'
-export default class CakeDetails extends Component {
+export default class DessertsDetails extends Component {
     constructor(props){
         super(props);
     }

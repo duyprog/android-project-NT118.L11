@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, FlatList} from 'react-native'
 
-export default class DrinkDetails extends Component {
+export default class DrinksDetails extends Component {
     constructor(props){
         super(props);
     }
