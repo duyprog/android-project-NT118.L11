@@ -14,16 +14,16 @@ export default class CategoryListItems extends Component {
 
 const styles = StyleSheet.create({
     CategoryImage:{
-        width: 72, 
-        height: 72
+        width: 78, 
+        height: 78
     },
     containter:{
         alignItems: 'center',
         padding: 16,
         borderRadius: 12,
         backgroundColor: '#FFF',
-        elevation: 8,
-        marginBottom: 16
+        elevation: 5,
+        marginBottom: 14
     }, 
     title:{
         textTransform: 'uppercase', 

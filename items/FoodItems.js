@@ -15,7 +15,7 @@ export default function FoodItems(props){
                     <View style={styles.priceRow}>
                         <Text style={styles.price}>{foodItem.price}</Text>
                         <TouchableOpacity>
-                            <Text style={styles.cartText}>hehe</Text>
+                            <Text style={styles.cartText}> Chọn </Text>
                         </TouchableOpacity>
                     </View>
                 </View>
