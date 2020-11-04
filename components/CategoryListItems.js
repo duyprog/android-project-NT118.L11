@@ -14,23 +14,20 @@ export default class CategoryListItems extends Component {
 
 const styles = StyleSheet.create({
     CategoryImage:{
-        width: 64, 
-        height: 64
+        width: 72, 
+        height: 72
     },
     containter:{
         alignItems: 'center',
-        justifyContent: 'center',
-       padding: 16,
-        backgroundColor: 'tomato',
-       shadowColor: '#000',
-       shadowOpacity: 0.1,
-       shadowRadius: 10,
-       shadowOffset: {width: 0, height: 0},
-       marginBottom: 10,
+        padding: 16,
+        borderRadius: 8,
+        backgroundColor: '#FFF',
+        elevation: 8,
+        marginBottom: 16
     }, 
     title:{
-        fontSize: 16, 
-        fontWeight: '600',
+        textTransform: 'uppercase', 
+        fontWeight: '700',
         marginBottom: 10,
     }
 })
