@@ -5,17 +5,18 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import React from 'react'
 
 //Các màn hình render
-import Categories from './screen/Categories';
-import FastFoodsDetails from './screen/FastFoodsDetails';
-import DrinksDetails from './screen/DrinksDetails';
-import DessertsDetails from './screen/DessertsDetails';
-import HotPotDetails from './screen/HotPotDetails'
-import FriedDetails from './screen/FriedDetails'
+import Categories from './screen/HomeSrc/Categories';
+import FastFoodsDetails from './screen/HomeSrc/FastFoodsDetails';
+import DrinksDetails from './screen/HomeSrc/DrinksDetails';
+import DessertsDetails from './screen/HomeSrc/DessertsDetails';
+import HotPotDetails from './screen/HomeSrc/HotPotDetails'
+import FriedDetails from './screen/HomeSrc/FriedDetails'
 import MainMenu from './screen/MainMenu'
-import Cart from './screen/Cart'
-import More from './screen/More'
-import AddStaff from './screen/AddStaff'
-import Staff from './screen/Staff'
+import Cart from './screen/CartSrc/Cart'
+import More from './screen/MoreSrc/More'
+import AddStaff from './screen/StaffSrc/AddStaff'
+import Staff from './screen/StaffSrc/Staff'
+import StaffList from './screen/StaffSrc/StaffList'
 
 const Tab = createMaterialBottomTabNavigator()
 
@@ -50,7 +51,8 @@ function StaffStackScreen() {
   return(
     <StaffStack.Navigator>
       <StaffStack.Screen name="Staff" component={Staff} options={{title: 'Nhân sự', headerTitleStyle: {alignSelf:'center'}}}/>
-      <StaffStack.Screen name="Add Staff" component={AddStaff} options={{title: 'Thêm nhân viên'}}/>
+      <StaffStack.Screen name="Add Staff" component={AddStaff} options={{title: 'Thêm nhân sự'}}/>
+      <StaffStack.Screen name="Staff List" component={StaffList} options={{title: 'Danh sách nhân sự'}}/>
     </StaffStack.Navigator>
   )
 }

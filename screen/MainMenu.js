@@ -1,11 +1,11 @@
 import React from 'react'
-import { View, TouchableOpacity} from 'react-native'
+import { TouchableOpacity, StyleSheet, ScrollView} from 'react-native'
 
 import CategoryListItems from '../components/CategoryListItems'
 
 const MainMenu = ({ navigation }) => {
     return (
-        <View>
+        <ScrollView style={styles.container}>
             <TouchableOpacity
                 activeOpacity={0.5}
                 onPress={() => {
@@ -29,8 +29,17 @@ const MainMenu = ({ navigation }) => {
                 }}>
                 <CategoryListItems title={"Hóa đơn"} uri={require('../image/mainMenu/bill.png')} />
             </TouchableOpacity>
-        </View>
+        </ScrollView>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        marginTop: 10,
+        flex: 1, 
+        paddingLeft: 10, 
+        paddingRight: 10,
+    }
+})
 
 export default MainMenu
