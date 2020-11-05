@@ -1,4 +1,4 @@
-const apiInsertAStaff = 'http://192.168.1.17:3000/insert_a_staff'
+const apiInsertAStaff = 'http://192.168.1.17:3000/insert_new_staff'
 
 // send post request to insert a staff 
 
