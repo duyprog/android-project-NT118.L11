@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native'
+import { Text, View, Image, StyleSheet } from 'react-native'
 
 export default class CategoryListItems extends Component {
     render() {
@@ -19,10 +19,10 @@ const styles = StyleSheet.create({
     },
     containter:{
         alignItems: 'center',
-        padding: 16,
-        borderRadius: 12,
+        padding: 14,
+        borderRadius: 6,
         backgroundColor: '#FFF',
-        elevation: 5,
+        elevation: 4,
         marginBottom: 14
     }, 
     title:{
