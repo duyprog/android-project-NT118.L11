@@ -2,7 +2,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-
 import React from 'react'
 
 //Các màn hình render
@@ -35,8 +34,6 @@ function MainMenuStackScreen() {
       <MainMenuStack.Screen name="Fried Details" component={FriedDetails} options={{title: 'Món chiên'}}/> 
       <MainMenuStack.Screen name="Drinks Details" component={DrinksDetails} options={{title: 'Thức uống'}}/>
       <MainMenuStack.Screen name="Desserts Details" component={DessertsDetails} options={{title: 'Tráng miệng'}}/>
-      <MainMenuStack.Screen name="Staff" component={Staff} options={{title: 'Nhân sự'}}/>
-      <MainMenuStack.Screen name="Add Staff" component={AddStaff} options={{title: 'Thêm nhân viên'}}/>
     </MainMenuStack.Navigator>
   )
 }
@@ -52,7 +49,8 @@ function CartStackScreen() {
 function StaffStackScreen() {
   return(
     <StaffStack.Navigator>
-      <StaffStack.Screen name="Staff" component={Cart} options={{title: 'Nhân sự', headerTitleStyle: {alignSelf:'center'}}}/>
+      <StaffStack.Screen name="Staff" component={Staff} options={{title: 'Nhân sự', headerTitleStyle: {alignSelf:'center'}}}/>
+      <StaffStack.Screen name="Add Staff" component={AddStaff} options={{title: 'Thêm nhân viên'}}/>
     </StaffStack.Navigator>
   )
 }
@@ -68,9 +66,10 @@ function MoreStackScreen() {
 export default function App() {
     return (
       <NavigationContainer>
-          <Tab.Navigator initialRouteName="Home"
-                         barStyle={{ backgroundColor: '#de5543' }}
-                         >
+          <Tab.Navigator  initialRouteName="Home"
+                          activeColor= "#de5543"
+                          barStyle={{ backgroundColor: '#FFF' }}
+                          >
             <Tab.Screen name="Home" component={MainMenuStackScreen} options={{tabBarLabel: 'Home',
                                     tabBarIcon: ({ color }) => (
                                       <MaterialCommunityIcons name="home-outline" color={color} size={26} />
