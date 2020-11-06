@@ -1,82 +1,111 @@
 import React, { Component } from 'react'
-import {View, StyleSheet, FlatList, Animated } from 'react-native'
+import {View, StyleSheet, FlatList, Animated, TouchableOpacity,RefreshControl } from 'react-native'
 import Swipable from 'react-native-gesture-handler/Swipeable'
 import StaffListComp from '../../components/StaffListComp'
-
+import {getStaffFromServer} from '../../networking/server';
+import {deleteAStaff} from '../../networking/server';
 export default class StaffList extends Component {
     constructor(props){
         super(props)
         this.state = ({
-            staffList: [
-                {
-                    id: 1,
-                    name: 'Hoang My Phi hehe',
-                    role: 'Ong chu chu j'
-                },
-                {
-                    id: 2,
-                    name: 'Duy Pham hehe',
-                    role: 'Quan ly chu j'
-                },
-                {
-                    id: 3,
-                    name: 'Chung tin',
-                    role: 'Culi vnutour'
-                },
-                {
-                    id: 4,
-                    name: 'May du hai chau',
-                    role: 'an chua'
-                }
-            ]
+            deletedRowkey: null,
+            staffsFromServer:[],
+            refreshsing: false,
+            deleteID: '',
         })
     }
+    // refresh list khi state thay doi 
+    refreshStaffList = (activeKey) =>{
+        this.setState((prevState) =>{
+            return{
+                deletedRowKey: activeKey
+            };
+        });
+    }
+    // refresh data from server 
+    refreshDataFromServer = () =>{
+        this.setState({refreshing: true});
+        getStaffFromServer().then((staffs) =>{
+            this.setState({staffsFromServer: staffs});
+            this.setState({refreshing:false});
+        }).catch( error =>{
+            this.setState({staffsFromServer: []});
+            this.setState({refreshing:false});
+        });
+        
 
+    }
+    _onRefresh = () =>{
+        this.refreshDataFromServer();
+    }
+    _onDelete =() =>{
+        deleteAStaff(this.state.deleteID)
+        .then(this.refreshDataFromServer());
+    }
+    componentDidMount(){
+        this.refreshDataFromServer();
+    }
     // Right action on Swipeable
     RightActions = (progress, dragX) => {
         const scale = dragX.interpolate({
           inputRange: [-100, 0],
           outputRange: [0.7, 0]
         })
-        return (
-          <>
+        return (   
             <View style={{ 
                 backgroundColor: 'red', 
                 justifyContent: 'center',
                 marginBottom: 5,
                 marginTop: 5,
                 padding: 6,
-    }}>
-              <Animated.Text
-                style={{
-                    fontSize: 20,
-                  color: 'white',
-                  paddingHorizontal: 10,
-                  fontWeight: '600',
-                  transform: [{ scale }]
-                }}>
-                Delete
-              </Animated.Text>
-            </View>
+            }}>
+                <TouchableOpacity onPress ={this._onDelete}>
+                    <Animated.Text
+                        style={{
+                        fontSize: 20,
+                        color: 'white',
+                        paddingHorizontal: 10,
+                        fontWeight: '600',
+                        transform: [{ scale }]}}>
+                            Delete
+                    </Animated.Text>
+                </TouchableOpacity>
+    </View>
            
-          </>
+         
         )
        }
 
     render() {
         return (
             <FlatList
-                data={this.state.staffList}
+                data={this.state.staffsFromServer}
                 renderItem={({item}) =>
                     <View>
-                        <Swipable
+                        <Swipable 
                             renderRightActions={this.RightActions}
+                            onSwipeableRightOpen= {() =>{
+                            this.setState({deleteID: item.STAFFID});
+                            console.log(this.state.deleteID);
+                        }}
                             >
-                            <StaffListComp name={item.name} role={item.role}/> 
+                            <StaffListComp name={item.STAFFNAME} role={item.position}/> 
                         </Swipable>
                     </View>}
-                keyExtractor={(item) => `${item.id}`} >
+                keyExtractor={(item) => `${item.STAFFID}`}
+                refreshControl = 
+                {<RefreshControl
+                    refreshing = {this.state.refreshsing}
+                    onRefresh = {this._onRefresh}    
+                />} >
             </FlatList>
         )
     }
 }
+
+const styles = StyleSheet.create({
+    seperatorLine:{
+        height: 1, 
+        backgroundColor: 'black',
+    }
+})
