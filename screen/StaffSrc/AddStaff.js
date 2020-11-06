@@ -81,7 +81,7 @@ export default class AddStaff extends Component {
                     }
                     insertAStaff(newStaff).then((res) =>{
                             alert('Them thanh cong');
-                    })
+                    }).catch(err => console.log(err));
                 }}>
                     <Text> Thêm </Text>
                 </TouchableOpacity>
