@@ -35,7 +35,7 @@ const MainMenu = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 10,
+        marginTop: 5,
         flex: 1, 
         paddingLeft: 10, 
         paddingRight: 10,

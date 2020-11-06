@@ -47,7 +47,8 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         backgroundColor: '#FFF',
         elevation: 5,
-        marginTop: 10,
+        marginTop: 5,
+        marginBottom: 5,
         marginRight: 10,
         marginLeft: 10
     },
@@ -60,7 +61,6 @@ const styles = StyleSheet.create({
         margin: 15,
         fontSize: 18,
         fontWeight: '500',
-        alignSelf: 'center',
         textTransform: 'uppercase'
     }
 })
