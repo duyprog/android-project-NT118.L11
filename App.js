@@ -72,22 +72,30 @@ export default function App() {
                           activeColor= "#de5543"
                           barStyle={{ backgroundColor: '#FFF' }}
                           >
-            <Tab.Screen name="Home" component={MainMenuStackScreen} options={{tabBarLabel: 'Home',
-                                    tabBarIcon: ({ color }) => (
-                                      <MaterialCommunityIcons name="home-outline" color={color} size={26} />
-                                    )}} />
-            <Tab.Screen name="Cart" component={CartStackScreen} options={{tabBarLabel: 'Đơn hàng',
-                                    tabBarIcon: ({ color }) => (
-                                      <MaterialCommunityIcons name="cart-outline" color={color} size={26} />
-                                    )}} />
-            <Tab.Screen name="Staff" component={StaffStackScreen} options={{tabBarLabel: 'Nhân sự',
-                                    tabBarIcon: ({ color }) => (
-                                      <MaterialCommunityIcons name="account-outline" color={color} size={26} />
-                                    )}} />
-            <Tab.Screen name="More" component={MoreStackScreen} options={{tabBarLabel: 'Mở rộng',
-                                    tabBarIcon: ({ color }) => (
-                                      <MaterialCommunityIcons name="layers-outline" color={color} size={26} />
-                                    )}} />
+            <Tab.Screen name="Home" 
+                        component={MainMenuStackScreen} 
+                        options={{tabBarLabel: 'Home',
+                          tabBarIcon: ({ color }) => (
+                            <MaterialCommunityIcons name="home-outline" color={color} size={26} />
+                          )}} />
+            <Tab.Screen name="Cart" 
+                        component={CartStackScreen} 
+                        options={{tabBarLabel: 'Đơn hàng',
+                          tabBarIcon: ({ color }) => (
+                            <MaterialCommunityIcons name="cart-outline" color={color} size={26} />
+                          )}} />
+            <Tab.Screen name="Staff" 
+                        component={StaffStackScreen} 
+                        options={{tabBarLabel: 'Nhân sự',
+                          tabBarIcon: ({ color }) => (
+                            <MaterialCommunityIcons name="account-outline" color={color} size={26} />
+                          )}} />
+            <Tab.Screen name="More" 
+                        component={MoreStackScreen} 
+                        options={{tabBarLabel: 'Mở rộng',
+                          tabBarIcon: ({ color }) => (
+                            <MaterialCommunityIcons name="layers-outline" color={color} size={26} />
+                          )}} />
           </Tab.Navigator>
       </NavigationContainer>
   )
