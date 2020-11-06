@@ -6,9 +6,14 @@ export default class AddStaff extends Component {
     constructor(props){
         super(props);
         this.state={
-            identify:'',
+            staffID:'',
             staffName: '',
+            dob: '',
+            phone:'',
             position: '',
+            username: '',
+            passwd: '',
+            
         }
     }
 
@@ -25,7 +30,7 @@ export default class AddStaff extends Component {
                 <View>
                     <Text> ID </Text>
                     <TextInput
-                        onChangeText={text => this.setState({identify: text})}
+                        onChangeText={text => this.setState({staffID: text})}
                         placeholder="ID" />
                 </View>
 
@@ -35,16 +40,44 @@ export default class AddStaff extends Component {
                         onChangeText={text => this.setState({position: text})}   
                         placeholder="Chức vụ" />
                 </View>
-
+                <View>
+                    <Text> Ngày sinh </Text>
+                    <TextInput
+                        onChangeText={text => this.setState({dob: text})}   
+                        placeholder="Ngày sinh" />
+                </View>
+                <View>
+                    <Text>Số điện thoại</Text>
+                    <TextInput
+                        onChangeText={text => this.setState({phone: text})}   
+                        placeholder="Số điện thoại" />
+                </View>
+                <View>
+                    <Text>Tên đăng nhập</Text>
+                    <TextInput
+                        onChangeText={text => this.setState({username: text})}   
+                        placeholder="Tên đăng nhập" />
+                </View>
+                <View>
+                    <Text>Mật khẩu</Text>
+                    <TextInput
+                        onChangeText={text => this.setState({passwd: text})}   
+                        placeholder="Mật khẩu" />
+                </View>
                 <TouchableOpacity onPress={() =>{
-                    if (this.state.staffName.length == 0|| this.state.identify.length == 0){
+                    if (this.state.staffName.length == 0|| this.state.staffID.length == 0){
                         alert("Bạn phải nhập đầy đủ tên và id");
                         return;
                     }
                     const newStaff = {
-                        identify: this.state.identify,
-                        staffName: this.state.staffName,
+                        STAFFID: this.state.staffID,
+                        STAFFNAME: this.state.staffName,
+                        DOB: this.state.dob,
+                        PHONE: this.state.phone,
+                        username: this.state.username,
+                        passwd: this.state.passwd,
                         position: this.state.position
+
                     }
                     insertAStaff(newStaff).then((res) =>{
                             alert('Them thanh cong');
