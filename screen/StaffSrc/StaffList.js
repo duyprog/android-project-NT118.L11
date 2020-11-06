@@ -33,12 +33,13 @@ export default class StaffList extends Component {
     }
 
     render() {
-        const staffList = this.state
         return (
             <FlatList
-                data={staffList}
+                data={this.state.staffList}
                 renderItem={({item}) =>
-                    <StaffListComp staff={item} />}
+                    <View>
+                        <StaffListComp name={item.name} role={item.role}/> 
+                    </View>}
                 keyExtractor={(item) => `${item.id}`} >
             </FlatList>
         )
