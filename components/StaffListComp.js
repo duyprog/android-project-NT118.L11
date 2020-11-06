@@ -3,6 +3,7 @@ import { Component } from 'react';
 import { Text, View, StyleSheet, Image } from 'react-native'
 
 import StaffAvatar from '../image/staff-avatar.png'
+
 export default class StaffListComp extends Component{
     constructor(props){
         super(props);
@@ -12,7 +13,7 @@ export default class StaffListComp extends Component{
             <View style={styles.view}>
                 <Image  source={StaffAvatar}
                         style={styles.imageStyle} />
-                <View>
+                <View style={{justifyContent: 'center'}}>
                     <Text style={styles.textName}> {this.props.name} </Text>
                     <Text style={styles.textRole}> {this.props.role} </Text>
                 </View>
@@ -40,14 +41,14 @@ const styles = StyleSheet.create({
         marginRight: 10,
         marginBottom: 5,
         marginTop: 5,
-        elevation: 5
+        elevation: 5,
+        borderRadius: 12
     },
     textName: {
         fontWeight: '700',
-        fontSize: 18,
+        fontSize: 17,
         textTransform: 'uppercase',
-        marginLeft: 12,
-        marginTop: 5
+        marginLeft: 12
     },
     textRole: {
         fontSize: 15,

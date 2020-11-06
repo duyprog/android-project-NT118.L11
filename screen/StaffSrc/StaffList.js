@@ -10,23 +10,23 @@ export default class StaffList extends Component {
             staffList: [
                 {
                     id: 1,
-                    name: 'Hoang My Phi hehe',
-                    role: 'Ong chu chu j'
+                    name: 'Hoàng Mỹ Phi',
+                    role: 'Ông chủ'
                 },
                 {
                     id: 2,
-                    name: 'Duy Pham hehe',
-                    role: 'Quan ly chu j'
+                    name: 'Phạm Khắc Duy',
+                    role: 'Quản lý chi nhánh'
                 },
                 {
                     id: 3,
-                    name: 'Chung tin',
-                    role: 'Culi vnutour'
+                    name: 'Tạ Nguyễn Chung Tín',
+                    role: 'Phụ vụ bán thời gian'
                 },
                 {
                     id: 4,
-                    name: 'May du hai chau',
-                    role: 'an chua'
+                    name: 'Nguyễn Minh Đức',
+                    role: 'Lao công'
                 }
             ]
         })
@@ -49,13 +49,13 @@ export default class StaffList extends Component {
     }}>
               <Animated.Text
                 style={{
-                    fontSize: 20,
+                  fontSize: 20,
                   color: 'white',
                   paddingHorizontal: 10,
                   fontWeight: '600',
                   transform: [{ scale }]
                 }}>
-                Delete
+                Xóa
               </Animated.Text>
             </View>
            
