@@ -6,8 +6,7 @@ export default function StaffListComp(props) {
     const {staff} = props
 
     return (
-        <Card>
-            <View style={styles.cardView}>
+        <View style={styles.cardView}>
                 <Image 
                     style={styles.imageStyle}
                     source={{uri: require('../image/staff-avatar.png')}} >
@@ -16,8 +15,7 @@ export default function StaffListComp(props) {
                     <Text style={{fontSize: 18}}> {staff.name} </Text>
                     <Text style={{fontSize: 14}}> {staff.role} </Text>
                 </View>
-            </View>
-        </Card>
+        </View>
     )
 }
 
