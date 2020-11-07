@@ -1,6 +1,6 @@
-const apiInsertAStaff = 'http://192.168.1.11:3000/insert_new_staff'
-const apiGetAllStaff = 'http://192.168.1.11:3000/get_all_staff';
-const apiDeleteAStaff = 'http://192.168.1.11:3000/delete_a_staff/'
+const apiInsertAStaff = 'http://192.168.1.2:3000/insert_new_staff'
+const apiGetAllStaff = 'http://192.168.1.2:3000/get_all_staff';
+const apiDeleteAStaff = 'http://192.168.1.2:3000/delete_a_staff/'
 // send post request to insert a staff 
 
 async function insertAStaff(params){
@@ -34,7 +34,7 @@ async function getStaffFromServer(){
 }
 async function deleteAStaff(id){
     try{
-         fetch(`http://192.168.1.11:3000/delete_a_staff/` + id,
+         fetch(`http://192.168.1.2:3000/delete_a_staff/` + id,
             {
                 method: 'DELETE',
                 body: JSON.stringify(id)
