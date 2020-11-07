@@ -21,14 +21,6 @@ const MainMenu = ({ navigation }) => {
                 }}>
                 <CategoryListItems title={"Mang đi"} uri={require('../image/mainMenu/take-away.png')} />
             </TouchableOpacity>
-
-            <TouchableOpacity
-                activeOpacity={0.5}
-                onPress={() => {
-                navigation.navigate('Food Menu')
-                }}>
-                <CategoryListItems title={"Hóa đơn"} uri={require('../image/mainMenu/bill.png')} />
-            </TouchableOpacity>
         </ScrollView>
     )
 }

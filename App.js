@@ -1,6 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import React from 'react'
 
@@ -12,11 +12,12 @@ import DessertsDetails from './screen/HomeSrc/DessertsDetails';
 import HotPotDetails from './screen/HomeSrc/HotPotDetails'
 import FriedDetails from './screen/HomeSrc/FriedDetails'
 import MainMenu from './screen/MainMenu'
-import Cart from './screen/CartSrc/Cart'
+import Cart from './screen/CartSrc/CartList'
 import More from './screen/MoreSrc/More'
 import AddStaff from './screen/StaffSrc/AddStaff'
 import Staff from './screen/StaffSrc/Staff'
 import StaffList from './screen/StaffSrc/StaffList'
+import CartHistory from './screen/CartSrc/CartHistory'
 
 const Tab = createMaterialBottomTabNavigator()
 

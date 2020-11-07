@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Text, View } from 'react-native'
 
-export default class Cart extends Component {
+export default class CartHistory extends Component {
     render() {
         return (
             <View>
-                <Text> Đơn hàng </Text>
+                <Text> Lich su don hang </Text>
             </View>
         )
     }
