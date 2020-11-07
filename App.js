@@ -29,13 +29,13 @@ const StaffStack = createStackNavigator()
 function MainMenuStackScreen() {
   return(
     <MainMenuStack.Navigator>
-      <MainMenuStack.Screen name="Home" component={MainMenu} options={{title: 'Home', headerTitleStyle: {alignSelf:'center'}}}/>
-      <MainMenuStack.Screen name="Food Menu" component={Categories} options={{title: 'Menu'}}/>
-      <MainMenuStack.Screen name="Fast Foods Details" component={FastFoodsDetails} options={{title: 'Thức ăn nhanh'}}/>
-      <MainMenuStack.Screen name="Hot Pot Details" component={HotPotDetails} options={{title: 'Lẩu'}}/>
-      <MainMenuStack.Screen name="Fried Details" component={FriedDetails} options={{title: 'Món chiên'}}/> 
-      <MainMenuStack.Screen name="Drinks Details" component={DrinksDetails} options={{title: 'Thức uống'}}/>
-      <MainMenuStack.Screen name="Desserts Details" component={DessertsDetails} options={{title: 'Tráng miệng'}}/>
+      <MainMenuStack.Screen name="Home" component={MainMenu} options={{title: 'Home', headerTitleStyle: {alignSelf:'center'}, headerTintColor: '#fff', headerStyle: {backgroundColor: '#de5543'}}}/>
+      <MainMenuStack.Screen name="Food Menu" component={Categories} options={{title: 'Menu', headerTintColor: '#fff', headerStyle: {backgroundColor: '#de5543'}}}/>
+      <MainMenuStack.Screen name="Fast Foods Details" component={FastFoodsDetails} options={{title: 'Thức ăn nhanh', headerTintColor: '#fff', headerStyle: {backgroundColor: '#de5543'}}}/>
+      <MainMenuStack.Screen name="Hot Pot Details" component={HotPotDetails} options={{title: 'Lẩu', headerTintColor: '#fff', headerStyle: {backgroundColor: '#de5543'}}}/>
+      <MainMenuStack.Screen name="Fried Details" component={FriedDetails} options={{title: 'Món chiên', headerTintColor: '#fff', headerStyle: {backgroundColor: '#de5543'}}}/> 
+      <MainMenuStack.Screen name="Drinks Details" component={DrinksDetails} options={{title: 'Thức uống', headerTintColor: '#fff', headerStyle: {backgroundColor: '#de5543'}}}/>
+      <MainMenuStack.Screen name="Desserts Details" component={DessertsDetails} options={{title: 'Tráng miệng', headerTintColor: '#fff', headerStyle: {backgroundColor: '#de5543'}}}/>
     </MainMenuStack.Navigator>
   )
 }
@@ -43,7 +43,7 @@ function MainMenuStackScreen() {
 function CartStackScreen() {
   return(
     <CartStack.Navigator>
-      <CartStack.Screen name="Cart" component={Cart} options={{title: 'Đơn hàng', headerTitleStyle: {alignSelf:'center'}}}/>
+      <CartStack.Screen name="Cart" component={Cart} options={{title: 'Đơn hàng', headerTitleStyle: {alignSelf:'center'}, headerTintColor: '#fff', headerStyle: {backgroundColor: '#de5543'}}}/>
     </CartStack.Navigator>
   )
 }
@@ -51,9 +51,9 @@ function CartStackScreen() {
 function StaffStackScreen() {
   return(
     <StaffStack.Navigator>
-      <StaffStack.Screen name="Staff" component={Staff} options={{title: 'Nhân sự', headerTitleStyle: {alignSelf:'center'}}}/>
-      <StaffStack.Screen name="Add Staff" component={AddStaff} options={{title: 'Thêm nhân sự'}}/>
-      <StaffStack.Screen name="Staff List" component={StaffList} options={{title: 'Danh sách nhân sự'}}/>
+      <StaffStack.Screen name="Staff" component={Staff} options={{title: 'Nhân sự', headerTitleStyle: {alignSelf:'center'}, headerTintColor: '#fff', headerStyle: {backgroundColor: '#de5543'}}}/>
+      <StaffStack.Screen name="Add Staff" component={AddStaff} options={{title: 'Thêm nhân sự', headerTintColor: '#fff', headerStyle: {backgroundColor: '#de5543'}}}/>
+      <StaffStack.Screen name="Staff List" component={StaffList} options={{title: 'Danh sách nhân sự', headerTintColor: '#fff', headerStyle: {backgroundColor: '#de5543'}}}/>
     </StaffStack.Navigator>
   )
 }
@@ -61,7 +61,7 @@ function StaffStackScreen() {
 function MoreStackScreen() {
   return(
     <MoreStack.Navigator>
-      <MoreStack.Screen name="More" component={More} options={{title: 'Mở rộng', headerTitleStyle: {alignSelf:'center'}}}/>
+      <MoreStack.Screen name="More" component={More} options={{title: 'Mở rộng', headerTitleStyle: {alignSelf:'center'}, headerTintColor: '#fff', headerStyle: {backgroundColor: '#de5543'}}}/>
     </MoreStack.Navigator>
   )
 }
