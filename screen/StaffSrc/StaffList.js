@@ -32,15 +32,12 @@ export default class StaffList extends Component {
             this.setState({staffsFromServer: []});
             this.setState({refreshing:false});
         });
-        
-
     }
     _onRefresh = () =>{
         this.refreshDataFromServer();
     }
     _onDelete =() =>{
-        deleteAStaff(this.state.deleteID)
-        .then(this.refreshDataFromServer());
+        deleteAStaff(this.state.deleteID).then(this.refreshDataFromServer()).then(this.setState({refreshing: 'true'}));
     }
     componentDidMount(){
         this.refreshDataFromServer();
