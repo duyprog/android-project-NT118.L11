@@ -84,7 +84,6 @@ export default class AddStaff extends Component {
                             passwd: this.state.passwd,
                             position: this.state.position
 
-<<<<<<< HEAD
                         }
                         insertAStaff(newStaff).then((res) =>{
                                 alert('Đã thêm thành công');
@@ -98,16 +97,6 @@ export default class AddStaff extends Component {
                     </TouchableOpacity>
                 </View>
             </ScrollView>
-=======
-                    }
-                    insertAStaff(newStaff).then((res) =>{
-                            alert('Them thanh cong');
-                    }).catch(err => console.log(err));
-                }}>
-                    <Text> Thêm </Text>
-                </TouchableOpacity>
-            </View>
->>>>>>> c527b274bef71b3a84a5def2317c89923f1c47dd
         )
     }
 }
