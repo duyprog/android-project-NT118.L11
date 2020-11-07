@@ -8,10 +8,35 @@ export default class StaffList extends Component {
     constructor(props){
         super(props)
         this.state = ({
+<<<<<<< HEAD
+            staffList: [
+                {
+                    id: 1,
+                    name: 'Hoàng Mỹ Phi',
+                    role: 'Ông chủ'
+                },
+                {
+                    id: 2,
+                    name: 'Phạm Khắc Duy',
+                    role: 'Quản lý chi nhánh'
+                },
+                {
+                    id: 3,
+                    name: 'Tạ Nguyễn Chung Tín',
+                    role: 'Phụ vụ bán thời gian'
+                },
+                {
+                    id: 4,
+                    name: 'Nguyễn Minh Đức',
+                    role: 'Lao công'
+                }
+            ]
+=======
             deletedRowkey: null,
             staffsFromServer:[],
             refreshsing: false,
             deleteID: '',
+>>>>>>> c527b274bef71b3a84a5def2317c89923f1c47dd
         })
     }
     // refresh list khi state thay doi 
@@ -55,6 +80,20 @@ export default class StaffList extends Component {
                 marginBottom: 5,
                 marginTop: 5,
                 padding: 6,
+<<<<<<< HEAD
+    }}>
+              <Animated.Text
+                style={{
+                  fontSize: 20,
+                  color: 'white',
+                  paddingHorizontal: 10,
+                  fontWeight: '600',
+                  transform: [{ scale }]
+                }}>
+                Xóa
+              </Animated.Text>
+            </View>
+=======
             }}>
                 <TouchableOpacity onPress ={this._onDelete}>
                     <Animated.Text
@@ -68,6 +107,7 @@ export default class StaffList extends Component {
                     </Animated.Text>
                 </TouchableOpacity>
     </View>
+>>>>>>> c527b274bef71b3a84a5def2317c89923f1c47dd
            
          
         )
