@@ -1,5 +1,5 @@
-const apiInsertAStaff = 'http://192.168.1.2:3000/insert_new_staff'
-const apiGetAllStaff = 'http://192.168.1.2:3000/get_all_staff';
+const apiInsertAStaff = 'http://192.168.0.108:3000/insert_new_staff'
+const apiGetAllStaff = 'http://192.168.0.108:3000/get_all_staff';
 const apiDeleteAStaff = 'http://192.168.1.2:3000/delete_a_staff/'
 // send post request to insert a staff 
 

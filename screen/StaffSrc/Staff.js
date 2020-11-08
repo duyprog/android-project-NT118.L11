@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Text, View, StyleSheet, Image } from 'react-native'
+import { Text, View, StyleSheet, Image } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
 import List from '../../image//team.png'
@@ -53,15 +53,16 @@ const styles = StyleSheet.create({
         marginLeft: 10
     },
     imageView: {
-        width: 80,
-        height: 80,
-        marginLeft: 15
+        width: 78,
+        height: 78,
+        marginLeft: 10
     },
     text: {
-        margin: 15,
+        marginLeft: 20,
+        textTransform: 'uppercase', 
+        fontWeight: '700',
+        alignSelf: 'center',
         fontSize: 18,
-        fontWeight: '500',
-        textTransform: 'uppercase'
     }
 })
 

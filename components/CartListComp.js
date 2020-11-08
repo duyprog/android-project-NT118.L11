@@ -25,9 +25,9 @@ export default class CartListComp extends Component{
 
 const styles = StyleSheet.create({
     imageStyle: {
-        width: 60,
-        height: 60,
-        marginLeft: 12
+        width: 78,
+        height: 78,
+        marginLeft: 10
     },
     view: {
         flexDirection: 'row',
@@ -38,11 +38,11 @@ const styles = StyleSheet.create({
         marginBottom: 5,
         marginTop: 5,
         elevation: 5,
-        borderRadius: 12
+        borderRadius: 6
     },
     textTable: {
         fontWeight: '700',
-        fontSize: 17,
+        fontSize: 18,
         textTransform: 'uppercase',
         marginLeft: 12
     },
