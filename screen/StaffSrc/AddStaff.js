@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import { Text, TextInput, View, StyleSheet, ScrollView, Button, Image } from 'react-native'
+import { Text, View, StyleSheet, ScrollView, Button } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import {insertAStaff} from '../../networking/server'
-
-import Male from '../../image//male.png'
-import Female from '../../image//female.png'
-
+import {Picker} from '@react-native-picker/picker'
+import DatePicker from 'react-native-datepicker'
+import {TextInput} from 'react-native-paper'
 export default class AddStaff extends Component {
     constructor(props){
         super(props);
@@ -14,7 +13,7 @@ export default class AddStaff extends Component {
             staffName: '',
             dob: '',
             phone:'',
-            position: '',
+            position: 'Nhân viên',
             username: '',
             passwd: '',
             
@@ -23,68 +22,95 @@ export default class AddStaff extends Component {
 
     render() {
         return (
-            <View>
-                <ScrollView style={styles.viewStyle} >
+            <ScrollView style={styles.viewStyle} >
+                <View>
                     <View>
-                        <View style={{flexDirection: 'row', alignSelf: 'center'}}>
-                            <Image 
-                                source={Male}
-                                style={styles.demoImage} />
-                            <Image 
-                                source={Female}
-                                style={styles.demoImage} />
-                        </View>
+                        <Text style={styles.textLabel}> Thông tin cá nhân </Text>
 
-                        <View>
-                            <Text style={styles.textLabel}> Thông tin cá nhân </Text>
+                        <TextInput
+                            label="Họ và tên"
+                            style={styles.textInput} 
+                            onChangeText= { text => this.setState({staffName: text})}
+                            placeholder="Họ và tên" />
+                        <View style={{flex: 1, flexDirection: 'row'}}>
+                        <Text style={styles.textStyle}>Ngày sinh : </Text>
+                        <DatePicker
+                        style={{width: 200}}
+                        date={this.state.dob}
+                        mode="date"
+                        format="YYYY-MM-DD"
+                        confirmBtnText="Confirm"
+                        androidMode='spinner'
+                        cancelBtnText="Cancel" customStyles={{
+                            dateIcon: {
+                              position: 'absolute',
+                              left: 23,
+                              top: 4,
+                              marginLeft: 0
+                            },
+                            dateInput: {
+                              marginTop: 4,
+                              marginLeft: 60
+                            }
+                            // ... You can check the source to find the other keys.
+                          }}
+                          onDateChange={(date) => {this.setState({dob: date})}}/>
+                          </View>
+                       
+                        {/* <TextInput
+                            style={styles.textStyle}
+                            onChangeText={text => this.setState({dob: text})}   
+                            placeholder="Ngày sinh:" /> */}
 
-                            <TextInput
-                                style={styles.textStyle} 
-                                onChangeText= { text => this.setState({staffName: text})}
-                                placeholder="Họ và tên" />
-
-                            <TextInput
-                                style={styles.textStyle}
-                                onChangeText={text => this.setState({dob: text})}   
-                                placeholder="Ngày sinh" />
-
-                            <TextInput
-                                style={styles.textStyle}
-                                onChangeText={text => this.setState({dob: text})}   
-                                placeholder="Giới tính" />
-
-                            <TextInput
-                                style={styles.textStyle}
-                                onChangeText={text => this.setState({phone: text})}   
-                                placeholder="Số điện thoại" />
-
-                            <TextInput
-                                style={styles.textStyle}
-                                onChangeText={text => this.setState({position: text})}   
-                                placeholder="Chức vụ" />
-                        </View>
-
-                        <View>
-                            <Text style={styles.textLabel}> Thông tin đăng nhập </Text>
-
-                            <TextInput
-                                style={styles.textStyle}
-                                onChangeText={text => this.setState({staffID: text})}
-                                placeholder="ID tài khoản" />
-
-                            <TextInput
-                                style={styles.textStyle}
-                                onChangeText={text => this.setState({username: text})}   
-                                placeholder="Tên đăng nhập" />
-                
-                            <TextInput
-                                style={styles.textStyle}
-                                onChangeText={text => this.setState({passwd: text})}   
-                                placeholder="Mật khẩu" /> 
-                        </View>
+                        <TextInput
+                            label="Số điện thoại"
+                            style={styles.textInput}
+                            onChangeText={text => this.setState({phone: text})}   
+                            placeholder="Số điện thoại" />
+                        <Text style={{marginLeft: 26,
+                                    fontWeight: '600',
+                                    fontSize: 17,
+                                    marginTop: 6}}>Chức vụ: </Text>
+                        <Picker 
+                                selectedValue={this.state.position}
+                                style={{height: 50, width: 200,color: 'gray' , marginLeft: 23, borderWidth: 1}}
+                                onValueChange={(itemValue, itemIndex) =>{
+                                    this.setState({position: itemValue});
+                                    }}>
+                            <Picker.Item label="Quản lý" value="Quan Ly"/>
+                            <Picker.Item label="Nhân viên" value="Nhan Vien"/>
+                        </Picker>
+                        <Text style={styles.textStyle}>{this.props.position}</Text>
+{/* 
+                        <TextInput
+                            style={styles.textStyle}
+                            onChangeText={text => this.setState({position: text})}   
+                            placeholder="Chức vụ:" /> */}
                     </View>
-                </ScrollView>
-                
+
+                    <View>
+                        <Text style={styles.textLabel}> Thông tin đăng nhập </Text>
+
+                        <TextInput
+                            label="ID tài khoản"
+                            style={styles.textInput}
+                            onChangeText={text => this.setState({staffID: text})}
+                            placeholder="ID tài khoản" />
+
+                        <TextInput
+                            label="Tên đăng nhập"
+                            style={styles.textInput}
+                            onChangeText={text => this.setState({username: text})}   
+                            placeholder="Tên đăng nhập" />
+            
+                        <TextInput
+                            label="Mật khẩu"
+                            style={styles.textInput}
+                            onChangeText={text => this.setState({passwd: text})}   
+                            placeholder="Mật khẩu" /> 
+                    </View>
+                </View>
+
                 <View>
                     <TouchableOpacity
                             style={{justifyContent: 'center'}}
@@ -114,7 +140,7 @@ export default class AddStaff extends Component {
                         </View>
                     </TouchableOpacity>
                 </View>
-            </View>
+            </ScrollView>
         )
     }
 }
@@ -125,13 +151,16 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFF'
     },
     textStyle: {
-        marginLeft: 23,
+        marginLeft: 20,
         fontWeight: '600',
         fontSize: 18,
         marginTop: 6
     },
     textInput: {
-        marginLeft: 23
+        marginHorizontal: 20,
+        backgroundColor: '#FFF',
+        marginVertical: 5,
+        color: '#f4a460'
     },
     textLabel: {
         color: '#de5543',
@@ -148,10 +177,5 @@ const styles = StyleSheet.create({
     container: {
         borderRadius: 12,
         marginBottom: 5
-    },
-    demoImage: {
-        height: 100, 
-        width: 100, 
-        marginTop: 20
     }
 })
