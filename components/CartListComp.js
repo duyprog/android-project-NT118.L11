@@ -2,7 +2,7 @@ import React from 'react'
 import { Component } from 'react';
 import { Text, View, StyleSheet, Image } from 'react-native'
 
-import Table from '../image/table-cart.png'
+import Table from '../image/cart/table-cart.png'
 
 export default class CartListComp extends Component{
     constructor(props){

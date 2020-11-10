@@ -2,7 +2,7 @@ import React from 'react'
 import { Component } from 'react';
 import { Text, View, StyleSheet, Image } from 'react-native'
 
-import StaffAvatar from '../image/staff-avatar.png'
+import StaffAvatar from '../image/staff/staff-avatar.png'
 
 export default class StaffListComp extends Component{
     constructor(props){
