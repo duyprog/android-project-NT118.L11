@@ -1,7 +1,7 @@
-#Sat Nov 07 10:14:18 ICT 2020
-base.0=C\:\\Users\\DELL\\Documents\\react\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
-path.1=classes.dex
+#Tue Nov 10 07:32:18 ICT 2020
+base.0=D\:\\1_HocTap\\HK5\\App Development on Mobile Device\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+path.1=classes2.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=D\:\\Data\\Study\\5th Semester\\Mobile Development\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+base.1=D\:\\1_HocTap\\HK5\\App Development on Mobile Device\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes2.dex
