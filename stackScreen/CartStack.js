@@ -14,22 +14,16 @@ function CartStackScreen() {
             name="Cart" 
             component={Cart} 
             options={{title: 'Đơn hàng', 
-                      headerTitleStyle: {alignSelf:'center'}, 
-                      headerTintColor: '#fff', 
-                      headerStyle: {backgroundColor: '#de5543'}}}/>
+                      headerTitleStyle: {alignSelf:'center'}}}/>
 
         <CartStack.Screen 
             name="Cart List" 
             component={CartList} 
-            options={{title: 'Đang phục vụ', 
-                      headerTintColor: '#fff', 
-                      headerStyle: {backgroundColor: '#de5543'}}}/>
+            options={{title: 'Đang phục vụ'}}/>
         <CartStack.Screen 
             name="Cart History" 
             component={CartHistory} 
-            options={{title: 'Đã hoàn thành', 
-                      headerTintColor: '#fff', 
-                      headerStyle: {backgroundColor: '#de5543'}}}/>
+            options={{title: 'Đã hoàn thành'}}/>
       </CartStack.Navigator>
     )
 }
