@@ -9,14 +9,13 @@ export default class AddStaff extends Component {
     constructor(props){
         super(props);
         this.state={
-            staffID:'',
+            id:'',
             staffName: '',
-            dob: '',
-            phone:'',
-            position: 'Chọn vai trò của nhân viên',
-            username: '',
-            passwd: '',
-            
+            staffDOB: '',
+            staffPhone:'',
+            staffPosition: '',
+            staffusername: '',
+            staffPasswd: '',
         }
     }
 
@@ -34,80 +33,64 @@ export default class AddStaff extends Component {
                             placeholder="Họ và tên" />
                         <View style={{flex: 1, flexDirection: 'row'}}>
                         <Text style={styles.textStyle}>Ngày sinh : </Text>
-                        <DatePicker
-                        style={{width: 200}}
-                        date={this.state.dob}
-                        mode="date"
-                        format="YYYY-MM-DD"
-                        confirmBtnText="Confirm"
-                        androidMode='spinner'
-                        cancelBtnText="Cancel" customStyles={{
-                            dateIcon: {
-                              position: 'absolute',
-                              left: 23,
-                              top: 4,
-                              marginLeft: 0
-                            },
-                            dateInput: {
-                              marginTop: 4,
-                              marginLeft: 60
-                            }
-                            // ... You can check the source to find the other keys.
-                          }}
-                          onDateChange={(date) => {this.setState({dob: date})}}/>
+                        <TextInput
+                            label="Ngày sinh"
+                            style={styles.textInput}
+                            onChangeText={date => this.setState({staffDOB: date})}   
+                            placeholder="Ngày sinh" />
                           </View>
                        
                         {/* <TextInput
                             style={styles.textStyle}
-                            onChangeText={text => this.setState({dob: text})}   
+                            onChangeText={text => this.setState({staffDOB: text})}   
                             placeholder="Ngày sinh:" /> */}
 
                         <TextInput
                             label="Số điện thoại"
                             style={styles.textInput}
-                            onChangeText={text => this.setState({phone: text})}   
+                            onChangeText={text => this.setState({staffPhone: text})}   
                             placeholder="Số điện thoại" />
                         <Text style={{marginLeft: 26,
                                     fontWeight: '600',
                                     fontSize: 17,
                                     marginTop: 6}}>Chức vụ: </Text>
                         <Picker 
-                                selectedValue={this.state.position}
+                                selectedValue={this.state.staffPosition}
                                 style={{height: 50, width: 200,color: 'gray' , marginLeft: 23, borderWidth: 1}}
                                 onValueChange={(itemValue, itemIndex) =>{
-                                    this.setState({position: itemValue});
+                                    this.setState({staffPosition: itemValue});
                                     }}>
                             <Picker.Item label="Lựa chọn chức vụ..." value="0"/>                                        
                             <Picker.Item label="Quản lý" value="Quan Ly"/>
                             <Picker.Item label="Nhân viên" value="Nhan Vien"/>
                         </Picker>
-                        <Text style={styles.textStyle}>{this.props.position}</Text>
+                        <Text style={styles.textStyle}>{this.props.staffPosition}</Text>
 {/* 
                         <TextInput
                             style={styles.textStyle}
-                            onChangeText={text => this.setState({position: text})}   
+                            onChangeText={text => this.setState({staffPosition: text})}   
                             placeholder="Chức vụ:" /> */}
                     </View>
 
                     <View>
                         <Text style={styles.textLabel}> Thông tin đăng nhập </Text>
 
-                        <TextInput
+                        {/* <TextInput
                             label="ID tài khoản"
                             style={styles.textInput}
-                            onChangeText={text => this.setState({staffID: text})}
-                            placeholder="ID tài khoản" />
+                            onChangeText={text => this.setState({id: text})}
+                            placeholder="ID tài khoản" /> */}
 
                         <TextInput
                             label="Tên đăng nhập"
                             style={styles.textInput}
-                            onChangeText={text => this.setState({username: text})}   
+                            onChangeText={text => this.setState({staffusername: text})}   
                             placeholder="Tên đăng nhập" />
             
                         <TextInput
                             label="Mật khẩu"
                             style={styles.textInput}
-                            onChangeText={text => this.setState({passwd: text})}   
+                            onChangeText={text => this.setState({staffPasswd: text})}   
                             placeholder="Mật khẩu" /> 
                     </View>
                 </View>
@@ -116,18 +99,18 @@ export default class AddStaff extends Component {
                     <TouchableOpacity
                             style={{justifyContent: 'center'}}
                             onPress={() =>{
-                        if (this.state.staffName.length == 0|| this.state.staffID.length == 0){
+                        if (this.state.staffName.length == 0){
                             alert("Bạn phải nhập đầy đủ tên và id");
                             return;
                         }
                         const newStaff = {
-                            STAFFID: this.state.staffID,
-                            STAFFNAME: this.state.staffName,
-                            DOB: this.state.dob,
-                            PHONE: this.state.phone,
-                            username: this.state.username,
-                            passwd: this.state.passwd,
-                            position: this.state.position
+                            id: this.state.id,
+                            staffName: this.state.staffName,
+                            staffDOB: this.state.staffDOB,
+                            staffPhone: this.state.staffPhone,
+                            staffusername: this.state.staffusername,
+                            staffPasswd: this.state.staffPasswd,
+                            staffPosition: this.state.staffPosition
 
                         }
                         insertAStaff(newStaff).then((res) =>{
