@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { Text, View, StyleSheet, Image } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
-import List from '../../image//team.png'
-import Add from '../../image/resume.png'
+import List from '../../image/staff/team.png'
+import Add from '../../image/staff/resume.png'
 
 const Staff = ({ navigation }) => {
     return (

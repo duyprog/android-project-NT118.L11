@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, ScrollView, Button } from 'react-native'
+import { Text, View, StyleSheet, ScrollView, Button} from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import {insertAStaff} from '../../networking/server'
-// import {Picker} from '@react-native-picker/picker'
-// import DatePicker from 'react-native-datepicker'
+import {Picker} from '@react-native-picker/picker'
+import DatePicker from 'react-native-datepicker'
 import {TextInput} from 'react-native-paper'
 export default class AddStaff extends Component {
     constructor(props){
@@ -13,7 +13,7 @@ export default class AddStaff extends Component {
             staffName: '',
             dob: '',
             phone:'',
-            position: 'Nhân viên',
+            position: 'Chọn vai trò của nhân viên',
             username: '',
             passwd: '',
             
@@ -77,6 +77,7 @@ export default class AddStaff extends Component {
                                 onValueChange={(itemValue, itemIndex) =>{
                                     this.setState({position: itemValue});
                                     }}>
+                            <Picker.Item label="Lựa chọn chức vụ..." value="0"/>                                        
                             <Picker.Item label="Quản lý" value="Quan Ly"/>
                             <Picker.Item label="Nhân viên" value="Nhan Vien"/>
                         </Picker>

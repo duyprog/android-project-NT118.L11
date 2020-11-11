@@ -1,37 +1,68 @@
-import React from 'react'
-import { View, TouchableOpacity, StyleSheet, ScrollView} from 'react-native'
+import React, { Component } from 'react'
+import { Text, View, StyleSheet, Image } from 'react-native'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 
-import CategoryListItems from '../components/CategoryListItems'
+import AtStore from '../image/mainMenu/dining-table.png'
+import Takeaway from '../image/mainMenu/take-away.png'
 
 const MainMenu = ({ navigation }) => {
     return (
-        <View style={styles.container}>
-            <TouchableOpacity
-                activeOpacity={0.5}
-                onPress={() => {
-                    navigation.navigate('Food Menu')
-                }}>
-                <CategoryListItems title={"Tại chỗ"} uri={require('../image/mainMenu/dining-table.png')} />
-            </TouchableOpacity>
+        <View>
+            <View>
+                <TouchableOpacity
+                    activeOpacity={0.5}
+                    onPress={() => {
+                        navigation.navigate('Food Menu')
+                    }}>
+                    <View  style={styles.viewStyle}>
+                        <Image source={ AtStore }
+                               style={styles.imageView} />
+                        <Text style={styles.text}> Tại chỗ </Text>
+                    </View>
+                </TouchableOpacity>
+            </View>
 
+            <View>
             <TouchableOpacity
-                activeOpacity={0.5}
-                onPress={() => {
-                navigation.navigate('Food Menu')
-                }}>
-                <CategoryListItems title={"Mang đi"} uri={require('../image/mainMenu/take-away.png')} />
-            </TouchableOpacity>
+                    activeOpacity={0.5}
+                    onPress={() => {
+                        navigation.navigate('Food Menu')
+                    }}>
+                    <View  style={styles.viewStyle}>
+                        <Image source={ Takeaway }
+                               style={styles.imageView} />
+                        <Text style={styles.text}> Mang đi </Text>
+                    </View>
+                </TouchableOpacity>
+            </View>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    container: {
+    viewStyle: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        padding: 16,
+        borderRadius: 8,
+        backgroundColor: '#FFF',
+        elevation: 5,
         marginTop: 5,
-        flex: 1, 
-        paddingLeft: 10, 
-        paddingRight: 10,
-        elevation: 5
+        marginBottom: 5,
+        marginRight: 10,
+        marginLeft: 10
+    },
+    imageView: {
+        width: 78,
+        height: 78,
+        marginLeft: 10
+    },
+    text: {
+        marginLeft: 20,
+        textTransform: 'uppercase', 
+        fontWeight: '700',
+        alignSelf: 'center',
+        fontSize: 18,
     }
 })
 
