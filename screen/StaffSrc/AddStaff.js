@@ -56,12 +56,6 @@ export default class AddStaff extends Component {
                           }}
                           onDateChange={(date) => {this.setState({dob: date})}}/>
                           </View>
-                       
-                        {/* <TextInput
-                            style={styles.textStyle}
-                            onChangeText={text => this.setState({dob: text})}   
-                            placeholder="Ngày sinh:" /> */}
-
                         <TextInput
                             label="Số điện thoại"
                             style={styles.textInput}
@@ -82,11 +76,6 @@ export default class AddStaff extends Component {
                             <Picker.Item label="Nhân viên" value="Nhan Vien"/>
                         </Picker>
                         <Text style={styles.textStyle}>{this.props.position}</Text>
-{/* 
-                        <TextInput
-                            style={styles.textStyle}
-                            onChangeText={text => this.setState({position: text})}   
-                            placeholder="Chức vụ:" /> */}
                     </View>
 
                     <View>
