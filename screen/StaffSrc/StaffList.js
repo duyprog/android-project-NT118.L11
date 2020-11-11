@@ -26,11 +26,9 @@ export default class StaffList extends Component {
     refreshDataFromServer = () =>{
         this.setState({refreshing: true});
         getStaffFromServer().then((staffs) =>{
-            this.setState({staffsFromServer: staffs});
-            this.setState({refreshing:false});
+            this.setState({staffsFromServer: staffs, refreshing:false});
         }).catch( error =>{
-            this.setState({staffsFromServer: []});
-            this.setState({refreshing:false});
+            this.setState({staffsFromServer: [], refreshing:false});
         });
     }
     _onRefresh = () =>{
@@ -84,14 +82,14 @@ export default class StaffList extends Component {
                         <Swipable 
                             renderRightActions={this.RightActions}
                             onSwipeableRightOpen= {() =>{
-                            this.setState({deleteID: item.STAFFID});
+                            this.setState({deleteID: item.id});
                             console.log(this.state.deleteID);
                         }}
                             >
-                            <StaffListComp name={item.STAFFNAME} role={item.position}/> 
+                            <StaffListComp name={item.staffName} role={item.staffPosition}/> 
                         </Swipable>
                     </View>}
-                keyExtractor={(item) => `${item.STAFFID}`}
+                keyExtractor={(item) => `${item.id}`}
                 refreshControl = 
                 {<RefreshControl
                     refreshing = {this.state.refreshsing}
