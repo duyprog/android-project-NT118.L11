@@ -12,7 +12,7 @@ const MainMenu = ({ navigation }) => {
                 <TouchableOpacity
                     activeOpacity={0.5}
                     onPress={() => {
-                        navigation.navigate('Food Menu')
+                        navigation.navigate('Select table')
                     }}>
                     <View  style={styles.viewStyle}>
                         <Image source={ AtStore }

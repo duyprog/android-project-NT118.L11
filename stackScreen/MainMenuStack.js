@@ -8,6 +8,7 @@ import DessertsDetails from '../screen/HomeSrc/DessertsDetails';
 import HotPotDetails from '../screen/HomeSrc/HotPotDetails'
 import FriedDetails from '../screen/HomeSrc/FriedDetails'
 import MainMenu from '../screen/MainMenu'
+import SelectTable from '../screen/HomeSrc/SelectTable'
 
 const MainMenuStack = createStackNavigator()
 
@@ -19,6 +20,10 @@ function MainMenuStackScreen() {
             component={MainMenu} 
             options={{title: 'Nhà hàng', 
                       headerTitleStyle: {alignSelf:'center'}}}/>
+        <MainMenuStack.Screen 
+            name="Select table" 
+            component={SelectTable} 
+            options={{title: 'Chọn bàn'}}/>
         <MainMenuStack.Screen 
             name="Food Menu" 
             component={Categories} 
