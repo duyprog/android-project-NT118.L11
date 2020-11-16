@@ -19,6 +19,7 @@ export const fetchStaff = () => {
         try{
             let response = await fetch('http://192.168.1.7:8080/api/staffs/getAllStaff');
             let json = await response.json();
+            console.log(json)
             dispatch(fetchingStaffSuccess(json));
         }
         catch(error){

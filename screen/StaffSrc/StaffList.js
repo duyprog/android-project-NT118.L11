@@ -43,56 +43,57 @@ class StaffList extends Component {
     componentDidMount(){
        // this.refreshDataFromServer();
        this.props.fetchStaff();
+       console.log(this.props.randomStaffs);
     }
-    // Right action on Swipeable
-    RightActions = (progress, dragX) => {
-        const scale = dragX.interpolate({
-          inputRange: [-100, 0],
-          outputRange: [0.7, 0]
-        })
-        return (   
+    // // Right action on Swipeable
+    // RightActions = (progress, dragX) => {
+    //     const scale = dragX.interpolate({
+    //       inputRange: [-100, 0],
+    //       outputRange: [0.7, 0]
+    //     })
+    //     return (   
            
-            <View style={{ 
-                backgroundColor: 'red', 
-                justifyContent: 'center',
-                marginBottom: 5,
-                marginTop: 5,
-                padding: 6,
-    }}>
-             <TouchableOpacity onPress ={this._onDelete}>
-                    <Animated.Text
-                        style={{
-                        fontSize: 20,
-                        color: 'white',
-                        paddingHorizontal: 10,
-                        fontWeight: '600',
-                        transform: [{ scale }]}}>
-                            Delete
-                    </Animated.Text>
-                </TouchableOpacity>
-            </View>
+    //         <View style={{ 
+    //             backgroundColor: 'red', 
+    //             justifyContent: 'center',
+    //             marginBottom: 5,
+    //             marginTop: 5,
+    //             padding: 6,
+    // }}>
+    //          <TouchableOpacity onPress ={this._onDelete}>
+    //                 <Animated.Text
+    //                     style={{
+    //                     fontSize: 20,
+    //                     color: 'white',
+    //                     paddingHorizontal: 10,
+    //                     fontWeight: '600',
+    //                     transform: [{ scale }]}}>
+    //                         Delete
+    //                 </Animated.Text>
+    //             </TouchableOpacity>
+    //         </View>
          
            
          
-        )
-       }
+    //     )
+    //    }
 
     render() {
         return (
             <FlatList
-                data={this.props.staffs}
+                data={this.props.randomStaffs.staff}
                 renderItem={({item}) =>
-                    <View>  {console.log(this.props.staffs)}
+                    <View>
                             <StaffListComp name={item.staffName} role={item.staffPosition}/> 
                     </View>}
-                keyExtractor={(item) => `${item.id}`}>            
+                keyExtractor={(item) => `${item.id}`}>        
             </FlatList>
         )
     }
 }
 StaffList.propTypes = {
     fetchStaff: PropTypes.func.isRequired,
-    staffs: PropTypes.object.isRequired
+    randomStaffs: PropTypes.object.isRequired
 }
 const styles = StyleSheet.create({
     seperatorLine:{
@@ -102,7 +103,7 @@ const styles = StyleSheet.create({
 });
 const mapStateToProps = state =>{
     return{
-        staffs: state
+        randomStaffs: state
     };
 }
 export default connect(mapStateToProps, {fetchStaff}) (StaffList);
