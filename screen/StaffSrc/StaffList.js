@@ -4,43 +4,45 @@ import Swipable from 'react-native-gesture-handler/Swipeable'
 import StaffListComp from '../../components/StaffListComp'
 import {getStaffFromServer} from '../../networking/server';
 import {deleteAStaff} from '../../networking/server';
-export default class StaffList extends Component {
-    constructor(props){
-        super(props)
-        this.state = ({
-            deletedRowkey: null,
-            staffsFromServer:[],
-            refreshsing: false,
-            deleteID: '',
-        })
-    }
+import { fetchStaff } from '../../redux/actions/staffActions';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types'
+import Staff from './Staff';
+class StaffList extends Component {
+    // constructor(props){
+    //     super(props)
+    //     this.state = ({
+    //         deletedRowkey: null,
+    //         staffsFromServer:[],
+    //         refreshsing: false,
+    //     })
+    //}
     // refresh list khi state thay doi 
-    refreshStaffList = (activeKey) =>{
-        this.setState((prevState) =>{
-            return{
-                deletedRowKey: activeKey
-            };
-        });
-    }
-    // refresh data from server 
-    refreshDataFromServer = () =>{
-        this.setState({refreshing: true});
-        getStaffFromServer().then((staffs) =>{
-            this.setState({staffsFromServer: staffs});
-            this.setState({refreshing:false});
-        }).catch( error =>{
-            this.setState({staffsFromServer: []});
-            this.setState({refreshing:false});
-        });
-    }
-    _onRefresh = () =>{
-        this.refreshDataFromServer();
-    }
-    _onDelete =() =>{
-        deleteAStaff(this.state.deleteID).then(this.refreshDataFromServer()).then(this.setState({refreshing: 'true'}));
-    }
+    // refreshStaffList = (activeKey) =>{
+    //     this.setState((prevState) =>{
+    //         return{
+    //             deletedRowKey: activeKey
+    //         };
+    //     });
+    // }
+    // // refresh data from server 
+    // refreshDataFromServer = () =>{
+    //     this.setState({refreshing: true});
+    //     getStaffFromServer().then((staffs) =>{
+    //         this.setState({staffsFromServer: staffs, refreshing:false});
+    //     }).catch( error =>{
+    //         this.setState({staffsFromServer: [], refreshing:false});
+    //     });
+    // }
+    // _onRefresh = () =>{
+    //     this.refreshDataFromServer();
+    // }
+    // _onDelete =() =>{
+    //     deleteAStaff(this.state.deleteID).then(this.refreshDataFromServer()).then(this.setState({refreshing: 'true'}));
+    // }
     componentDidMount(){
-        this.refreshDataFromServer();
+       // this.refreshDataFromServer();
+       this.props.fetchStaff();
     }
     // Right action on Swipeable
     RightActions = (progress, dragX) => {
@@ -78,33 +80,29 @@ export default class StaffList extends Component {
     render() {
         return (
             <FlatList
-                data={this.state.staffsFromServer}
+                data={this.props.staffs}
                 renderItem={({item}) =>
-                    <View>
-                        <Swipable 
-                            renderRightActions={this.RightActions}
-                            onSwipeableRightOpen= {() =>{
-                            this.setState({deleteID: item.STAFFID});
-                            console.log(this.state.deleteID);
-                        }}
-                            >
-                            <StaffListComp name={item.STAFFNAME} role={item.position}/> 
-                        </Swipable>
+                    <View>  {console.log(this.props.staffs)}
+                            <StaffListComp name={item.staffName} role={item.staffPosition}/> 
                     </View>}
-                keyExtractor={(item) => `${item.STAFFID}`}
-                refreshControl = 
-                {<RefreshControl
-                    refreshing = {this.state.refreshsing}
-                    onRefresh = {this._onRefresh}    
-                />} >
+                keyExtractor={(item) => `${item.id}`}>            
             </FlatList>
         )
     }
 }
-
+StaffList.propTypes = {
+    fetchStaff: PropTypes.func.isRequired,
+    staffs: PropTypes.object.isRequired
+}
 const styles = StyleSheet.create({
     seperatorLine:{
         height: 1, 
         backgroundColor: 'black',
     }
-})
+});
+const mapStateToProps = state =>{
+    return{
+        staffs: state
+    };
+}
+export default connect(mapStateToProps, {fetchStaff}) (StaffList);
