@@ -8,11 +8,11 @@ const initialState = {
 const staffReducer = (state=initialState, action) =>{
     switch(action.type) {
         case FETCHING_STAFF_REQUEST: 
-            return{ ...state, refreshing: false};
+            return{ ...state, refreshing: true};
         case FETCHING_STAFF_FAILURE:
             return{...state, refreshing: false};
         case FETCHING_STAFF_SUCCESS:
-            return {...state, refreshing: true, staff: action.payload};
+            return {...state, refreshing: false, staff: action.payload};
         default:
             return state;
     }
