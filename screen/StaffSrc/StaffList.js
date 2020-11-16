@@ -1,17 +1,13 @@
 import React, { Component } from 'react'
-import {View, StyleSheet, FlatList, Animated, TouchableOpacity,RefreshControl, Text } from 'react-native'
-import Swipable from 'react-native-gesture-handler/Swipeable'
+import {View, StyleSheet, FlatList, Text } from 'react-native'
 import StaffListComp from '../../components/StaffListComp'
-import {getStaffFromServer} from '../../networking/server';
-import {deleteAStaff} from '../../networking/server';
-import { fetchStaff, deleteStaff, chooseID } from '../../redux/actions/staffActions';
+import { fetchStaff, deleteStaff } from '../../redux/actions/staffActions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
 import {
     MenuProvider, Menu, MenuTrigger, MenuOptions, MenuOption
 } from 'react-native-popup-menu';
-import Staff from './Staff';
-import store from '../../index';
+//import store from '../../index';
 class StaffList extends Component {
     // constructor(props){
     //     super(props)
