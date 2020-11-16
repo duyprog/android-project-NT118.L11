@@ -1,13 +1,17 @@
 import React, { Component } from 'react'
-import {View, StyleSheet, FlatList, Animated, TouchableOpacity,RefreshControl } from 'react-native'
+import {View, StyleSheet, FlatList, Animated, TouchableOpacity,RefreshControl, Text } from 'react-native'
 import Swipable from 'react-native-gesture-handler/Swipeable'
 import StaffListComp from '../../components/StaffListComp'
 import {getStaffFromServer} from '../../networking/server';
 import {deleteAStaff} from '../../networking/server';
-import { fetchStaff } from '../../redux/actions/staffActions';
+import { fetchStaff, deleteStaff, chooseID } from '../../redux/actions/staffActions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
+import {
+    MenuProvider, Menu, MenuTrigger, MenuOptions, MenuOption
+} from 'react-native-popup-menu';
 import Staff from './Staff';
+import store from '../../index';
 class StaffList extends Component {
     // constructor(props){
     //     super(props)
@@ -45,7 +49,7 @@ class StaffList extends Component {
        this.props.fetchStaff();
        console.log(this.props.randomStaffs);
     }
-    // // Right action on Swipeable
+    // Right action on Swipeable
     // RightActions = (progress, dragX) => {
     //     const scale = dragX.interpolate({
     //       inputRange: [-100, 0],
@@ -60,7 +64,7 @@ class StaffList extends Component {
     //             marginTop: 5,
     //             padding: 6,
     // }}>
-    //          <TouchableOpacity onPress ={this._onDelete}>
+    //          <TouchableOpacity onPress ={this.props.deleteStaff(this.props.randomStaffs.deleteID)}>
     //                 <Animated.Text
     //                     style={{
     //                     fontSize: 20,
@@ -80,14 +84,35 @@ class StaffList extends Component {
 
     render() {
         return (
+            <MenuProvider>
             <FlatList
                 data={this.props.randomStaffs.staff}
                 renderItem={({item}) =>
-                    <View>
-                            <StaffListComp name={item.staffName} role={item.staffPosition}/> 
-                    </View>}
+                
+                    <View style={{flex: 1, flexDirection: 'row'}}>
+                        <View style={{flex: 8}}>
+                            <StaffListComp name={item.staffName} role={item.staffPosition}/>
+                        </View>
+                        
+                        <Menu>
+                            <MenuTrigger customStyles={triggerStyles}><Text>Edit</Text></MenuTrigger>
+                            <MenuOptions>
+                                <MenuOption onSelect={() => alert(`Save`)} text='Update' />
+                                <MenuOption onSelect={async () =>{
+                                    await this.props.deleteStaff(item.id);
+                                    await this.props.fetchStaff();
+                                }} >
+                                <Text style={{color: 'red'}}>Delete</Text>
+                                </MenuOption>
+                               
+                            </MenuOptions>
+                        </Menu>
+                    </View>
+                        
+            }
                 keyExtractor={(item) => `${item.id}`}>        
             </FlatList>
+            </MenuProvider>
         )
     }
 }
@@ -106,4 +131,17 @@ const mapStateToProps = state =>{
         randomStaffs: state
     };
 }
-export default connect(mapStateToProps, {fetchStaff}) (StaffList);
+export default connect(mapStateToProps, {fetchStaff, deleteStaff, chooseID}) (StaffList);
+
+const triggerStyles = {
+    triggerOuterWrapper: {
+      padding: 5,
+      flex: 1,
+    },
+    triggerWrapper: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      flex: 1,
+    },
+  };
+  

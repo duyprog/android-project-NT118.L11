@@ -11,7 +11,7 @@ import thunk from 'redux-thunk'
 import staffReducer from './redux/reducers/staffReducer';
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
-const store = createStoreWithMiddleware(staffReducer);
+export const store = createStoreWithMiddleware(staffReducer);
 
 const Index = () =>{
     return(
