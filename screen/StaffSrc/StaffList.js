@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {View, StyleSheet, FlatList, Animated, TouchableOpacity,RefreshControl } from 'react-native'
 import Swipable from 'react-native-gesture-handler/Swipeable'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import StaffListComp from '../../components/StaffListComp'
 import {getStaffFromServer} from '../../networking/server';
 import {deleteAStaff} from '../../networking/server';
@@ -56,15 +57,15 @@ export default class StaffList extends Component {
                 padding: 6,
     }}>
              <TouchableOpacity onPress ={this._onDelete}>
-                    <Animated.Text
-                        style={{
-                        fontSize: 20,
-                        color: 'white',
-                        paddingHorizontal: 10,
-                        fontWeight: '600',
-                        transform: [{ scale }]}}>
-                            Delete
-                    </Animated.Text>
+                <Animated.Text
+                    style={{
+                    fontSize: 35,
+                    color: 'white',
+                    paddingHorizontal: 10,
+                    fontWeight: '600'
+                    }}>
+                    <Icon name="delete" size={40} color={'#fff'} />
+                </Animated.Text>
                 </TouchableOpacity>
             </View>
          

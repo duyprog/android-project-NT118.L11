@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
         marginLeft: 5
     },
     updateBtn: {
-        backgroundColor: '#cfcfcf',
+        backgroundColor: '#b5b5b5',
         borderRadius: 20,
         height: 30,
         width: 100,
@@ -100,7 +100,8 @@ const styles = StyleSheet.create({
         textTransform: 'uppercase',
         fontWeight: '700',
         alignSelf: 'center',
-        marginTop: 5
+        marginTop: 5,
+        color: '#fff'
     },
     infoBoxWapper: {
         borderBottomColor: '#dddddd',
@@ -117,7 +118,7 @@ const styles = StyleSheet.create({
         fontSize: 17
     },
     logoutBtn: {
-        backgroundColor: '#f0b797',
+        backgroundColor: '#b5b5b5',
         borderRadius: 20,
         height: 40,
         width: 130,
@@ -147,7 +148,7 @@ const styles = StyleSheet.create({
     },
     infoAppLabel: {
         fontSize: 20, 
-        color: '#de5543',
+        color: '#636363',
         fontWeight: '700',
         textTransform: 'uppercase'
     }
