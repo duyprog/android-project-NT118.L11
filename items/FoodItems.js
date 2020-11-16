@@ -1,23 +1,20 @@
 import React, { Component } from 'react'
 import { Text, View, Image, TouchableOpacity, StyleSheet } from 'react-native'
-import { FlatList } from 'react-native-gesture-handler'
 
 export default function FoodItems(props){
 
     const{foodItem} = props;
 
     return(
-        <View style={styles.shadow}>
-            <View style={styles.container}>
-                <Image style={styles.img} source={{uri: foodItem.images[0].url}}/>
-                <View style={styles.info}>
-                    <Text style={styles.name}>{foodItem.name}</Text>
-                    <View style={styles.priceRow}>
-                        <Text style={styles.price}>{foodItem.price}</Text>
-                        <TouchableOpacity>
-                            <Text style={styles.cartText}> Chọn </Text>
-                        </TouchableOpacity>
-                    </View>
+        <View style={styles.container}>
+            <Image style={styles.img} source={{uri: foodItem.images[0].url}}/>
+            <View style={styles.info}>
+                <Text style={styles.name}>{foodItem.name}</Text>
+                <View style={styles.priceRow}>
+                    <Text style={styles.price}>{foodItem.price}đ</Text>
+                    <TouchableOpacity>
+                        <Text style={styles.cartText}> Chọn </Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         </View>
@@ -29,12 +26,6 @@ const styles = StyleSheet.create({
         textTransform: 'uppercase',
         fontSize: 16,
         color: '#2f95dc'
-    },
-    shadow: {
-        shadowColor: '#000',
-        shadowOpacity: 0.1,
-        shadowRadius: 10,
-        shadowOffset: {width: 0, height: 0}
     },
     container: {
         marginBottom: 20,

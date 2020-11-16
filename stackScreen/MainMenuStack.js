@@ -9,6 +9,7 @@ import HotPotDetails from '../screen/HomeSrc/HotPotDetails'
 import FriedDetails from '../screen/HomeSrc/FriedDetails'
 import MainMenu from '../screen/MainMenu'
 import SelectTable from '../screen/HomeSrc/SelectTable'
+import NoodlesDetails from '../screen/HomeSrc/NoodlesDetails'
 
 const MainMenuStack = createStackNavigator()
 
@@ -35,23 +36,23 @@ function MainMenuStackScreen() {
         <MainMenuStack.Screen 
             name="Hot Pot Details" 
             component={HotPotDetails} 
-            options={{title: 'Lẩu', 
-                      headerTintColor: '#fff'}}/>
+            options={{title: 'Lẩu'}}/>
         <MainMenuStack.Screen 
             name="Fried Details" 
             component={FriedDetails} 
-            options={{title: 'Món chiên', 
-                      headerTintColor: '#fff'}}/> 
+            options={{title: 'Món chiên xào'}}/>
+        <MainMenuStack.Screen 
+            name="Noodles Details" 
+            component={NoodlesDetails} 
+            options={{title: 'Món nước'}}/> 
         <MainMenuStack.Screen 
             name="Drinks Details" 
             component={DrinksDetails} 
-            options={{title: 'Thức uống', 
-                      headerTintColor: '#fff'}}/>
+            options={{title: 'Thức uống'}}/>
         <MainMenuStack.Screen 
             name="Desserts Details" 
             component={DessertsDetails} 
-            options={{title: 'Tráng miệng', 
-                      headerTintColor: '#fff'}}/>
+            options={{title: 'Tráng miệng'}}/>
       </MainMenuStack.Navigator>
     )
 }

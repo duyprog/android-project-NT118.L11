@@ -1,265 +1,160 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, Image } from 'react-native'
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
+import { Text, View, StyleSheet, Image, FlatList, SafeAreaView, TouchableOpacity } from 'react-native'
+import { useNavigation } from '@react-navigation/native';
 
 import empty from '../../image/foodMenu/empty-table.png'
 import serving from '../../image/foodMenu/serving-table.png'
-import male from '../../image/foodMenu/waiter-male.png'
-import female from '../../image/foodMenu/waiter-female.png'
 
-const SelectTable = ({ navigation }) => {
+const tableList = [
+    {
+        id: 1,
+        name:'Bàn 01',
+        isServing: true
+    },
+    {
+        id: 2,
+        name:'Bàn 02',
+        isServing: false
+    },
+    {
+        id: 3,
+        name:'Bàn 03',
+        isServing: false
+    },
+    {
+        id: 4,
+        name:'Bàn 04',
+        isServing: false
+    },
+    {
+        id: 5,
+        name:'Bàn 05',
+        isServing: false
+    },
+    {
+        id: 6,
+        name:'Bàn 06',
+        isServing: true
+    },
+    {
+        id: 7,
+        name:'Bàn 07',
+        isServing: true
+    },
+    {
+        id: 8,
+        name:'Bàn 08',
+        isServing: true
+    },
+    {
+        id: 9,
+        name:'Bàn 09',
+        isServing: true
+    },
+    {
+        id: 10,
+        name:'Bàn 10',
+        isServing: true
+    },
+    {
+        id: 11,
+        name:'Bàn 11',
+        isServing: true
+    },
+    {
+        id: 12,
+        name:'Bàn 12',
+        isServing: true
+    },
+    {
+        id: 13,
+        name:'Bàn 13',
+        isServing: true
+    },
+    {
+        id: 14,
+        name:'Bàn 14',
+        isServing: true
+    },
+    {
+        id: 15,
+        name:'Bàn 15',
+        isServing: true
+    }
+]
+
+function Table({item}) {
+    const navigation = useNavigation()
+    var ima = item.isServing ? serving : empty
     return(
-        <View>
-            <View style={{backgroundColor: '#fff'}}>
-                <View style={styles.staffBorder}>
-                    <View style={styles.staffView}>
-                        <Image 
-                            source={male}
-                            style={styles.staff} />
-                        <Image 
-                            source={female}
-                            style={styles.staff} />
+        <TouchableOpacity
+            activeOpacity={0.5}
+            disabled={item.isServing}
+            onPress={() => { navigation.navigate('Food Menu')
+            }}>
+            <View style={styles.viewStyle}>
+                <View>
+                    <View style={styles.container}>
+                        <Image style={styles.img} source={ima}/>
                     </View>
-                    <View style={{alignSelf: 'center'}}>
-                        <Text style={styles.label}> Mời quý khách chọn bàn </Text>
+                    <View style={styles.info}>
+                            <Text style={styles.name}>{item.name}</Text>
                     </View>
                 </View>
             </View>
-            <ScrollView style={{marginBottom: 20}}>
-                <View style={styles.mainView}>
-                    <View style={styles.columnView}>
-                        <TouchableOpacity
-                            activeOpacity={0.5}
-                            onPress={() => {
-                                navigation.navigate('Food Menu')
-                            }}>
-                            <View style={styles.columnItem}>
-                                <Image 
-                                    source={empty}
-                                    style={styles.imageTable} />
-                                <Text style={styles.tableLabel}> Bàn 01 </Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            activeOpacity={0.5}
-                            onPress={() => {
-                                navigation.navigate('Food Menu')
-                            }}>
-                            <View style={styles.columnItem}>
-                                <Image 
-                                    source={empty}
-                                    style={styles.imageTable} />
-                                <Text style={styles.tableLabel}> Bàn 04 </Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            activeOpacity={0.5}
-                            onPress={() => {
-                                navigation.navigate('Food Menu')
-                            }}>
-                            <View style={styles.columnItem}>
-                                <Image 
-                                    source={empty}
-                                    style={styles.imageTable} />
-                                <Text style={styles.tableLabel}> Bàn 07 </Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            activeOpacity={0.5}
-                            onPress={() => {
-                                navigation.navigate('Food Menu')
-                            }}>
-                            <View style={styles.columnItem}>
-                                <Image 
-                                    source={empty}
-                                    style={styles.imageTable} />
-                                <Text style={styles.tableLabel}> Bàn 10 </Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            activeOpacity={0.5}
-                            onPress={() => {
-                                navigation.navigate('Food Menu')
-                            }}>
-                            <View style={styles.columnItem}>
-                                <Image 
-                                    source={empty}
-                                    style={styles.imageTable} />
-                                <Text style={styles.tableLabel}> Bàn 13 </Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.columnView}>
-                        <TouchableOpacity
-                            activeOpacity={0.5}
-                            onPress={() => {
-                                navigation.navigate('Food Menu')
-                            }}>
-                            <View style={styles.columnItem}>
-                                <Image 
-                                    source={empty}
-                                    style={styles.imageTable} />
-                                <Text> Bàn 02 </Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            activeOpacity={0.5}
-                            onPress={() => {
-                                navigation.navigate('Food Menu')
-                            }}>
-                            <View style={styles.columnItem}>
-                                <Image 
-                                    source={serving}
-                                    style={styles.imageTable} />
-                                <Text> Bàn 05 </Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            activeOpacity={0.5}
-                            onPress={() => {
-                                navigation.navigate('Food Menu')
-                            }}>
-                            <View style={styles.columnItem}>
-                                <Image 
-                                    source={serving}
-                                    style={styles.imageTable} />
-                                <Text> Bàn 08 </Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            activeOpacity={0.5}
-                            onPress={() => {
-                                navigation.navigate('Food Menu')
-                            }}>
-                            <View style={styles.columnItem}>
-                                <Image 
-                                    source={serving}
-                                    style={styles.imageTable} />
-                                <Text> Bàn 11 </Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            activeOpacity={0.5}
-                            onPress={() => {
-                                navigation.navigate('Food Menu')
-                            }}>
-                            <View style={styles.columnItem}>
-                                <Image 
-                                    source={serving}
-                                    style={styles.imageTable} />
-                                <Text> Bàn 14 </Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.columnView}>
-                        <TouchableOpacity
-                            activeOpacity={0.5}
-                            onPress={() => {
-                                navigation.navigate('Food Menu')
-                            }}>
-                            <View style={styles.columnItem}>
-                                <Image 
-                                    source={empty}
-                                    style={styles.imageTable} />
-                                <Text> Bàn 03 </Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            activeOpacity={0.5}
-                            onPress={() => {
-                                navigation.navigate('Food Menu')
-                            }}>
-                            <View style={styles.columnItem}>
-                                <Image 
-                                    source={empty}
-                                    style={styles.imageTable} />
-                                <Text> Bàn 06 </Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            activeOpacity={0.5}
-                            onPress={() => {
-                                navigation.navigate('Food Menu')
-                            }}>
-                            <View style={styles.columnItem}>
-                                <Image 
-                                    source={empty}
-                                    style={styles.imageTable} />
-                                <Text> Bàn 09 </Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            activeOpacity={0.5}
-                            onPress={() => {
-                                navigation.navigate('Food Menu')
-                            }}>
-                            <View style={styles.columnItem}>
-                                <Image 
-                                    source={empty}
-                                    style={styles.imageTable} />
-                                <Text> Bàn 12 </Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            activeOpacity={0.5}
-                            onPress={() => {
-                                navigation.navigate('Food Menu')
-                            }}>
-                            <View style={styles.columnItem}>
-                                <Image 
-                                    source={empty}
-                                    style={styles.imageTable} />
-                                <Text style={styles.tableLabel}> Bàn 15 </Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </ScrollView>
-        </View>
+        </TouchableOpacity>
     )
 }
 
+function SelectTable() {
+    return(
+        <SafeAreaView>
+            <FlatList
+                data={tableList}
+                numColumns={3}
+                renderItem={({item}) => 
+                    <View style={styles.wrapper}>
+                        <Table
+                            item={item} />
+                    </View>}
+                keyExtractor={(item) => item.id}
+            />
+        </SafeAreaView>
+    )
+} 
+
 const styles = StyleSheet.create({
-    mainView: {
-        flexDirection: 'row',
-        marginBottom: 20
+    wrapper: {
+        flex: 1,
+        paddingHorizontal: 8,
+        marginBottom: 10
     },
-    imageTable: {
+    viewStyle: {
+        alignItems: 'center',
+        backgroundColor: '#fff',
+        borderRadius: 12,
+        marginTop: 10
+    },
+    container: {
+        marginBottom: 20,
+        borderRadius: 5,
+        backgroundColor: '#FFF',
+        overflow: 'hidden'
+    },
+    img:{
         height: 90,
         width: 90,
-        marginTop: 15
+        borderTopLeftRadius: 4,
+        borderBottomLeftRadius: 4,
+        marginTop: 10
     },
-    columnItem: {
+    info:{
         alignItems: 'center'
     },
-    columnView: {
-        marginTop: 10,
-        marginLeft: 30
-    },
-    staff: {
-        height: 100,
-        width: 100,
-        marginTop: 15
-    },
-    staffBorder: {
-        borderBottomColor: '#dddddd',
-        borderBottomWidth: 2
-    },
-    staffView: {
-        alignSelf: 'center',
-        flexDirection: 'row'
-    },
-    label: {
-        fontWeight: '700',
-        fontSize: 23,
-        color: '#de5543',
-        marginBottom: 5,
-        marginTop: 5
-    },
-    tableLabel: {
-        fontSize: 16,
-        fontWeight: '600',
-        color: '#9c9c9c'
+    name: {
+        fontSize: 18,
+        marginBottom: 8,
+        fontWeight: '600'
     }
 })
 

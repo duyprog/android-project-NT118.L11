@@ -32,8 +32,18 @@ const Categories = ({navigation}) => {
                     navigation.navigate('Fried Details');
                 }}>
                 <CategoryListItems 
-                    title={"Món chiên"} 
+                    title={"Món chiên xào"} 
                     uri={require('../../image/foodMenu/fried.png')}/>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+                activeOpacity={0.5}
+                onPress={() =>{
+                    navigation.navigate('Noodles Details');
+                }}>
+                <CategoryListItems 
+                    title={"Món nước"} 
+                    uri={require('../../image/foodMenu/noodles.png')}/>
             </TouchableOpacity>
 
             <TouchableOpacity

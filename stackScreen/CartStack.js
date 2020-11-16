@@ -4,6 +4,7 @@ import React from 'react'
 import Cart from '../screen/CartSrc/Cart'
 import CartList from '../screen/CartSrc/CartList'
 import CartHistory from '../screen/CartSrc/CartHistory'
+import CartDetail from '../screen/CartSrc/CartDetail'
 
 const CartStack = createStackNavigator()
 
@@ -15,7 +16,6 @@ function CartStackScreen() {
             component={Cart} 
             options={{title: 'Đơn hàng', 
                       headerTitleStyle: {alignSelf:'center'}}}/>
-
         <CartStack.Screen 
             name="Cart List" 
             component={CartList} 
@@ -24,6 +24,10 @@ function CartStackScreen() {
             name="Cart History" 
             component={CartHistory} 
             options={{title: 'Đã hoàn thành'}}/>
+        <CartStack.Screen
+            name="Cart Detail"
+            component={CartDetail}
+            options={{title: 'Chi tiết đơn hàng'}}/>
       </CartStack.Navigator>
     )
 }
