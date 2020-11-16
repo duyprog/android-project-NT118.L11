@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Text, View, StyleSheet, ScrollView, Button} from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import {insertAStaff} from '../../networking/server'
-// import {Picker} from '@react-native-picker/picker'
+ import {Picker} from '@react-native-picker/picker'
 // import DatePicker from 'react-native-datepicker'
 import {TextInput} from 'react-native-paper'
 export default class AddStaff extends Component {
@@ -34,27 +34,8 @@ export default class AddStaff extends Component {
                             placeholder="Họ và tên" />
                         <View style={{flex: 1, flexDirection: 'row'}}>
                         <Text style={styles.textStyle}>Ngày sinh : </Text>
-                        <DatePicker
-                        style={{width: 200}}
-                        date={this.state.dob}
-                        mode="date"
-                        format="YYYY-MM-DD"
-                        confirmBtnText="Confirm"
-                        androidMode='spinner'
-                        cancelBtnText="Cancel" customStyles={{
-                            dateIcon: {
-                              position: 'absolute',
-                              left: 23,
-                              top: 4,
-                              marginLeft: 0
-                            },
-                            dateInput: {
-                              marginTop: 4,
-                              marginLeft: 60
-                            }
-                            // ... You can check the source to find the other keys.
-                          }}
-                          onDateChange={(date) => {this.setState({dob: date})}}/>
+                       
+                        
                           </View>
                        
                         {/* <TextInput
