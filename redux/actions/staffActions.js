@@ -39,6 +39,7 @@ export const deleteStaffRequest = () => ({
 
 export const deleteStaffSuccess = () => ({
     type: DELETE_STAFF_SUCCESS,
+    payload
 });
 export const deleteStaffFailure = () =>({
     type: DELETE_STAFF_FAILURE,

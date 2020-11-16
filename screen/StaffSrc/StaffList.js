@@ -131,7 +131,7 @@ const mapStateToProps = state =>{
         randomStaffs: state
     };
 }
-export default connect(mapStateToProps, {fetchStaff, deleteStaff, chooseID}) (StaffList);
+export default connect(mapStateToProps, {fetchStaff, deleteStaff}) (StaffList);
 
 const triggerStyles = {
     triggerOuterWrapper: {
