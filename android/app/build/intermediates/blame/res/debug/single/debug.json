@@ -1104,6 +1104,10 @@
         "source": "C:\\Users\\DELL\\.gradle\\caches\\transforms-2\\files-2.1\\1cb9b9ea592aa2ea85233be252327dcf\\appcompat-1.1.0\\res\\drawable-xxhdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
     },
     {
+        "merged": "C:\\Users\\DELL\\Documents\\react\\android-project-NT118.L11\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_picker_view_linkage.xml.flat",
+        "source": "C:\\Users\\DELL\\Documents\\react\\android-project-NT118.L11\\node_modules\\react-native-picker\\android\\build\\intermediates\\packaged_res\\debug\\layout\\picker_view_linkage.xml"
+    },
+    {
         "merged": "C:\\Users\\DELL\\Documents\\react\\android-project-NT118.L11\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml_standalone_badge_gravity_top_start.xml.flat",
         "source": "C:\\Users\\DELL\\.gradle\\caches\\transforms-2\\files-2.1\\863e0c3c6716935cd3657ad638fd992d\\material-1.1.0\\res\\xml\\standalone_badge_gravity_top_start.xml"
     },
@@ -1960,6 +1964,10 @@
         "source": "C:\\Users\\DELL\\.gradle\\caches\\transforms-2\\files-2.1\\863e0c3c6716935cd3657ad638fd992d\\material-1.1.0\\res\\drawable-xxxhdpi-v4\\design_ic_visibility_off.png"
     },
     {
+        "merged": "C:\\Users\\DELL\\Documents\\react\\android-project-NT118.L11\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim_picker_enter.xml.flat",
+        "source": "C:\\Users\\DELL\\Documents\\react\\android-project-NT118.L11\\node_modules\\react-native-picker\\android\\build\\intermediates\\packaged_res\\debug\\anim\\picker_enter.xml"
+    },
+    {
         "merged": "C:\\Users\\DELL\\Documents\\react\\android-project-NT118.L11\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_black_48dp.png.flat",
         "source": "C:\\Users\\DELL\\.gradle\\caches\\transforms-2\\files-2.1\\1cb9b9ea592aa2ea85233be252327dcf\\appcompat-1.1.0\\res\\drawable-mdpi-v4\\abc_ic_star_black_48dp.png"
     },
@@ -2026,6 +2034,10 @@
     {
         "merged": "C:\\Users\\DELL\\Documents\\react\\android-project-NT118.L11\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_star_half_black_16dp.png.flat",
         "source": "C:\\Users\\DELL\\.gradle\\caches\\transforms-2\\files-2.1\\1cb9b9ea592aa2ea85233be252327dcf\\appcompat-1.1.0\\res\\drawable-xhdpi-v4\\abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "C:\\Users\\DELL\\Documents\\react\\android-project-NT118.L11\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim_picker_exit.xml.flat",
+        "source": "C:\\Users\\DELL\\Documents\\react\\android-project-NT118.L11\\node_modules\\react-native-picker\\android\\build\\intermediates\\packaged_res\\debug\\anim\\picker_exit.xml"
     },
     {
         "merged": "C:\\Users\\DELL\\Documents\\react\\android-project-NT118.L11\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim_btn_checkbox_to_unchecked_box_inner_merged_animation.xml.flat",
@@ -2324,6 +2336,10 @@
         "source": "C:\\Users\\DELL\\.gradle\\caches\\transforms-2\\files-2.1\\1cb9b9ea592aa2ea85233be252327dcf\\appcompat-1.1.0\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
     },
     {
+        "merged": "C:\\Users\\DELL\\Documents\\react\\android-project-NT118.L11\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_picker_view_alone.xml.flat",
+        "source": "C:\\Users\\DELL\\Documents\\react\\android-project-NT118.L11\\node_modules\\react-native-picker\\android\\build\\intermediates\\packaged_res\\debug\\layout\\picker_view_alone.xml"
+    },
+    {
         "merged": "C:\\Users\\DELL\\Documents\\react\\android-project-NT118.L11\\android\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_hint_foreground_material_light.xml.flat",
         "source": "C:\\Users\\DELL\\.gradle\\caches\\transforms-2\\files-2.1\\1cb9b9ea592aa2ea85233be252327dcf\\appcompat-1.1.0\\res\\color\\abc_hint_foreground_material_light.xml"
     },
@@ -2422,6 +2438,10 @@
     {
         "merged": "C:\\Users\\DELL\\Documents\\react\\android-project-NT118.L11\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_design_password_eye.xml.flat",
         "source": "C:\\Users\\DELL\\.gradle\\caches\\transforms-2\\files-2.1\\863e0c3c6716935cd3657ad638fd992d\\material-1.1.0\\res\\drawable-v21\\design_password_eye.xml"
+    },
+    {
+        "merged": "C:\\Users\\DELL\\Documents\\react\\android-project-NT118.L11\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_picker_view.xml.flat",
+        "source": "C:\\Users\\DELL\\Documents\\react\\android-project-NT118.L11\\node_modules\\react-native-picker\\android\\build\\intermediates\\packaged_res\\debug\\layout\\picker_view.xml"
     },
     {
         "merged": "C:\\Users\\DELL\\Documents\\react\\android-project-NT118.L11\\android\\app\\build\\intermediates\\res\\merged\\debug\\color_mtrl_btn_ripple_color.xml.flat",
