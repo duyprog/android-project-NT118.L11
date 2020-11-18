@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Text, View, StyleSheet, ScrollView, Button} from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import {insertAStaff} from '../../networking/server'
- import {Picker} from '@react-native-picker/picker'
+//  import {Picker} from '@react-native-picker/picker'
 // import DatePicker from 'react-native-datepicker'
 import {TextInput} from 'react-native-paper'
 export default class AddStaff extends Component {
@@ -52,7 +52,7 @@ export default class AddStaff extends Component {
                                     fontWeight: '600',
                                     fontSize: 17,
                                     marginTop: 6}}>Chức vụ: </Text>
-                        <Picker 
+                        {/* <Picker 
                                 selectedValue={this.state.position}
                                 style={{height: 50, width: 200,color: 'gray' , marginLeft: 23, borderWidth: 1}}
                                 onValueChange={(itemValue, itemIndex) =>{
@@ -60,7 +60,7 @@ export default class AddStaff extends Component {
                                     }}>
                             <Picker.Item label="Quản lý" value="Quan Ly"/>
                             <Picker.Item label="Nhân viên" value="Nhan Vien"/>
-                        </Picker>
+                        </Picker> */}
                         <Text style={styles.textStyle}>{this.props.position}</Text>
 {/* 
                         <TextInput

@@ -11,6 +11,7 @@ MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.54.0] C:\Users\DELL\.g
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\d8031ba7ad89eac391d4216992656ff2\multidex-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [:react-native-community_masked-view] C:\Users\DELL\Documents\react\android-project-NT118.L11\node_modules\@react-native-community\masked-view\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-gesture-handler] C:\Users\DELL\Documents\react\android-project-NT118.L11\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-picker] C:\Users\DELL\Documents\react\android-project-NT118.L11\node_modules\react-native-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-13:12
 MERGED from [:react-native-safe-area-context] C:\Users\DELL\Documents\react\android-project-NT118.L11\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-screens] C:\Users\DELL\Documents\react\android-project-NT118.L11\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-vector-icons] C:\Users\DELL\Documents\react\android-project-NT118.L11\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
@@ -169,6 +170,8 @@ MERGED from [:react-native-community_masked-view] C:\Users\DELL\Documents\react\
 MERGED from [:react-native-community_masked-view] C:\Users\DELL\Documents\react\android-project-NT118.L11\node_modules\@react-native-community\masked-view\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-gesture-handler] C:\Users\DELL\Documents\react\android-project-NT118.L11\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-gesture-handler] C:\Users\DELL\Documents\react\android-project-NT118.L11\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-picker] C:\Users\DELL\Documents\react\android-project-NT118.L11\node_modules\react-native-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-picker] C:\Users\DELL\Documents\react\android-project-NT118.L11\node_modules\react-native-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-safe-area-context] C:\Users\DELL\Documents\react\android-project-NT118.L11\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-safe-area-context] C:\Users\DELL\Documents\react\android-project-NT118.L11\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-screens] C:\Users\DELL\Documents\react\android-project-NT118.L11\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
@@ -279,6 +282,8 @@ INJECTED from C:\Users\DELL\Documents\react\android-project-NT118.L11\android\ap
 		INJECTED from C:\Users\DELL\Documents\react\android-project-NT118.L11\android\app\src\debug\AndroidManifest.xml
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
 ADDED from C:\Users\DELL\Documents\react\android-project-NT118.L11\android\app\src\debug\AndroidManifest.xml:5:5-77
+MERGED from [:react-native-picker] C:\Users\DELL\Documents\react\android-project-NT118.L11\node_modules\react-native-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-78
+MERGED from [:react-native-picker] C:\Users\DELL\Documents\react\android-project-NT118.L11\node_modules\react-native-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-78
 	android:name
 		ADDED from C:\Users\DELL\Documents\react\android-project-NT118.L11\android\app\src\debug\AndroidManifest.xml:5:22-75
 uses-permission#android.permission.ACCESS_WIFI_STATE
