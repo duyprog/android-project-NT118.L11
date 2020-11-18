@@ -1,19 +1,7 @@
-#Wed Nov 18 09:57:35 ICT 2020
+#Wed Nov 18 11:03:11 ICT 2020
+base.0=C\:\\Users\\DELL\\Documents\\react\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
 path.1=classes2.dex
-path.0=classes.dex
-renamed.5=classes6.dex
-renamed.4=classes5.dex
-renamed.3=classes4.dex
-renamed.2=classes3.dex
 renamed.1=classes2.dex
+path.0=classes.dex
 renamed.0=classes.dex
-base.5=C\:\\Users\\DELL\\Documents\\react\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes2.dex
-base.4=C\:\\Users\\DELL\\Documents\\react\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
-base.3=D\:\\Data\\Study\\5th Semester\\Mobile Development\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes2.dex
-base.2=D\:\\Data\\Study\\5th Semester\\Mobile Development\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
-base.1=D\:\\1_HocTap\\HK5\\App Development on Mobile Device\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes2.dex
-base.0=D\:\\1_HocTap\\HK5\\App Development on Mobile Device\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
-path.5=classes2.dex
-path.4=classes.dex
-path.3=classes2.dex
-path.2=classes.dex
+base.1=C\:\\Users\\DELL\\Documents\\react\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes2.dex

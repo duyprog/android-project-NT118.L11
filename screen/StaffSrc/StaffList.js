@@ -7,6 +7,7 @@ import PropTypes from 'prop-types'
 import {
     MenuProvider, Menu, MenuTrigger, MenuOptions, MenuOption
 } from 'react-native-popup-menu';
+import { useStore } from 'react-redux'; 
 //import store from '../../index';
 class StaffList extends Component {
     // constructor(props){
