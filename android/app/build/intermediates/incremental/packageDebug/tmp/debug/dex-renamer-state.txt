@@ -1,7 +1,13 @@
-#Thu Nov 12 10:59:50 ICT 2020
-base.0=D\:\\Data\\Study\\5th Semester\\Mobile Development\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+#Wed Nov 18 10:34:44 ICT 2020
+path.3=classes2.dex
+path.2=classes.dex
 path.1=classes2.dex
-renamed.1=classes2.dex
 path.0=classes.dex
+renamed.3=classes4.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
 renamed.0=classes.dex
+base.3=C\:\\Users\\DELL\\Documents\\react\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes2.dex
+base.2=C\:\\Users\\DELL\\Documents\\react\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
 base.1=D\:\\Data\\Study\\5th Semester\\Mobile Development\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes2.dex
+base.0=D\:\\Data\\Study\\5th Semester\\Mobile Development\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
