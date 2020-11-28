@@ -1,23 +1,26 @@
 import React, { Component } from 'react'
-import { Text, View, Image, TouchableOpacity, StyleSheet } from 'react-native'
+import { Text, View, Image, TouchableOpacity, StyleSheet, Dimensions } from 'react-native'
+// import { Modal } from 'react-native-paper';
+// import {ModalTester} from '../components/ChooseModal'
+
+
 
 export default function FoodItems(props){
 
     const{foodItem} = props;
 
     return(
+        <TouchableOpacity>
         <View style={styles.container}>
             <Image style={styles.img} source={{uri: foodItem.images[0].url}}/>
             <View style={styles.info}>
                 <Text style={styles.name}>{foodItem.name}</Text>
                 <View style={styles.priceRow}>
                     <Text style={styles.price}>{foodItem.price}đ</Text>
-                    <TouchableOpacity>
-                        <Text style={styles.cartText}> Chọn </Text>
-                    </TouchableOpacity>
                 </View>
             </View>
         </View>
+        </TouchableOpacity>
     );
 }
 
