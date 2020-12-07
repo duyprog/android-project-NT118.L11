@@ -1,12 +1,13 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, FlatList} from 'react-native'
-
-export default class HotPotDetails extends Component {
+import { connect } from 'react-redux';
+class HotPotDetails extends Component {
     constructor(props){
         super(props);
     }
     render() {
+        console.log(this.props.randomStaffs);
         return (
             <View><Text>Drink Details hehe </Text></View> 
         )
@@ -24,3 +25,9 @@ const styles = StyleSheet.create({
 
     }
 })
+const mapStateToProps = state =>{
+    return{
+        randomStaffs: state
+    };
+}
+export default connect(mapStateToProps) (HotPotDetails);
