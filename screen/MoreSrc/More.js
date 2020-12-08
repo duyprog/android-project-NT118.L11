@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
         marginLeft: 5
     },
     updateBtn: {
-        backgroundColor: '#b5b5b5',
+        backgroundColor: '#de5543',
         borderRadius: 20,
         height: 30,
         width: 100,
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
         fontSize: 17
     },
     logoutBtn: {
-        backgroundColor: '#b5b5b5',
+        backgroundColor: '#de5543',
         borderRadius: 20,
         height: 40,
         width: 130,
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     },
     infoAppLabel: {
         fontSize: 20, 
-        color: '#636363',
+        color: '#000',
         fontWeight: '700',
         textTransform: 'uppercase'
     }

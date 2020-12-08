@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, FlatList} from 'react-native'
-
 import FoodItems from '../../items/FoodItems'
 
 export default class FastFoodsDetails extends Component {
