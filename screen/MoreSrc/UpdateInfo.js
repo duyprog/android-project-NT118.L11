@@ -33,27 +33,11 @@ export default class AddStaff extends Component {
                             placeholder="Họ và tên" />
                         <View style={{flex: 1, flexDirection: 'row'}}>
                         <Text style={styles.textStyle}>Ngày sinh : </Text>
-                        <DatePicker
-                        style={{width: 200}}
-                        date={this.state.dob}
-                        mode="date"
-                        format="YYYY-MM-DD"
-                        confirmBtnText="Confirm"
-                        androidMode='spinner'
-                        cancelBtnText="Cancel" customStyles={{
-                            dateIcon: {
-                              position: 'absolute',
-                              left: 23,
-                              top: 4,
-                              marginLeft: 0
-                            },
-                            dateInput: {
-                              marginTop: 4,
-                              marginLeft: 60
-                            }
-                            // ... You can check the source to find the other keys.
-                          }}
-                          onDateChange={(date) => {this.setState({dob: date})}}/>
+                        <TextInput
+                            label="Ngày sinh"
+                            style={styles.textInput}
+                            onChangeText={date => this.setState({staffDOB: date})}   
+                            placeholder="Ngày sinh" />
                           </View>
                         <TextInput
                             label="Số điện thoại"
