@@ -14,3 +14,16 @@ export const fetchingTableFailure = (error) => ({
     payload: error,
 });
 
+export const fetchTable = () => {
+    return async dispatch => {
+       dispatch(fetchingTableRequest());
+       try{ 
+           let response = await fetch('192.168.1.9:3000/get_all_table');
+           let json = await response.json();
+           dispatch(fetchingTableSuccess(json));
+       }
+       catch(error){
+           dispatch(fetchingTableFailure());
+       }
+    }
+}
