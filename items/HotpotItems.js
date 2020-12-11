@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
         overflow: 'hidden'
     },
     img:{
-        height: 150,
+        height: 220,
         borderTopLeftRadius: 4,
         borderBottomLeftRadius: 4,
     },
