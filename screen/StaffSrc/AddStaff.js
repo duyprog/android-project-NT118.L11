@@ -54,8 +54,8 @@ export default class AddStaff extends Component {
                                     fontWeight: '600',
                                     fontSize: 17,
                                     marginTop: 6}}>Chức vụ: </Text>
-                        <Picker 
-                                selectedValue={this.state.staffPosition}
+                        {/* <Picker 
+                                selectedValue={this.state.position}
                                 style={{height: 50, width: 200,color: 'gray' , marginLeft: 23, borderWidth: 1}}
                                 onValueChange={(itemValue, itemIndex) =>{
                                     this.setState({staffPosition: itemValue});
