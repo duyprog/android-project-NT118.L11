@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
 import { View, StyleSheet, FlatList} from 'react-native'
 
 import HotpotItems from '../../items/HotpotItems'
