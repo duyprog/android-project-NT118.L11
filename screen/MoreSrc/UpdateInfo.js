@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Text, View, StyleSheet, ScrollView, Button} from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import {insertAStaff} from '../../networking/server'
