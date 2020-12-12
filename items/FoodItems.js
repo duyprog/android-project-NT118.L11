@@ -1,26 +1,49 @@
-import React, { Component } from 'react'
-import { Text, View, Image, TouchableOpacity, StyleSheet } from 'react-native'
-import { FlatList } from 'react-native-gesture-handler'
-
+import React, { Component, useState } from 'react'
+import { Text, View, Image, TouchableOpacity, StyleSheet, Modal } from 'react-native'
+import NumericInput from 'react-native-numeric-input'
 export default function FoodItems(props){
 
     const{foodItem} = props;
-
+    const [modalVisible, setModalVisible] = useState(false);
     return(
-        <View style={styles.shadow}>
+        <TouchableOpacity
+            activeOpacity={0.5}
+            onPress={() => {
+                setModalVisible(true);
+            }}>
+            <Modal
+                animationType="fade"
+                transparent={true}
+                visible={modalVisible}>
+                <View style={styles.centeredView}>
+                    <View style={styles.modalView}>
+                        <Text style={styles.modelLabel}> Chọn số lượng </Text>
+                        <NumericInput 
+                            minValue={0}
+                            rounded={true}
+                            totalHeight={40}
+                            onChange={value => console.log(value)} />
+                        <View style={styles.compBtn}>
+                            <TouchableOpacity
+                                onPress={() => {
+                                    setModalVisible(!modalVisible);
+                                }}>
+                                <Text style={styles.compText}>Hoàn tất</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </View>
+            </Modal>
             <View style={styles.container}>
                 <Image style={styles.img} source={{uri: foodItem.images[0].url}}/>
                 <View style={styles.info}>
                     <Text style={styles.name}>{foodItem.name}</Text>
                     <View style={styles.priceRow}>
-                        <Text style={styles.price}>{foodItem.price}</Text>
-                        <TouchableOpacity>
-                            <Text style={styles.cartText}> Chọn </Text>
-                        </TouchableOpacity>
+                        <Text style={styles.price}>{foodItem.price}đ</Text>
                     </View>
                 </View>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 }
 
@@ -29,12 +52,6 @@ const styles = StyleSheet.create({
         textTransform: 'uppercase',
         fontSize: 16,
         color: '#2f95dc'
-    },
-    shadow: {
-        shadowColor: '#000',
-        shadowOpacity: 0.1,
-        shadowRadius: 10,
-        shadowOffset: {width: 0, height: 0}
     },
     container: {
         marginBottom: 20,
@@ -51,7 +68,7 @@ const styles = StyleSheet.create({
         padding: 8,
     },
     name: {
-        fontSize: 16,
+        fontSize: 18,
         marginBottom: 8,
     },
     priceRow: {
@@ -60,7 +77,43 @@ const styles = StyleSheet.create({
     },
     price:{
         fontSize: 16,
-        color: '#888',
         flex: 1,
+        fontWeight: '700'
+    },
+    centeredView: {
+        flex: 1,
+        justifyContent: "center",
+        backgroundColor: "#000000aa"
+    },
+    modalView: {
+        marginLeft: 20,
+        marginRight: 20,
+        backgroundColor: "white",
+        alignItems: 'center',
+        borderRadius: 10,
+        padding: 40,
+        shadowColor: "#000",
+    },
+    modelLabel: {
+        fontSize: 22,
+        fontWeight: '700',
+        marginBottom: 15
+    },
+    compBtn: {
+        backgroundColor: '#de5543',
+        borderRadius: 20,
+        height: 35,
+        width: 100,
+        alignItems: 'center',
+        elevation: 4,
+        marginTop: 15
+    },
+    compText: {
+        textTransform: 'uppercase',
+        fontWeight: '700',
+        alignSelf: 'center',
+        marginTop: 8,
+        color: '#fff',
+        fontSize: 14
     }
 })

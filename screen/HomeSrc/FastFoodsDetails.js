@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, FlatList} from 'react-native'
-
 import FoodItems from '../../items/FoodItems'
 
 export default class FastFoodsDetails extends Component {
@@ -16,7 +15,7 @@ export default class FastFoodsDetails extends Component {
                         }
                     ],
                     name: 'Beef steak',
-                    price: '300000đ',
+                    price: 299000,
                 },
                 {
                     id: 2,
@@ -27,7 +26,7 @@ export default class FastFoodsDetails extends Component {
                         
                     ],
                     name: 'Spaghetti',
-                    price: '120000đ',
+                    price: 129000,
                 },
                 {
                     id: 3,
@@ -38,7 +37,7 @@ export default class FastFoodsDetails extends Component {
                         
                     ],
                     name: 'Salad',
-                    price: '70000đ',
+                    price: 69000,
                 },
                 {
                     id: 4,
@@ -49,7 +48,51 @@ export default class FastFoodsDetails extends Component {
                         
                     ],
                     name: 'Pizza',
-                    price: '240000đ',
+                    price: 239000,
+                },
+                {
+                    id: 5,
+                    images: [
+                        {
+                            url: 'https://gcs.thesouthafrican.com/2020/04/b25c2198-kfc.jpeg'
+                        }
+                        
+                    ],
+                    name: 'Gà rán',
+                    price: 99000,
+                },
+                {
+                    id: 6,
+                    images: [
+                        {
+                            url: 'https://i.pinimg.com/564x/22/16/f1/2216f1f01372b07929c76e14f8a18b47.jpg'
+                        }
+                        
+                    ],
+                    name: 'Nem rán',
+                    price: 99000,
+                },
+                {
+                    id: 7,
+                    images: [
+                        {
+                            url: 'https://www.delonghi.com/Global/recipes/multifry/patatine_fritte.jpg'
+                        }
+                        
+                    ],
+                    name: 'Khoai tây chiên',
+                    price: 69000,
+                },
+                {
+                    id: 8,
+                    images: [
+                        {
+                            url: 'https://www.thespruceeats.com/thmb/O8cBOSCu3233XKmts7kPiT-52F4=/1685x1264/smart/filters:no_upscale()/air-fryer-hot-dogs-4802499-07-b327e219937c429a81efaf61519724a5.jpg'
+                        }
+                        
+                    ],
+                    name: 'Hot dogs',
+                    price: 69000,
                 },
             ]
         });
@@ -73,6 +116,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 8},
     wrapper:{
         flex: 1,
-        paddingHorizontal: 8
+        paddingHorizontal: 8,
+        marginTop: 5
     }
 })
