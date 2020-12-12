@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 #Fri Dec 11 19:30:34 ICT 2020
 base.0=D\:\\Data\\Study\\5th Semester\\Mobile Development\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+=======
+#Sun Dec 06 18:48:40 ICT 2020
+base.0=C\:\\Users\\DELL\\Documents\\react\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+>>>>>>> 12f7cc79c5ad15426660e4ffba7a836ac9075531
 path.1=classes2.dex
 renamed.1=classes2.dex
 path.0=classes.dex

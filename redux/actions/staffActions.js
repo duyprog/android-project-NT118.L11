@@ -20,7 +20,7 @@ export const fetchStaff = () => {
     return async dispatch =>{
         dispatch(fetchingStaffRequest());
         try{
-            let response = await fetch('http://192.168.1.31:8080/api/staffs/getAllStaff');
+            let response = await fetch('http://192.168.1.9:8080/api/staffs/getAllStaff');
             let json = await response.json();
             console.log(json)
             dispatch(fetchingStaffSuccess(json));
@@ -54,7 +54,7 @@ export const deleteStaff = (id) => {
     return async dispatch =>{
         dispatch(deleteStaffRequest());
         try{
-            let response = await fetch('http://192.168.1.31:8080/api/staffs/deleteStaff/' + id,{
+            let response = await fetch('http://192.168.1.9:8080/api/staffs/deleteStaff/' + id,{
                 method: 'DELETE',
                 body: JSON.stringify(id)
             });
