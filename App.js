@@ -16,8 +16,8 @@ export default function App() {
       <NavigationContainer>
           <Tab.Navigator  
               initialRouteName="Home"
-              activeColor= "#de5543"
-              barStyle={{ backgroundColor: '#FFF' }}>
+              activeColor= "#fff"
+              barStyle={{ backgroundColor: '#de5543' }}>
             <Tab.Screen 
                 name="Home" 
                 component={MainMenuStackScreen} 
