@@ -1,18 +1,9 @@
 import React, { Component } from 'react'
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> main
 import { View, StyleSheet, FlatList} from 'react-native'
 
 import HotpotItems from '../../items/HotpotItems'
 
 export default class HotPotDetails extends Component {
-=======
-import { Text, View, StyleSheet, FlatList} from 'react-native'
-import { connect } from 'react-redux';
-class HotPotDetails extends Component {
->>>>>>> 12f7cc79c5ad15426660e4ffba7a836ac9075531
     constructor(props){
         super(props);
         this.state =({
@@ -64,7 +55,6 @@ class HotPotDetails extends Component {
         });
     }
     render() {
-        console.log(this.props.randomStaffs);
         return (
             <FlatList
                 data={this.state.hotpotItems}
@@ -86,9 +76,3 @@ const styles = StyleSheet.create({
         marginTop: 5
     }
 })
-const mapStateToProps = state =>{
-    return{
-        randomStaffs: state
-    };
-}
-export default connect(mapStateToProps) (HotPotDetails);
