@@ -15,9 +15,11 @@ import Feather from 'react-native-vector-icons/Feather';
 
 import { useTheme } from 'react-native-paper';
 
-const AuthContext = React.createContext();
+import { AuthContext } from '../components/context';
 
-const SignInScreen = ({navigation}) => {
+import Users from '../model/users';
+
+const SignInScreen = () => {
 
     const [data, setData] = React.useState({
         username: '',
@@ -30,7 +32,7 @@ const SignInScreen = ({navigation}) => {
 
     const { colors } = useTheme();
 
-    const { signIn } = React.useContext(AuthContext);
+    // const { signIn } = React.useContext(AuthContext);
 
     const textInputChange = (val) => {
         if( val.trim().length >= 4 ) {
@@ -210,23 +212,11 @@ const SignInScreen = ({navigation}) => {
             <View style={styles.button}>
                 <TouchableOpacity
                     style={styles.signIn}
-                    onPress={() => {loginHandle( data.username, data.password )}} >
+                    onPress={() => {loginHandle( data.username, data.password )}}
+                >
                     <Text style={[styles.textSign, {
                         color:'#fff'
                     }]}>Sign In</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                    onPress={() => navigation.navigate('SignUpScreen')}
-                    style={[styles.signIn, {
-                        borderColor: '#009387',
-                        borderWidth: 1,
-                        marginTop: 15
-                    }]}
-                >
-                    <Text style={[styles.textSign, {
-                        color: '#009387'
-                    }]}>Sign Up</Text>
                 </TouchableOpacity>
             </View>
         </Animatable.View>
