@@ -35,16 +35,18 @@ const SplashScreen = ({navigation}) => {
         >
             <Text style={[styles.title, {
                 color: colors.text
-            }]}>Stay connected with everyone!</Text>
-            <Text style={styles.text}>Sign in with account</Text>
+            }]}>Ứng dụng quản lý Nhà hàng/đặt món ăn</Text>
+            <Text style={styles.text}>Đăng nhập với tài khoản được quản lý cấp!</Text>
             <View style={styles.button}>
             <TouchableOpacity onPress={()=>navigation.navigate('SignInScreen')}>
-                    <Text style={styles.textSign}>Get Started</Text>
+                <View backgroundColor="#01ab9d" style={styles.signIn}>
+                    <Text style={styles.textSign}>Bắt đầu</Text>
                     <MaterialIcons 
                         name="navigate-next"
                         color="#fff"
                         size={20}
                     />
+                    </View>
             </TouchableOpacity>
             </View>
         </Animatable.View>
@@ -98,6 +100,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: 50,
+      padding: 10,
       flexDirection: 'row'
   },
   textSign: {

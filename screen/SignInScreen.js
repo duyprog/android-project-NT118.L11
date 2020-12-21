@@ -214,9 +214,11 @@ const SignInScreen = () => {
                     style={styles.signIn}
                     onPress={() => {loginHandle( data.username, data.password )}}
                 >
+                    <View backgroundColor="#009387">
                     <Text style={[styles.textSign, {
                         color:'#fff'
                     }]}>Sign In</Text>
+                    </View>
                 </TouchableOpacity>
             </View>
         </Animatable.View>
@@ -287,6 +289,7 @@ const styles = StyleSheet.create({
         height: 50,
         justifyContent: 'center',
         alignItems: 'center',
+        padding: 10,
         borderRadius: 10
     },
     textSign: {
