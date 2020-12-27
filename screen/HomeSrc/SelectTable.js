@@ -1,126 +1,67 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, Image, FlatList, SafeAreaView, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
-
+import {useStore} from 'react-redux'
 import empty from '../../image/foodMenu/empty-table.png'
 import serving from '../../image/foodMenu/serving-table.png'
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { fetchTable, chooseATable } from '../../redux/actions/tableActions';
+import Table from '../../components/Table';
 
-const tableList = [
-    {
-        id: 1,
-        name:'Bàn 01',
-        isServing: true
-    },
-    {
-        id: 2,
-        name:'Bàn 02',
-        isServing: false
-    },
-    {
-        id: 3,
-        name:'Bàn 03',
-        isServing: false
-    },
-    {
-        id: 4,
-        name:'Bàn 04',
-        isServing: false
-    },
-    {
-        id: 5,
-        name:'Bàn 05',
-        isServing: false
-    },
-    {
-        id: 6,
-        name:'Bàn 06',
-        isServing: true
-    },
-    {
-        id: 7,
-        name:'Bàn 07',
-        isServing: true
-    },
-    {
-        id: 8,
-        name:'Bàn 08',
-        isServing: true
-    },
-    {
-        id: 9,
-        name:'Bàn 09',
-        isServing: true
-    },
-    {
-        id: 10,
-        name:'Bàn 10',
-        isServing: true
-    },
-    {
-        id: 11,
-        name:'Bàn 11',
-        isServing: true
-    },
-    {
-        id: 12,
-        name:'Bàn 12',
-        isServing: true
-    },
-    {
-        id: 13,
-        name:'Bàn 13',
-        isServing: true
-    },
-    {
-        id: 14,
-        name:'Bàn 14',
-        isServing: true
-    },
-    {
-        id: 15,
-        name:'Bàn 15',
-        isServing: true
+// function Table({item, props}) {
+//     var ima = serving;
+//     const navigation = useNavigation();
+//     if(item.TB_STATUS){
+//         ima = serving;
+//         }
+//     else{
+//         ima = empty;
+//        }
+//     //var ima = item.TB_STATUS ? serving : empty
+//     return(
+//         <TouchableOpacity
+//             activeOpacity={0.5}
+//             disabled={item.TB_STATUS}
+//             onPress={() => { navigation.navigate('Food Menu');
+//                 props;
+//             }}>
+//             <View style={styles.viewStyle}>
+//                 <View>
+//                     <View style={styles.container}>
+//                         <Image style={styles.img} source={ima}/>
+//                     </View>
+//                     <View style={styles.info}>
+//                             <Text style={styles.name}>{'Bàn ' + item.TB_ID}</Text>
+//                     </View>
+//                 </View>
+//             </View>
+//         </TouchableOpacity>
+//     )
+// }
+
+class SelectTable extends Component {
+    componentDidMount(){
+        this.props.fetchTable();
+        console.log(this.props.table);
     }
-]
-
-function Table({item}) {
-    const navigation = useNavigation()
-    var ima = item.isServing ? serving : empty
-    return(
-        <TouchableOpacity
-            activeOpacity={0.5}
-            disabled={item.isServing}
-            onPress={() => { navigation.navigate('Food Menu')
-            }}>
-            <View style={styles.viewStyle}>
-                <View>
-                    <View style={styles.container}>
-                        <Image style={styles.img} source={ima}/>
-                    </View>
-                    <View style={styles.info}>
-                            <Text style={styles.name}>{item.name}</Text>
-                    </View>
-                </View>
-            </View>
-        </TouchableOpacity>
-    )
-}
-
-function SelectTable() {
-    return(
-        <SafeAreaView>
-            <FlatList
-                data={tableList}
-                numColumns={3}
-                renderItem={({item}) => 
-                    <View style={styles.wrapper}>
-                        <Table
-                            item={item} />
-                    </View>}
-                keyExtractor={(item) => item.id}
-            />
-        </SafeAreaView>
-    )
+    render(){
+        return(
+            <SafeAreaView>
+                <FlatList
+                    data={this.props.table}
+                    numColumns={3}
+                    renderItem={({item}) => 
+                        <View style={styles.wrapper}>
+                            <Table
+                                item={item}
+                            />
+                        </View>}
+                    keyExtractor={(item) => item.TB_ID}
+                />
+            </SafeAreaView>
+        )
+    }
 } 
 
 const styles = StyleSheet.create({
@@ -158,4 +99,17 @@ const styles = StyleSheet.create({
     }
 })
 
-export default SelectTable
+SelectTable.propTypes = {
+    fetchTable: PropTypes.func.isRequired,
+    chooseATable: PropTypes.func.isRequired, 
+    table: PropTypes.array.isRequired,
+    //choosedTable: PropTypes.number.isRequired,
+}
+
+const mapStateToProps = state => {
+    return{
+        table: state.tableReducer.tableData.table,
+       // choosedTable: state.tableReducer.tableData.choosedTable,
+    };
+}
+export default connect(mapStateToProps, {fetchTable, chooseATable}) (SelectTable);
