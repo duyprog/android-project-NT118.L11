@@ -20,7 +20,6 @@ import { AuthContext } from '../components/context';
 import Users from '../model/users';
 
 const SignInScreen = () => {
-
     const [data, setData] = React.useState({
         username: '',
         password: '',
