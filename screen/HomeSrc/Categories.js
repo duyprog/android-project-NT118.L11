@@ -3,13 +3,16 @@ import { View, StyleSheet, TouchableOpacity} from 'react-native'
 import CategoryListItems from '../../components/CategoryListItems'
 import { ScrollView } from 'react-native-gesture-handler';
 
+import {useStore} from 'react-redux';
 const Categories = ({navigation}) => {
+    const store = useStore();
     return (
         <ScrollView style={styles.container}>
             <TouchableOpacity 
                 activeOpacity={0.5}
                 onPress={()=>{
-                    navigation.navigate('Fast Foods Details')
+                    navigation.navigate('Fast Foods Details');
+                    console.log(store.getState());
                 }}>
                 <CategoryListItems 
                     title={"Thức ăn nhanh"} 

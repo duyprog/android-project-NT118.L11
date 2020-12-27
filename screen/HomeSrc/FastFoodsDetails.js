@@ -97,6 +97,7 @@ export default class FastFoodsDetails extends Component {
             ]
         });
     }
+
     render() {
         return (
             <FlatList
