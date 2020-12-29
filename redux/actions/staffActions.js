@@ -2,7 +2,7 @@ import { FETCHING_STAFF_REQUEST, FETCHING_STAFF_SUCCESS, FETCHING_STAFF_FAILURE,
         DELETE_STAFF_REQUEST, DELETE_STAFF_SUCCESS, DELETE_STAFF_FAILURE,SWIPE_TO_CHOOSE_DELETEID}
 from './types';
 
-var ip = '192.168.1.16';
+var ip = '192.168.0.100';
 
 // Fetch Staff
 export const fetchingStaffRequest = () =>

@@ -1,36 +1,36 @@
 import {
-   FETCHING_ITEM_REQUEST, FETCHING_ITEM_FAILURE, FETCHING_FASTFOOD_SUCCESS,
+   FETCHING_ITEM_REQUEST, FETCHING_ITEM_FAILURE, FETCHING_FOOD_SUCCESS,
    FETCHING_DESSERT_SUCCESS, FETCHING_DRINK_SUCCESS, FETCHING_FRIED_SUCCESS,
    FETCHING_HOTPOT_SUCCESS, FETCHING_NOODLE_SUCCESS,
 } from './types';
-var ip = '192.168.1.16';
+var ip = '192.168.0.100';
 
 // fetch food items 
-export const fetchingFastFoodItemRequest = () => ({
+export const fetchingFoodItemRequest = () => ({
     type: FETCHING_ITEM_REQUEST
 });
 
-export const fetchingFastFoodItemSuccess = (json) => ({
-    type: FETCHING_FASTFOOD_SUCCESS,
+export const fetchingFoodItemSuccess = (json) => ({
+    type: FETCHING_FOOD_SUCCESS,
     payload: json
 });
 
-export const fetchingFastFoodItemFailure = (error) =>({
+export const fetchingFoodItemFailure = (error) =>({
     type: FETCHING_ITEM_FAILURE,
     payload: error
 });
 
-//function fetch Fast Food
-export const fetchFastFood = () =>{
+//function fetch  Food
+export const fetchFood = () =>{
     return async dispatch => {
-        dispatch(fetchingFastFoodItemRequest());
+        dispatch(fetchingFoodItemRequest());
         try{
-            let response = await fetch('http' + ip + ':3000/get_all_food_item');
+            let response = await fetch('http://' + ip + ':3000/get_all_food_item');
             let json = await response.json();
-            dispatch(fetchingFastFoodItemSuccess(json));
+            dispatch(fetchingFoodItemSuccess(json));
         }
         catch(error){
-            dispatch(fetchingFastFoodItemFailure(error));
+            dispatch(fetchingFoodItemFailure(error));
         }
     }
 }

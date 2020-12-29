@@ -1,4 +1,4 @@
-const ipToDatabase = 'http://192.168.0.101:8080'
+const ipToDatabase = 'http://192.168.0.100:3000'
 const apiInsertAStaff = ipToDatabase + '/api/staffs/createStaff'
 const apiGetAllStaff = ipToDatabase + '/api/staffs/getAllStaff';
 const apiDeleteAStaff = ipToDatabase + '/api/staffs/deleteStaff/'

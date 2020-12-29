@@ -1,4 +1,4 @@
-import {  FETCHING_ITEM_REQUEST, FETCHING_ITEM_FAILURE, FETCHING_FASTFOOD_SUCCESS,
+import {  FETCHING_ITEM_REQUEST, FETCHING_ITEM_FAILURE, FETCHING_FOOD_SUCCESS,
     FETCHING_DESSERT_SUCCESS, FETCHING_DRINK_SUCCESS, FETCHING_FRIED_SUCCESS,
     FETCHING_HOTPOT_SUCCESS, FETCHING_NOODLE_SUCCESS,} from '../actions/types';
 
@@ -8,7 +8,7 @@ const initialState = {
         dessertItems: [],
         drinkItems: [],
         hotpotItems: [],
-        fastFoodItems: [],
+        foodItems: [],
         noodleItems: [],
         friedItems: [],
     }
@@ -16,7 +16,7 @@ const initialState = {
 
 const itemReducer = (state=initialState, action) =>{
     switch(action.type){
-        // fast food
+        //  food
         case FETCHING_ITEM_REQUEST: 
             return{
                 ...state, 
@@ -25,13 +25,13 @@ const itemReducer = (state=initialState, action) =>{
                     refreshing: true
                 }
             };
-        case FETCHING_FASTFOOD_SUCCESS: 
+        case FETCHING_FOOD_SUCCESS: 
             return{
                 ...state, 
                 itemData:{
                     ...state.itemData, 
                     refreshing: false,
-                    fastFoodItems: action.payload
+                    FoodItems: action.payload
                 }
             };
         case FETCHING_DRINK_SUCCESS: 
