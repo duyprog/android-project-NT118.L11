@@ -3,7 +3,7 @@ import {
    FETCHING_DESSERT_SUCCESS, FETCHING_DRINK_SUCCESS, FETCHING_FRIED_SUCCESS,
    FETCHING_HOTPOT_SUCCESS, FETCHING_NOODLE_SUCCESS,
 } from './types';
-var ip = '192.168.0.100';
+var ip = '192.168.1.16';
 
 // fetch food items 
 export const fetchingFoodItemRequest = () => ({
@@ -83,10 +83,12 @@ export const fetchingNoodleItemFailure = (error) =>({
 
 // fetch noodle function 
 export const fetchNoodle = () =>{
+
     return async dispatch =>{
+        dispatch(fetchingNoodleItemRequest());
         try {
             let response = await fetch('http://' + ip + ':3000/get_all_noodles_item');
-            let json = response.json(); 
+            let json =  await response.json(); 
             dispatch(fetchingNoodleItemSuccess(json)); 
         } catch (error) {
             dispatch(fetchingNoodleItemFailure(error));

@@ -113,7 +113,7 @@ class FoodDetails extends Component {
                 <View style={styles.wrapper}>
                     <FoodItems foodItem={item}/>
                 </View>}
-                keyExtractor={(item) => `${item.id}`}/>
+                keyExtractor={(item) => `${item.ITEM_ID}`}/>
         )
     }
 }
