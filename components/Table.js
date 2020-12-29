@@ -21,8 +21,9 @@ function Table({item, chooseATable}) {
         <TouchableOpacity
             activeOpacity={0.5}
             disabled={item.TB_STATUS}
-            onPress={() => { navigation.navigate('Food Menu');
-                            chooseATable(item.TB_ID)
+            onPress={() => {
+                navigation.navigate('Food Menu');
+                chooseATable(item.TB_ID)
             }}>
             <View style={styles.viewStyle}>
                 <View>
