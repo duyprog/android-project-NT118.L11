@@ -35,11 +35,11 @@ export default function DessertItems(props){
                 </View>
             </Modal>
             <View style={styles.container}>
-                <Image style={styles.img} source={{uri: dessertItem.images[0].url}}/>
+                <Image style={styles.img} source={{uri: dessertItem.IMAGE_URL}}/>
                 <View style={styles.info}>
-                    <Text style={styles.name}>{dessertItem.name}</Text>
+                    <Text style={styles.name}>{dessertItem.ITEM_NAME}</Text>
                     <View style={styles.priceRow}>
-                        <Text style={styles.price}>{dessertItem.price}đ</Text>
+                        <Text style={styles.price}>{dessertItem.UNITPRICE}đ</Text>
                     </View>
                 </View>
             </View>
