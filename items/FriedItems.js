@@ -35,11 +35,11 @@ export default function FriedItems(props){
                 </View>
             </Modal>
             <View style={styles.container}>
-                <Image style={styles.img} source={{uri: friedItem.images[0].url}}/>
+                <Image style={styles.img} source={{uri: friedItem.IMAGE_URL}}/>
                 <View style={styles.info}>
-                    <Text style={styles.name}>{friedItem.name}</Text>
+                    <Text style={styles.name}>{friedItem.ITEM_NAME}</Text>
                     <View style={styles.priceRow}>
-                        <Text style={styles.price}>{friedItem.price}đ</Text>
+                        <Text style={styles.price}>{friedItem.UNITPRICE}đ</Text>
                     </View>
                 </View>
             </View>
