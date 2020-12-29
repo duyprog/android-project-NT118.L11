@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Provider as PaperProvider } from 'react-native-paper';
 
 import RootStackScreen from './screen/RootStackScreen';
+import MainMenuStackScreen from './screen/MainMenu';
 
 import AsyncStorage from 'react-native';
 
@@ -41,14 +42,7 @@ const App = () => {
           userName: null,
           userToken: null,
           isLoading: false,
-        };
-      case 'REGISTER': 
-        return {
-          ...prevState,
-          userName: action.id,
-          userToken: action.token,
-          isLoading: false,
-        };
+        }
     }
   };
 
@@ -78,10 +72,6 @@ const App = () => {
         console.log(e);
       }
       dispatch({ type: 'LOGOUT' });
-    },
-    signUp: () => {
-      // setUserToken('fgkj');
-      // setIsLoading(false);
     }
   }), []);
 
@@ -111,7 +101,12 @@ const App = () => {
     <PaperProvider>
     <AuthContext.Provider value={authContext}>
     <NavigationContainer >
+    { loginState.userToken !== null ? (
+        <MainMenuStackScreen/>
+      )
+    :
       <RootStackScreen/>
+    }
     </NavigationContainer>
     </AuthContext.Provider>
     </PaperProvider>

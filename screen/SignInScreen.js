@@ -31,7 +31,7 @@ const SignInScreen = () => {
 
     const { colors } = useTheme();
 
-    // const { signIn } = React.useContext(AuthContext);
+    const { signInTest } = React.useContext(AuthContext);
 
     const textInputChange = (val) => {
         if( val.trim().length >= 4 ) {
@@ -107,7 +107,7 @@ const SignInScreen = () => {
             ]);
             return;
         }
-        signIn(foundUser);
+        signInTest(foundUser);
     }
 
     return (
