@@ -1,6 +1,6 @@
 import {CHOOSE_A_TABLE, FETCHING_TABLE_REQUEST, FETCHING_TABLE_SUCCESS, FETCHING_TABLE_FAILURE} from './types';
 
-var ip = '192.168.0.100';
+var ip = '192.168.1.16';
 
 export const fetchingTableRequest = () =>({
     type: FETCHING_TABLE_REQUEST

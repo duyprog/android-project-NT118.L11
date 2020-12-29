@@ -95,7 +95,7 @@ export class NoodleDetails extends Component {
     }
 }
 
-NoodleDetails.propTypes = { 
+NoodleDetails.propsTypes = { 
     fetchNoodle: PropTypes.func.isRequired,
     noodleItems : PropTypes.array.isRequired
 }

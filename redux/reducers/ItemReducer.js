@@ -1,6 +1,6 @@
 import {  FETCHING_ITEM_REQUEST, FETCHING_ITEM_FAILURE, FETCHING_FOOD_SUCCESS,
     FETCHING_DESSERT_SUCCESS, FETCHING_DRINK_SUCCESS, FETCHING_FRIED_SUCCESS,
-    FETCHING_HOTPOT_SUCCESS, FETCHING_NOODLE_SUCCESS,} from '../actions/types';
+    FETCHING_HOTPOT_SUCCESS, FETCHING_NOODLE_SUCCESS} from '../actions/types';
 
 const initialState = { 
     itemData: { 
@@ -31,7 +31,7 @@ const itemReducer = (state=initialState, action) =>{
                 itemData:{
                     ...state.itemData, 
                     refreshing: false,
-                    FoodItems: action.payload
+                    foodItems: action.payload
                 }
             };
         case FETCHING_DRINK_SUCCESS: 
