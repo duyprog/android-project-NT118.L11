@@ -1,4 +1,8 @@
-import {FETCHING_ITEM_REQUEST, FETCHING_ITEM_SUCCESS, FETCHING_ITEM_FAILURE} from './types';
+import {
+   FETCHING_ITEM_REQUEST, FETCHING_ITEM_FAILURE, FETCHING_FASTFOOD_SUCCESS,
+   FETCHING_DESSERT_SUCCESS, FETCHING_DRINK_SUCCESS, FETCHING_FRIED_SUCCESS,
+   FETCHING_HOTPOT_SUCCESS, FETCHING_NOODLE_SUCCESS,
+} from './types';
 var ip = '192.168.1.16';
 
 // fetch food items 
@@ -7,7 +11,7 @@ export const fetchingFastFoodItemRequest = () => ({
 });
 
 export const fetchingFastFoodItemSuccess = (json) => ({
-    type: FETCHING_ITEM_SUCCESS,
+    type: FETCHING_FASTFOOD_SUCCESS,
     payload: json
 });
 
@@ -37,7 +41,7 @@ export const fetchingDrinkItemRequest = () => ({
 });
 
 export const fetchingDrinkItemSuccess = (json) => ({
-    type: FETCHING_ITEM_SUCCESS,
+    type: FETCHING_DRINK_SUCCESS,
     payload: json
 });
 
@@ -68,7 +72,7 @@ export const fetchingNoodleItemRequest = () => ({
 });
 
 export const fetchingNoodleItemSuccess = (json) => ({
-    type: FETCHING_ITEM_SUCCESS,
+    type: FETCHING_NOODLE_SUCCESS,
     payload: json
 });
 
@@ -96,7 +100,7 @@ export const fetchingFriedItemRequest = () => ({
 });
 
 export const fetchingFriedItemSuccess = (json) => ({
-    type: FETCHING_ITEM_SUCCESS,
+    type: FETCHING_FRIED_SUCCESS,
     payload: json
 });
 
@@ -124,7 +128,7 @@ export const fetchingHotpotItemRequest = () => ({
 });
 
 export const fetchingHotpotItemSuccess = (json) => ({
-    type: FETCHING_ITEM_SUCCESS,
+    type: FETCHING_HOTPOT_SUCCESS,
     payload: json
 });
 
@@ -152,7 +156,7 @@ export const fetchingDessertItemRequest = () => ({
 });
 
 export const fetchingDessertItemSuccess = (json) => ({
-    type: FETCHING_ITEM_SUCCESS,
+    type: FETCHING_DESSERT_SUCCESS,
     payload: json
 });
 

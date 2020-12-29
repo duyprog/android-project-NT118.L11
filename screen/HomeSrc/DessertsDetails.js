@@ -102,12 +102,12 @@ import DessertItems from '../../items/DessertItems'
     // }
     componentDidMount(){
         this.props.fetchDessert();
-        console.log(this.props.items);
+        console.log(this.props.dessertItems);
     }
     render() {
         return (
             <FlatList
-                data={this.props.items}
+                data={this.props.dessertItems}
                 numColumns={2}
                 renderItem={({item}) =>
                 <View style={styles.wrapper}>
@@ -120,11 +120,11 @@ import DessertItems from '../../items/DessertItems'
 
 DessertDetails.propTypes = { 
     fetchDessert: PropTypes.func.isRequired,
-    items : PropTypes.array.isRequired
+    dessertItems : PropTypes.array.isRequired
 }
 const mapStateToProps = state => {
     return{
-        items: state.itemReducer.itemData.item
+        dessertItems: state.itemReducer.itemData.dessertItems
     }
 }
 const styles = StyleSheet.create({

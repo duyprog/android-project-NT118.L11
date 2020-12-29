@@ -35,11 +35,11 @@ export default function DrinkItems(props){
                 </View>
             </Modal>
             <View style={styles.container}>
-                <Image style={styles.img} source={{uri: drinkItem.images[0].url}}/>
+                <Image style={styles.img} source={{uri: drinkItem.IMAGE_URL}}/>
                 <View style={styles.info}>
-                    <Text style={styles.name}>{drinkItem.name}</Text>
+                    <Text style={styles.name}>{drinkItem.ITEM_NAME}</Text>
                     <View style={styles.priceRow}>
-                        <Text style={styles.price}>{drinkItem.price}đ</Text>
+                        <Text style={styles.price}>{drinkItem.UNITPRICE}đ</Text>
                     </View>
                 </View>
             </View>
