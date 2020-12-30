@@ -1,6 +1,6 @@
 import {CHOOSE_A_TABLE, FETCHING_TABLE_REQUEST, FETCHING_TABLE_SUCCESS, FETCHING_TABLE_FAILURE} from './types';
+import { IP } from '../../components/IP';
 
-var ip = '192.168.1.16';
 
 export const fetchingTableRequest = () =>({
     type: FETCHING_TABLE_REQUEST
@@ -25,7 +25,7 @@ export const fetchTable = () => {
     return async dispatch => {
        dispatch(fetchingTableRequest());
        try{ 
-           let response = await fetch('http://192.168.1.16:3000/get_all_table');
+           let response = await fetch('http://' + IP + ':3000/get_all_table');
            let json = await response.json();
            dispatch(fetchingTableSuccess(json));
        }
