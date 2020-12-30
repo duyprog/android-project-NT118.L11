@@ -13,16 +13,12 @@ function MoreStackScreen() {
             name="More" 
             component={More} 
             options={{title: 'Mở rộng', 
-                      headerTitleStyle: {alignSelf:'center'},
-                      headerStyle: {backgroundColor: "#de5543"},
-                      headerTintColor: '#fff'                
+                      headerTitleStyle: {alignSelf:'center'}               
                     }}/>
         <MoreStack.Screen
             name="Update Info"
             component={UpdateInfo}
-            options={{title: 'Cập nhật thông tin',
-                      headerStyle: {backgroundColor: "#de5543"},
-                      headerTintColor: '#fff'                
+            options={{title: 'Cập nhật thông tin'                
                     }} />
       </MoreStack.Navigator>
     )

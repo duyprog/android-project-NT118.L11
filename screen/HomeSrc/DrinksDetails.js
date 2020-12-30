@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, FlatList} from 'react-native'
-
+import AnimatedHeader from 'react-native-animated-header'
 import DrinkItems from '../../items/DrinkItems'
-
+import Bg from '../../image/foodMenu/drinkBg.png'
 export default class DrinkDetails extends Component {
     constructor(props){
         super(props);
@@ -100,7 +100,11 @@ export default class DrinkDetails extends Component {
     }
     render() {
         return (
-            <FlatList
+            <AnimatedHeader
+                style={{flex: 1 }}
+                imageSource={Bg}>
+                
+                <FlatList
                 data={this.state.drinkItems}
                 numColumns={2}
                 renderItem={({item}) =>
@@ -108,6 +112,7 @@ export default class DrinkDetails extends Component {
                     <DrinkItems drinkItem={item}/>
                 </View>}
                 keyExtractor={(item) => `${item.id}`}/>
+            </AnimatedHeader>
         )
     }
 }
