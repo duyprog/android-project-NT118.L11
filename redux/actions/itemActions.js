@@ -3,7 +3,7 @@ import {
    FETCHING_DESSERT_SUCCESS, FETCHING_DRINK_SUCCESS, FETCHING_FRIED_SUCCESS,
    FETCHING_HOTPOT_SUCCESS, FETCHING_NOODLE_SUCCESS,
 } from './types';
-var ip = '192.168.1.16';
+import { IP } from '../../components/IP';
 
 // fetch food items 
 export const fetchingFoodItemRequest = () => ({
@@ -25,7 +25,7 @@ export const fetchFood = () =>{
     return async dispatch => {
         dispatch(fetchingFoodItemRequest());
         try{
-            let response = await fetch('http://' + ip + ':3000/get_all_food_item');
+            let response = await fetch('http://' + IP + ':3000/get_all_food_item');
             let json = await response.json();
             dispatch(fetchingFoodItemSuccess(json));
         }
@@ -55,7 +55,7 @@ export const fetchDrink = () =>{
     return async dispatch => {
         dispatch(fetchingDrinkItemRequest());
         try{ 
-            let response = await fetch('http://' + ip + ':3000/get_all_drink_item');
+            let response = await fetch('http://' + IP + ':3000/get_all_drink_item');
             let json = await response.json();
             dispatch(fetchingDrinkItemSuccess(json));
         }
@@ -87,7 +87,7 @@ export const fetchNoodle = () =>{
     return async dispatch =>{
         dispatch(fetchingNoodleItemRequest());
         try {
-            let response = await fetch('http://' + ip + ':3000/get_all_noodles_item');
+            let response = await fetch('http://' + IP + ':3000/get_all_noodles_item');
             let json =  await response.json(); 
             dispatch(fetchingNoodleItemSuccess(json)); 
         } catch (error) {
@@ -115,7 +115,7 @@ export const fetchFried = () => {
     return async dispatch => {
         dispatch(fetchingFriedItemRequest());
         try {    
-            let response = await fetch('http://' + ip + ':3000/get_all_fried_item');
+            let response = await fetch('http://' + IP + ':3000/get_all_fried_item');
             let json = await response.json();
             dispatch(fetchingFriedItemSuccess(json));
         } catch (error) {
@@ -144,7 +144,7 @@ export const fetchHotpot = () => {
     return async dispatch => {
         dispatch(fetchingHotpotItemRequest());
         try {
-            let response = await fetch('http://' + ip + ':3000/get_all_hotpot_item');
+            let response = await fetch('http://' + IP + ':3000/get_all_hotpot_item');
             let json = await response.json();
             dispatch(fetchingHotpotItemSuccess(json));
         } catch (error) {
@@ -172,7 +172,7 @@ export const fetchDessert = () => {
     return async dispatch => {
         dispatch(fetchingDessertItemRequest());
         try {
-            let response = await fetch('http://' + ip + ':3000/get_all_dessert_item');
+            let response = await fetch('http://' + IP + ':3000/get_all_dessert_item');
             let json = await response.json();
             dispatch(fetchingDessertItemSuccess(json));
         } catch (error) {
