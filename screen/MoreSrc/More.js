@@ -3,7 +3,10 @@ import { Text, View, StyleSheet, Button, TouchableOpacity, SafeAreaView } from '
 import { Avatar, Title, Caption} from 'react-native-paper'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
+import { AuthContext } from '../../App'
+
 const More = ({ navigation }) => {
+    const { signOut } = React.useContext(AuthContext);
     return (
         <SafeAreaView>
             <View style={{backgroundColor: '#fff'}}>
@@ -67,7 +70,8 @@ const More = ({ navigation }) => {
             </View>
             <View style={{alignItems: 'center', marginTop: 15}}>
                 <TouchableOpacity
-                    activeOpacity={0.5}>
+                    activeOpacity={0.5}
+                    onPress={() => {signOut()}} >
                     <View style={styles.logoutBtn}>
                         <Text style={styles.logoutText}> Đăng xuất </Text>
                     </View>

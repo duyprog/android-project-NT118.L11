@@ -15,11 +15,12 @@ import Feather from 'react-native-vector-icons/Feather';
 
 import { useTheme } from 'react-native-paper';
 
-import { AuthContext } from '../components/context';
+import { AuthContext } from '../App';
 
 import Users from '../model/users';
 
-const SignInScreen = () => {
+const SignInScreen = ({navigation}) => {
+
     const [data, setData] = React.useState({
         username: '',
         password: '',
@@ -31,7 +32,7 @@ const SignInScreen = () => {
 
     const { colors } = useTheme();
 
-    const { signInTest } = React.useContext(AuthContext);
+    const { signIn } = React.useContext(AuthContext);
 
     const textInputChange = (val) => {
         if( val.trim().length >= 4 ) {
@@ -107,7 +108,7 @@ const SignInScreen = () => {
             ]);
             return;
         }
-        signInTest(foundUser);
+        signIn(foundUser);
     }
 
     return (
@@ -209,15 +210,17 @@ const SignInScreen = () => {
                 <Text style={{color: '#009387', marginTop:15}}>Forgot password?</Text>
             </TouchableOpacity>
             <View style={styles.button}>
-                <TouchableOpacity
-                    style={styles.signIn}
+            <TouchableOpacity
+                    style={[styles.signIn, {
+                        borderColor: '#009387',
+                        borderWidth: 1,
+                        marginTop: 15
+                    }]}
                     onPress={() => {loginHandle( data.username, data.password )}}
                 >
-                    <View backgroundColor="#009387">
                     <Text style={[styles.textSign, {
-                        color:'#fff'
+                        color:'#009387'
                     }]}>Sign In</Text>
-                    </View>
                 </TouchableOpacity>
             </View>
         </Animatable.View>
@@ -288,7 +291,6 @@ const styles = StyleSheet.create({
         height: 50,
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 10,
         borderRadius: 10
     },
     textSign: {
