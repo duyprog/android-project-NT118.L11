@@ -37,8 +37,6 @@ import RootStackScreen from './screen/RootStackScreen';
 import AsyncStorage from '@react-native-community/async-storage';
 
 const App = () => {
-  // const [isLoading, setIsLoading] = React.useState(true);
-  // const [userToken, setUserToken] = React.useState(null); 
 
   const [isDarkTheme, setIsDarkTheme] = React.useState(false);
 
