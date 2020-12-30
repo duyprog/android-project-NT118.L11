@@ -43,7 +43,7 @@ import Table from '../../components/Table';
 class SelectTable extends Component {
     componentDidMount(){
         this.props.fetchTable();
-        console.log(this.props.table);
+        console.log(this.props.choosedTable);
     }
     render(){
         return(
@@ -103,13 +103,13 @@ SelectTable.propTypes = {
     fetchTable: PropTypes.func.isRequired,
     chooseATable: PropTypes.func.isRequired, 
     table: PropTypes.array.isRequired,
-    //choosedTable: PropTypes.number.isRequired,
+    choosedTable: PropTypes.number.isRequired,
 }
 
 const mapStateToProps = state => {
     return{
         table: state.tableReducer.tableData.table,
-       // choosedTable: state.tableReducer.tableData.choosedTable,
+        choosedTable: state.tableReducer.tableData.choosedTable,
     };
 }
 export default connect(mapStateToProps, {fetchTable, chooseATable}) (SelectTable);
