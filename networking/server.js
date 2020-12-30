@@ -1,4 +1,5 @@
-const ipToDatabase = 'http://192.168.0.100:3000'
+import { IP } from '../components/IP'
+const ipToDatabase = 'http://'+ IP +':3000'
 const apiInsertAStaff = ipToDatabase + '/api/staffs/createStaff'
 const apiGetAllStaff = ipToDatabase + '/api/staffs/getAllStaff';
 const apiDeleteAStaff = ipToDatabase + '/api/staffs/deleteStaff/'
