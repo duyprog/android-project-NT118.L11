@@ -1,4 +1,4 @@
-import {FETCHING_RECEIPT_REQUEST, FETCHING_RECEIPT_FAILURE, FETCHING_RECEIPT_COMPLETE_SUCCESS, FETCHING_RECEIPT_INCOMPLETE_SUCCESS} from './types';
+import {FETCHING_RECEIPT_REQUEST, FETCHING_RECEIPT_FAILURE, FETCHING_RECEIPT_COMPLETE_SUCCESS, FETCHING_RECEIPT_INCOMPLETE_SUCCESS, CHOOSE_RECEIPT_TO_SEE} from './types';
 
 import { IP } from '../../components/IP';
 
@@ -21,7 +21,17 @@ export const fetchingReceiptFailure = (error) => ({
     payload: error,
 });
 
+export const chooseReceipt = (receiptID) =>({
+    type: CHOOSE_RECEIPT_TO_SEE, 
+    payload: receiptID
+}) 
 
+
+export const chooseReceiptToSee = (receiptID) =>{
+    return async dispatch => {
+        dispatch(chooseReceipt(receiptID));
+    }
+}
 export const fetchCompleteReceipt = () => {
     return async dispatch => {
        dispatch(fetchingReceiptRequest());

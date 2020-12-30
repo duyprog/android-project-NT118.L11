@@ -2,36 +2,13 @@ import React, { Component } from 'react'
 import {Text, View, StyleSheet, FlatList, Animated, TouchableOpacity, Image } from 'react-native'
 import Swipable from 'react-native-gesture-handler/Swipeable'
 import { useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
-
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {connect} from 'react-redux';
+import {fetchInCompleteReceipt} from '../../redux/actions/receiptActions';
+import PropTypes from 'prop-types'
 import Table from '../../image/cart/table-cart.png'
 
-const CartHis = [
-    {
-        id: 1,
-        numberTable: 'Bàn 01',
-        time: '10:45 AM',
-        code: '0001'
-    },
-    {
-        id: 2,
-        numberTable: 'Bàn 06',
-        time: '10:53 AM',
-        code: '0002'
-    },
-    {
-        id: 3,
-        numberTable: 'Bàn 18',
-        time: '11:09 AM',
-        code: '0003'
-    },
-    {
-        id: 4,
-        numberTable: 'Bàn 03',
-        time: '11:21 AM',
-        code: '0004'
-    }
-]
+
 
 function CartH ({item}) {
     const navigation = useNavigation()
@@ -43,58 +20,43 @@ function CartH ({item}) {
                 <Image  source={Table}
                         style={styles.imageStyle} />
                 <View style={{justifyContent: 'center', marginLeft: 20}}>
-                    <Text style={styles.textTable}> {item.numberTable} </Text>
-                    <Text style={styles.textTime}> {item.time} </Text>
-                    <Text> Mã đơn hàng: {item.code} </Text>
+                    <Text style={styles.textTable}>Số bàn: {item.TBID} </Text>
+                    <Text style={styles.textTime}>Ngày tạo: {item.createTime} </Text>
+                    <Text> Mã đơn hàng: {item.RECEIPT_ID} </Text>
                 </View>
             </View>
         </TouchableOpacity>
     )
 }
 
-function CartHistory() {
-    const RightActions = (progress, dragX) => {
-        const scale = dragX.interpolate({
-          inputRange: [-100, 0],
-          outputRange: [0.7, 0]
-        })
-        return (
-          <>
-            <View style={{ 
-                backgroundColor: 'red', 
-                justifyContent: 'center',
-                marginBottom: 5,
-                marginTop: 5,
-                padding: 6,
-    }}>
-              <Animated.Text
-                style={{
-                  fontSize: 35,
-                  color: 'white',
-                  paddingHorizontal: 10,
-                  fontWeight: '600'
-                }}>
-                <Icon name="delete" size={40} color={'#fff'} />
-              </Animated.Text>
-            </View>
-           
-          </>
-        )
-       }
-    return(
-        <FlatList
-            data={CartHis}
-            renderItem={({item}) =>
-                <View>
-                    <Swipable
-                        renderRightActions={RightActions}
-                        >
+class CartHistory extends Component {
+    componentDidMount(){
+        this.props.fetchInCompleteReceipt();
+    }
+  render()
+    {
+        return(
+            <FlatList
+                data={this.props.incompleteReceipt}
+                renderItem={({item}) =>
+                    <View>                  
                         <CartH item={item}></CartH>
-                    </Swipable>
-                </View>}
-            keyExtractor={(item) => `${item.id}`} >
-        </FlatList>
-    )
+                    </View>}
+                keyExtractor={(item) => `${item.RECEIPT_ID}`} >
+            </FlatList>
+        )
+    }
+}
+
+CartHistory.propsTypes = {
+    fetchInCompleteReceipt: PropTypes.func.isRequired,
+    incompleteReceipt: PropTypes.array.isRequired
+}
+
+const mapStateToProps = state =>{
+    return{
+        incompleteReceipt: state.receiptReducer.receiptData.incompleteReceipt
+    }
 }
 
 const styles = StyleSheet.create({
@@ -126,4 +88,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default CartHistory
+export default connect(mapStateToProps, {fetchInCompleteReceipt}) (CartHistory);
