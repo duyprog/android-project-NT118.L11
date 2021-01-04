@@ -7,18 +7,18 @@ import {fetchDetailById} from '../../redux/actions/receiptDetailActions';
 
 
 
-function CartD( item ) {
+function CartD( {item} ) {
     return(
         <View style={{alignSelf: 'center'}}>
             <View style={styles.card}>
                 <View style={styles.cardImgWrapper}>
-                    <Image source={item.IMAGE_URL}
+                    <Image source={{uri: item.IMAGE_URL}}
                             style={styles.cardImg}
                             resizeMode="cover" />
                 </View>
                 <View style={styles.cardInfo}>
                     <Text style={styles.cardTitle}> {item.ITEM_NAME} x {item.QUANTITY} </Text>
-                    <Text style={styles.cardDetails}> {item.price} </Text>
+                    <Text style={styles.cardDetails}> {item.UNITPRICE} đ</Text>
                 </View>
             </View>
         </View>
@@ -27,20 +27,20 @@ function CartD( item ) {
 class CartDetail extends Component {
     componentDidMount(){
         this.props.fetchDetailById(this.props.chooseReceipt); 
-        console.log(this.props.chooseReceipt);
+        console.log(this.props.receiptDetail);
     }
     render()
     {
         return(
             <SafeAreaView>
-                {/* <View style={styles.container}>
+                 <View style={styles.container}>
                     <Text style={styles.label}> Thông tin bàn </Text>
                     <View style={styles.infoTable}>
-                        <Text style={{fontSize: 17}}> Số bàn: {this.props.receiptDetail[0].TBID} </Text>
-                        <Text style={{fontSize: 17}}> Thời gian: {this.props.receiptDetail[0].createTime} </Text>
-                        <Text style={{fontSize: 17}}> Mã đơn hàng: {this.props.receiptDetail[0].RECEIPT_ID} </Text>
+                        <Text style={{fontSize: 17}}> Số bàn: {this.props.receiptDetail[1].TBID} </Text>
+                        <Text style={{fontSize: 17}}> Thời gian: {this.props.receiptDetail[1].createTime} </Text>
+                        <Text style={{fontSize: 17}}> Mã đơn hàng: {this.props.receiptDetail[1].RECEIPT_ID} </Text>
                     </View>
-                </View> */}
+                </View> 
                 <View style={styles.container}>
                     <Text style={styles.label}> Chi tiết đơn hàng </Text>
                 </View>
