@@ -103,13 +103,13 @@ SelectTable.propTypes = {
     fetchTable: PropTypes.func.isRequired,
     chooseATable: PropTypes.func.isRequired, 
     table: PropTypes.array.isRequired,
-    choosedTable: PropTypes.number.isRequired,
+    choosedTable: PropTypes.string.isRequired,
 }
 
 const mapStateToProps = state => {
     return{
         table: state.tableReducer.tableData.table,
-        choosedTable: state.tableReducer.tableData.choosedTable,
+        choosedReceipt: state.receiptReducer.receiptData.chooseReceipt,
     };
 }
 export default connect(mapStateToProps, {fetchTable, chooseATable}) (SelectTable);

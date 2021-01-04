@@ -1,97 +1,86 @@
 import React, { Component } from 'react'
 import { Text, View, Image, FlatList, TouchableOpacity, StyleSheet , SafeAreaView } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import {connect} from 'react-redux'; 
+import PropTypes from 'prop-types'; 
+import {fetchDetailById} from '../../redux/actions/receiptDetailActions';
 
-const order = [
-    {
-        id: 1,
-        foodName: 'Pizza',
-        price: 300000,
-        image: [
-            {
-                url: 'https://www.thucphamsachhd.com/uploads/files/2017/10/03/Steak-meat-34450442-1302-1020.jpg'
-            }
-        ],
-        sl: 3,
-        total: 900000
-    },
-    {
-        id: 2,
-        foodName: 'Beefsteak',
-        price: 240000,
-        image: [
-            {
-                url: 'https://img-global.cpcdn.com/recipes/39ca2c2a0e1fb011/751x532cq70/mi-y-s%E1%BB%91t-bo-bam-spaghetti-bolognese-recipe-main-photo.jpg'
-            }
-            
-        ],
-        sl: 2,
-        total: 480000
-    }
-]
 
-const details = 
-    {
-        id: 1,
-        name: 'Bàn 01',
-        time: '10:45 AM',
-        code: '0001'
-    }
 
-function CartD({ item }) {
+function CartD( item ) {
     return(
         <View style={{alignSelf: 'center'}}>
             <View style={styles.card}>
                 <View style={styles.cardImgWrapper}>
-                    <Image source={{uri: item.image[0].url}}
+                    <Image source={item.IMAGE_URL}
                             style={styles.cardImg}
                             resizeMode="cover" />
                 </View>
                 <View style={styles.cardInfo}>
-                    <Text style={styles.cardTitle}> {item.foodName} x{item.sl} </Text>
-                    <Text style={styles.cardDetails}> {item.total} </Text>
+                    <Text style={styles.cardTitle}> {item.ITEM_NAME} x {item.QUANTITY} </Text>
+                    <Text style={styles.cardDetails}> {item.price} </Text>
                 </View>
             </View>
         </View>
     )
 }
-function CartDetail() {
-    return(
-        <SafeAreaView>
-            <View style={styles.container}>
-                <Text style={styles.label}> Thông tin bàn </Text>
-                <View style={styles.infoTable}>
-                    <Text style={{fontSize: 17}}> Số bàn: {details.name} </Text>
-                    <Text style={{fontSize: 17}}> Thời gian: {details.time} </Text>
-                    <Text style={{fontSize: 17}}> Mã đơn hàng: {details.code} </Text>
-                </View>
-            </View>
-            <View style={styles.container}>
-                <Text style={styles.label}> Chi tiết đơn hàng </Text>
-            </View>
-            <FlatList 
-                data={order}
-                renderItem={({item}) => 
-                    <View>
-                        <CartD item={item} />
-                    </View>}
-                keyExtractor={(item) => `${item.id}`}
-            />
-            <View style={{borderTopWidth: 1, borderTopColor: '#c4c4c4', marginTop: 10}}>
-                <Text style={{fontSize: 18, fontWeight: '700', margin: 5}}> Tổng cộng: 1.380.000đ </Text>
-            </View>
-            <View style={styles.btnView}>
-                <TouchableOpacity
-                    activeOpacity={0.5}
-                    >
-                    <View style={styles.payBtn}>
-                        <Text style={styles.payText}> Thanh toán </Text>
+class CartDetail extends Component {
+    componentDidMount(){
+        this.props.fetchDetailById(this.props.chooseReceipt); 
+        console.log(this.props.chooseReceipt);
+    }
+    render()
+    {
+        return(
+            <SafeAreaView>
+                {/* <View style={styles.container}>
+                    <Text style={styles.label}> Thông tin bàn </Text>
+                    <View style={styles.infoTable}>
+                        <Text style={{fontSize: 17}}> Số bàn: {this.props.receiptDetail[0].TBID} </Text>
+                        <Text style={{fontSize: 17}}> Thời gian: {this.props.receiptDetail[0].createTime} </Text>
+                        <Text style={{fontSize: 17}}> Mã đơn hàng: {this.props.receiptDetail[0].RECEIPT_ID} </Text>
                     </View>
-                </TouchableOpacity>
-            </View>
-        </SafeAreaView>
-    )
+                </View> */}
+                <View style={styles.container}>
+                    <Text style={styles.label}> Chi tiết đơn hàng </Text>
+                </View>
+                <FlatList 
+                    data={this.props.receiptDetail}
+                    renderItem={({item}) => 
+                        <View>
+                            <CartD item={item} />
+                        </View>}
+                    keyExtractor={(item) => `${item.ITEM_ID}`}
+                />
+                <View style={{borderTopWidth: 1, borderTopColor: '#c4c4c4', marginTop: 10}}>
+                    <Text style={{fontSize: 18, fontWeight: '700', margin: 5}}> Tổng cộng: 1.380.000đ </Text>
+                </View>
+                <View style={styles.btnView}>
+                    <TouchableOpacity
+                        activeOpacity={0.5}
+                        >
+                        <View style={styles.payBtn}>
+                            <Text style={styles.payText}> Thanh toán </Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+            </SafeAreaView>
+        )
+    }
 }
+CartDetail.propsTypes = {
+    fetchDetailById: PropTypes.func.isRequired,
+    receiptDetail: PropTypes.array.isRequired, 
+    chooseReceipt: PropTypes.string.isRequired
+}
+
+const mapStateToProps = state => {
+    return { 
+        receiptDetail: state.receiptDetailReducer.receiptDetailData.receiptDetail,
+        chooseReceipt: state.receiptReducer.receiptData.chooseReceipt
+    }
+}
+export default connect(mapStateToProps, {fetchDetailById}) (CartDetail);
 
 const styles = StyleSheet.create({
     label: {
@@ -171,4 +160,3 @@ const styles = StyleSheet.create({
     }
 })
 
-export default CartDetail
