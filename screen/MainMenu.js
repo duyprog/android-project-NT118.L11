@@ -12,8 +12,9 @@ const MainMenu = ({ navigation }) => {
                 <Swiper 
                     height={200}
                     autoplay={true}
-                    horizontal={false}
-                    activeDotColor='#de5543'>
+                    horizontal={true}
+                    activeDotColor='#de5543'
+                    autoplayTimeout={3}>
                     <View style={styles.slide}>
                         <Image
                             source={{uri:'https://www.helpguide.org/wp-content/uploads/fast-foods-candy-cookies-pastries-768.jpg'}}
@@ -41,8 +42,10 @@ const MainMenu = ({ navigation }) => {
                         navigation.navigate('Select table')
                     }}>
                     <View  style={styles.viewStyle}>
-                        <Image source={ AtStore }
-                               style={styles.imageView} />
+                        <View style={{borderWidth: 1, borderColor: '#c4c4c4', padding: 5, borderRadius: 8}}>
+                            <Image source={ AtStore }
+                                style={styles.imageView} />
+                        </View>
                         <Text style={styles.text}> Tại chỗ </Text>
                     </View>
                 </TouchableOpacity>
@@ -52,8 +55,10 @@ const MainMenu = ({ navigation }) => {
                         navigation.navigate('Food Menu')
                     }}>
                     <View  style={styles.viewStyle}>
-                        <Image source={ Takeaway }
-                               style={styles.imageView} />
+                        <View style={{borderWidth: 1, borderColor: '#c4c4c4', padding: 5, borderRadius: 8}}>
+                            <Image source={ Takeaway }
+                                style={styles.imageView} />
+                        </View>
                         <Text style={styles.text}> Mang đi </Text>
                     </View>
                 </TouchableOpacity>
