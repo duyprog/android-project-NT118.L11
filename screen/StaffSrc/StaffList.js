@@ -44,10 +44,7 @@ class StaffList extends Component {
     componentDidMount(){
        // this.refreshDataFromServer();
        this.props.fetchStaff();
-<<<<<<< HEAD
-=======
        console.log(this.props.staff);
->>>>>>> main
     }
     // Right action on Swipeable
     // RightActions = (progress, dragX) => {

@@ -136,7 +136,4 @@ const styles = StyleSheet.create({
         marginTop: 5
     }
 })
-<<<<<<< HEAD
-=======
 export default connect(mapStateToProps, {fetchFood}) (FoodDetails);
->>>>>>> main
