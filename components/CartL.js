@@ -5,14 +5,14 @@ import {chooseReceiptToSee} from '../redux/actions/receiptActions'
 import PropTypes from 'prop-types';
 import { useNavigation } from '@react-navigation/native';
 import Table from '../image/cart/table-cart.png'
-function CartL ({item, chooseReceiptToSee}) {
+function CartL ({item, chooseReceiptToSee, nav}) {
     const navigation = useNavigation()
     return(
         <TouchableOpacity
             activeOpacity={0.5}
             onPress={() => 
             {
-                 navigation.navigate('Cart Detail');
+                 navigation.navigate(nav);
                  chooseReceiptToSee(item.RECEIPT_ID);
              }}>
             <View style={styles.view}>
