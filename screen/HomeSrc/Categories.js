@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet, TouchableOpacity} from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity} from 'react-native'
 import CategoryListItems from '../../components/CategoryListItems'
 import { ScrollView } from 'react-native-gesture-handler';
 
@@ -72,6 +72,14 @@ const Categories = ({navigation}) => {
                         uri={require('../../image/foodMenu/dessert.png')}/>
                 </TouchableOpacity>
             </View>
+            <View style={{alignItems: 'center', marginTop: 15}}>
+                <TouchableOpacity
+                    activeOpacity={0.5}>
+                    <View style={styles.orderBtn}>
+                        <Text style={styles.orderText}> Kiểm tra </Text>
+                    </View>
+                </TouchableOpacity>
+            </View>
         </ScrollView>
     )
 }
@@ -82,6 +90,21 @@ const styles = StyleSheet.create({
         alignSelf: 'center', 
         borderBottomColor: '#000',
         borderBottomWidth: 1,
-    }
+    },
+    orderBtn: {
+        backgroundColor: '#de5543',
+        borderRadius: 20,
+        height: 40,
+        width: 130,
+        alignItems: 'center'
+    },
+    orderText: {
+        textTransform: 'uppercase',
+        fontWeight: '700',
+        alignSelf: 'center',
+        marginTop: 8,
+        color: '#fff',
+        fontSize: 17
+    },
 })
 export default Categories
