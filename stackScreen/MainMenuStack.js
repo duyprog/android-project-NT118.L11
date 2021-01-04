@@ -20,65 +20,47 @@ function MainMenuStackScreen() {
             name="Home" 
             component={MainMenu} 
             options={{title: 'Nhà hàng', 
-                      headerTitleStyle: {alignSelf: 'center'},
-                      headerStyle: {backgroundColor: "#de5543"},
-                      headerTintColor: '#fff'
+                      headerTitleStyle: {alignSelf: 'center'}
                     }}/>
         <MainMenuStack.Screen 
             name="Select table" 
             component={SelectTable} 
-            options={{title: 'Tại chỗ',
-                      headerStyle: {backgroundColor: "#de5543"},
-                      headerTintColor: '#fff'
+            options={{title: 'Tại chỗ'
                     }}/>
         <MainMenuStack.Screen 
             name="Food Menu" 
             component={Categories} 
-            options={{title: 'Thực đơn',
-                      headerStyle: {backgroundColor: "#de5543"},
-                      headerTintColor: '#fff'
+            options={{title: 'Thực đơn'
                     }}/>
         <MainMenuStack.Screen 
             name="Fast Foods Details" 
             component={FastFoodsDetails} 
-            options={{title: 'Thức ăn nhanh',
-                      headerStyle: {backgroundColor: "#de5543"},
-                      headerTintColor: '#fff'                   
+            options={{title: 'Thức ăn nhanh'                   
                     }}/>
         <MainMenuStack.Screen 
             name="Hot Pot Details" 
             component={HotPotDetails} 
-            options={{title: 'Lẩu',
-                      headerStyle: {backgroundColor: "#de5543"},
-                      headerTintColor: '#fff'                   
+            options={{title: 'Lẩu'                  
                     }}/>
         <MainMenuStack.Screen 
             name="Fried Details" 
             component={FriedDetails} 
-            options={{title: 'Món chiên xào',
-                      headerStyle: {backgroundColor: "#de5543"},
-                      headerTintColor: '#fff'                   
+            options={{title: 'Món chiên xào'                  
                     }}/>
         <MainMenuStack.Screen 
             name="Noodles Details" 
             component={NoodlesDetails} 
-            options={{title: 'Món nước',
-                      headerStyle: {backgroundColor: "#de5543"},
-                      headerTintColor: '#fff'                   
+            options={{title: 'Món nước'                   
                     }}/> 
         <MainMenuStack.Screen 
             name="Drinks Details" 
             component={DrinksDetails} 
-            options={{title: 'Thức uống',
-                      headerStyle: {backgroundColor: "#de5543"},
-                      headerTintColor: '#fff'                   
+            options={{title: 'Thức uống'                  
                     }}/>
         <MainMenuStack.Screen 
             name="Desserts Details" 
             component={DessertsDetails} 
-            options={{title: 'Tráng miệng',
-                      headerStyle: {backgroundColor: "#de5543"},
-                      headerTintColor: '#fff'                   
+            options={{title: 'Tráng miệng'                   
                     }}/>
       </MainMenuStack.Navigator>
     )
