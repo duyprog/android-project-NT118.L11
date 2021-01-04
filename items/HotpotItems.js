@@ -35,11 +35,11 @@ export default function HotpotItems(props){
                 </View>
             </Modal>
             <View style={styles.container}>
-                <Image style={styles.img} source={{uri: hotpotItem.images[0].url}}/>
+                <Image style={styles.img} source={{uri: hotpotItem.IMAGE_URL}}/>
                 <View style={styles.info}>
-                    <Text style={styles.name}>{hotpotItem.name}</Text>
+                    <Text style={styles.name}>{hotpotItem.ITEM_NAME}</Text>
                     <View style={styles.priceRow}>
-                        <Text style={styles.price}>{hotpotItem.price}đ</Text>
+                        <Text style={styles.price}>{hotpotItem.UNITPRICE}đ</Text>
                     </View>
                 </View>
             </View>

@@ -5,7 +5,11 @@ export default class CategoryListItems extends Component {
     render() {
         return (
             <View style={styles.containter}>
-                <Image style={styles.CategoryImage} source={this.props.uri}/>
+                <View style={{borderWidth: 1, borderColor: '#c4c4c4', padding: 5, borderRadius: 8}}>
+                    <Image 
+                        style={styles.CategoryImage} 
+                        source={this.props.uri}/>
+                </View>
                 <Text style={styles.title}> {this.props.title} </Text>
             </View>
         )
@@ -14,24 +18,19 @@ export default class CategoryListItems extends Component {
 
 const styles = StyleSheet.create({
     CategoryImage:{
-        width: 78, 
-        height: 78,
-        marginLeft: 10
+        width: 70,
+        height: 70
     },
     containter:{
-        alignItems: 'center',
-        padding: 14,
-        borderRadius: 6,
-        backgroundColor: '#FFF',
-        elevation: 5,
-        marginBottom: 14,
-        flexDirection: 'row'
+        alignSelf: 'center',
+        padding: 16,
+        marginLeft: 10,
+        marginRight: 10
     }, 
     title:{
-        textTransform: 'uppercase', 
-        fontWeight: '700',
         alignSelf: 'center',
-        fontSize: 18,
-        marginLeft: 20
+        fontSize: 16,
+        color: '#000',
+        marginTop: 5
     }
 })

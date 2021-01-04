@@ -5,11 +5,18 @@ INJECTED from D:\1_HocTap\HK5\App Development on Mobile Device\android-project-N
 INJECTED from D:\1_HocTap\HK5\App Development on Mobile Device\android-project-NT118.L11\android\app\src\main\AndroidManifest.xml:1:1-27:12
 INJECTED from D:\1_HocTap\HK5\App Development on Mobile Device\android-project-NT118.L11\android\app\src\main\AndroidManifest.xml:1:1-27:12
 MERGED from D:\1_HocTap\HK5\App Development on Mobile Device\android-project-NT118.L11\android\app\src\main\AndroidManifest.xml:1:1-27:12
+<<<<<<< HEAD
 MERGED from [com.facebook.flipper:flipper:0.54.0] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\1c7787ec82631e0394972c76bdabe608\flipper-0.54.0\AndroidManifest.xml:8:1-18:12
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.54.0] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\bd2cab46fd45b530a274001375333ead\flipper-network-plugin-0.54.0\AndroidManifest.xml:8:1-15:12
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.54.0] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\dd7dfafbb0af41b4347f18654ea5c436\flipper-fresco-plugin-0.54.0\AndroidManifest.xml:8:1-15:12
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\d8031ba7ad89eac391d4216992656ff2\multidex-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [:react-native-community_async-storage] D:\1_HocTap\HK5\App Development on Mobile Device\android-project-NT118.L11\node_modules\@react-native-community\async-storage\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
+=======
+MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\d8031ba7ad89eac391d4216992656ff2\multidex-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.flipper:flipper:0.54.0] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\1c7787ec82631e0394972c76bdabe608\flipper-0.54.0\AndroidManifest.xml:8:1-18:12
+MERGED from [com.facebook.flipper:flipper-network-plugin:0.54.0] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\bd2cab46fd45b530a274001375333ead\flipper-network-plugin-0.54.0\AndroidManifest.xml:8:1-15:12
+MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.54.0] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\dd7dfafbb0af41b4347f18654ea5c436\flipper-fresco-plugin-0.54.0\AndroidManifest.xml:8:1-15:12
+>>>>>>> main
 MERGED from [:react-native-community_datetimepicker] D:\1_HocTap\HK5\App Development on Mobile Device\android-project-NT118.L11\node_modules\@react-native-community\datetimepicker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-13:12
 MERGED from [:react-native-community_masked-view] D:\1_HocTap\HK5\App Development on Mobile Device\android-project-NT118.L11\node_modules\@react-native-community\masked-view\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-picker_picker] D:\1_HocTap\HK5\App Development on Mobile Device\android-project-NT118.L11\node_modules\@react-native-picker\picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
@@ -21,7 +28,10 @@ MERGED from [:react-native-vector-icons] D:\1_HocTap\HK5\App Development on Mobi
 MERGED from [com.facebook.react:react-native:0.63.3] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\4b4b5f63d7e03aeb21fe3bcb0aaffba4\jetified-react-native-0.63.3\AndroidManifest.xml:2:1-13:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\37b6f551bc5ae153b0b627de8f563815\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [org.webkit:android-jsc:r245459] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\6dd6245206e34676e1ee3aa6ee0f68c9\android-jsc-r245459\AndroidManifest.xml:2:1-11:12
+<<<<<<< HEAD
 MERGED from [:react-native-linear-gradient] D:\1_HocTap\HK5\App Development on Mobile Device\android-project-NT118.L11\node_modules\react-native-linear-gradient\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+=======
+>>>>>>> main
 MERGED from [com.facebook.fresco:flipper:2.2.0] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\40741ffe3de6a11d99116b4e82d60d46\flipper-2.2.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:stetho:2.2.0] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\03aa51752e7d7098a02114b07907dabd\stetho-2.2.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:fresco:2.2.0] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\e9f56679cbe795a6f7c93e9a035f66f2\fresco-2.2.0\AndroidManifest.xml:2:1-9:12
@@ -164,16 +174,24 @@ uses-sdk
 INJECTED from D:\1_HocTap\HK5\App Development on Mobile Device\android-project-NT118.L11\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\1_HocTap\HK5\App Development on Mobile Device\android-project-NT118.L11\android\app\src\main\AndroidManifest.xml
 INJECTED from D:\1_HocTap\HK5\App Development on Mobile Device\android-project-NT118.L11\android\app\src\main\AndroidManifest.xml
+<<<<<<< HEAD
+=======
+MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\d8031ba7ad89eac391d4216992656ff2\multidex-2.0.0\AndroidManifest.xml:20:5-43
+MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\d8031ba7ad89eac391d4216992656ff2\multidex-2.0.0\AndroidManifest.xml:20:5-43
+>>>>>>> main
 MERGED from [com.facebook.flipper:flipper:0.54.0] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\1c7787ec82631e0394972c76bdabe608\flipper-0.54.0\AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper:0.54.0] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\1c7787ec82631e0394972c76bdabe608\flipper-0.54.0\AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.54.0] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\bd2cab46fd45b530a274001375333ead\flipper-network-plugin-0.54.0\AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.54.0] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\bd2cab46fd45b530a274001375333ead\flipper-network-plugin-0.54.0\AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.54.0] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\dd7dfafbb0af41b4347f18654ea5c436\flipper-fresco-plugin-0.54.0\AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.54.0] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\dd7dfafbb0af41b4347f18654ea5c436\flipper-fresco-plugin-0.54.0\AndroidManifest.xml:11:5-13:41
+<<<<<<< HEAD
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\d8031ba7ad89eac391d4216992656ff2\multidex-2.0.0\AndroidManifest.xml:20:5-43
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\d8031ba7ad89eac391d4216992656ff2\multidex-2.0.0\AndroidManifest.xml:20:5-43
 MERGED from [:react-native-community_async-storage] D:\1_HocTap\HK5\App Development on Mobile Device\android-project-NT118.L11\node_modules\@react-native-community\async-storage\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-community_async-storage] D:\1_HocTap\HK5\App Development on Mobile Device\android-project-NT118.L11\node_modules\@react-native-community\async-storage\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+=======
+>>>>>>> main
 MERGED from [:react-native-community_datetimepicker] D:\1_HocTap\HK5\App Development on Mobile Device\android-project-NT118.L11\node_modules\@react-native-community\datetimepicker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-community_datetimepicker] D:\1_HocTap\HK5\App Development on Mobile Device\android-project-NT118.L11\node_modules\@react-native-community\datetimepicker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-community_masked-view] D:\1_HocTap\HK5\App Development on Mobile Device\android-project-NT118.L11\node_modules\@react-native-community\masked-view\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
@@ -196,8 +214,11 @@ MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\tina
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\37b6f551bc5ae153b0b627de8f563815\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [org.webkit:android-jsc:r245459] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\6dd6245206e34676e1ee3aa6ee0f68c9\android-jsc-r245459\AndroidManifest.xml:7:5-9:41
 MERGED from [org.webkit:android-jsc:r245459] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\6dd6245206e34676e1ee3aa6ee0f68c9\android-jsc-r245459\AndroidManifest.xml:7:5-9:41
+<<<<<<< HEAD
 MERGED from [:react-native-linear-gradient] D:\1_HocTap\HK5\App Development on Mobile Device\android-project-NT118.L11\node_modules\react-native-linear-gradient\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-linear-gradient] D:\1_HocTap\HK5\App Development on Mobile Device\android-project-NT118.L11\node_modules\react-native-linear-gradient\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+=======
+>>>>>>> main
 MERGED from [com.facebook.fresco:flipper:2.2.0] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\40741ffe3de6a11d99116b4e82d60d46\flipper-2.2.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:flipper:2.2.0] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\40741ffe3de6a11d99116b4e82d60d46\flipper-2.2.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:stetho:2.2.0] C:\Users\tinanthedrew\.gradle\caches\transforms-2\files-2.1\03aa51752e7d7098a02114b07907dabd\stetho-2.2.0\AndroidManifest.xml:5:5-7:41
