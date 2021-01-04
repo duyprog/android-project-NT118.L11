@@ -3,7 +3,7 @@ import {View, StyleSheet, FlatList, Text } from 'react-native'
 import StaffListComp from '../../components/StaffListComp'
 import { fetchStaff, deleteStaff } from '../../redux/actions/staffActions';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import {
     MenuProvider, Menu, MenuTrigger, MenuOptions, MenuOption
 } from 'react-native-popup-menu';
@@ -44,6 +44,10 @@ class StaffList extends Component {
     componentDidMount(){
        // this.refreshDataFromServer();
        this.props.fetchStaff();
+<<<<<<< HEAD
+=======
+       console.log(this.props.staff);
+>>>>>>> main
     }
     // Right action on Swipeable
     // RightActions = (progress, dragX) => {
@@ -82,7 +86,7 @@ class StaffList extends Component {
         return (
             <MenuProvider>
             <FlatList
-                data={this.props.randomStaffs.staff}
+                data={this.props.staff}
                 renderItem={({item}) =>
                 
                     <View style={{flex: 1, flexDirection: 'row'}}>
@@ -114,7 +118,7 @@ class StaffList extends Component {
 }
 StaffList.propTypes = {
     fetchStaff: PropTypes.func.isRequired,
-    randomStaffs: PropTypes.object.isRequired
+    staff: PropTypes.array.isRequired
 }
 const styles = StyleSheet.create({
     seperatorLine:{
@@ -124,7 +128,7 @@ const styles = StyleSheet.create({
 });
 const mapStateToProps = state =>{
     return{
-        randomStaffs: state
+        staff: state.staffReducer.staffData.staff
     };
 }
 export default connect(mapStateToProps, {fetchStaff, deleteStaff}) (StaffList);

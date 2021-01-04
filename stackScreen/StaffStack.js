@@ -14,15 +14,18 @@ function StaffStackScreen() {
             name="Staff" 
             component={Staff} 
             options={{title: 'Nhân sự', 
-                      headerTitleStyle: {alignSelf:'center'}}}/>
+                      headerTitleStyle: {alignSelf:'center'}                
+                    }}/>
         <StaffStack.Screen 
             name="Add Staff" 
             component={AddStaff} 
-            options={{title: 'Thêm nhân sự'}}/>
+            options={{title: 'Thêm nhân sự'               
+                    }}/>
         <StaffStack.Screen 
             name="Staff List" 
             component={StaffList} 
-            options={{title: 'Danh sách nhân sự'}}/>
+            options={{title: 'Danh sách nhân sự'               
+                    }}/>
       </StaffStack.Navigator>
     )
 }

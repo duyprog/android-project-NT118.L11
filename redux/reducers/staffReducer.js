@@ -3,11 +3,11 @@ import { FETCHING_STAFF_REQUEST, FETCHING_STAFF_SUCCESS, FETCHING_STAFF_FAILURE,
 from '../actions/types';
 
 const initialState = {
+  staffData:{
     refreshing: false,
     staff: [],
-    deleteID: '',
-    username: '',
-    password: ''
+    deleteID: ''
+  }
 };
 
 const staffReducer = (state=initialState, action) =>{
@@ -19,20 +19,40 @@ const staffReducer = (state=initialState, action) =>{
         case LOGIN_SUCCESS:
             return { ...state, refreshing: false, staff: action.payload};        
         case FETCHING_STAFF_REQUEST: 
-            return { ...state, refreshing: true};
+            return {...state, 
+                staffData:{...state.staffData, 
+                refreshing: true, 
+            }};
         case FETCHING_STAFF_FAILURE:
-            return {...state, refreshing: false};
+            return {...state, 
+                staffData:{...state.staffData, 
+                refreshing: false, 
+            }};
         case FETCHING_STAFF_SUCCESS:
-            return {...state, refreshing: false, staff: action.payload};
+            return {...state, 
+                    staffData:{...state.staffData, 
+                    refreshing: false, 
+                    staff: action.payload}};
         case DELETE_STAFF_REQUEST:
-            return { ...state, refreshing: true };
+            return {...state, 
+                staffData:{...state.staffData, 
+                refreshing: true, 
+            }};
         case DELETE_STAFF_SUCCESS: 
-            return {...state, refreshing: false};
+        return {...state, 
+            staffData:{...state.staffData, 
+            refreshing: false, 
+        }};
         case DELETE_STAFF_FAILURE:
-            return {...state, refreshing: false};
+            return {...state, 
+                staffData:{...state.staffData, 
+                refreshing: false, 
+            }};
         case SWIPE_TO_CHOOSE_DELETEID:{
-            return {...state}
-        }
+            return {...state, 
+                staffData:{...state.staffData, 
+                refreshing: false, 
+            }};        }
         default:
             return state;
     }

@@ -2,13 +2,18 @@ import { FETCHING_STAFF_REQUEST, FETCHING_STAFF_SUCCESS, FETCHING_STAFF_FAILURE,
         DELETE_STAFF_REQUEST, DELETE_STAFF_SUCCESS, DELETE_STAFF_FAILURE,SWIPE_TO_CHOOSE_DELETEID, LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE}
 from './types';
 
+<<<<<<< HEAD
 import { authHeader } from '../../components/auth-header';
 
 import { IP } from '../../components/IP';
 
+=======
+var ip = '192.168.1.16';
+>>>>>>> main
 
 // Fetch Staff
-export const fetchingStaffRequest = () =>({type: FETCHING_STAFF_REQUEST});
+export const fetchingStaffRequest = () =>
+({type: FETCHING_STAFF_REQUEST});
 
 export const fetchingStaffSuccess = (json) => 
 ({
@@ -25,9 +30,12 @@ export const fetchStaff = () => {
     return async dispatch =>{
         dispatch(fetchingStaffRequest());
         try{
+<<<<<<< HEAD
             let response = await fetch('http:/'+ IP +':4000/api/staffs/getAllStaff');
+=======
+            let response = await fetch('http://' + ip + ':8080/api/staffs/getAllStaff');
+>>>>>>> main
             let json = await response.json();
-            console.log(json)
             dispatch(fetchingStaffSuccess(json));
         }
         catch(error){
@@ -59,7 +67,11 @@ export const deleteStaff = (id) => {
     return async dispatch =>{
         dispatch(deleteStaffRequest());
         try{
+<<<<<<< HEAD
             let response = await fetch('http://'+ IP +':4000/api/staffs/deleteStaff/' + id,{
+=======
+            let response = await fetch('http://'+ ip +':8080/api/staffs/deleteStaff/' + id,{
+>>>>>>> main
                 method: 'DELETE',
                 body: JSON.stringify(id)
             });

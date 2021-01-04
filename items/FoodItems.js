@@ -35,11 +35,11 @@ export default function FoodItems(props){
                 </View>
             </Modal>
             <View style={styles.container}>
-                <Image style={styles.img} source={{uri: foodItem.images[0].url}}/>
+                <Image style={styles.img} source={{uri: foodItem.IMAGE_URL}}/>
                 <View style={styles.info}>
-                    <Text style={styles.name}>{foodItem.name}</Text>
+                    <Text style={styles.name}>{foodItem.ITEM_NAME}</Text>
                     <View style={styles.priceRow}>
-                        <Text style={styles.price}>{foodItem.price}đ</Text>
+                        <Text style={styles.price}>{foodItem.UNITPRICE}đ</Text>
                     </View>
                 </View>
             </View>

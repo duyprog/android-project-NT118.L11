@@ -15,19 +15,23 @@ function CartStackScreen() {
             name="Cart" 
             component={Cart} 
             options={{title: 'Đơn hàng', 
-                      headerTitleStyle: {alignSelf:'center'}}}/>
+                      headerTitleStyle: {alignSelf:'center'}                  
+                    }}/>
         <CartStack.Screen 
             name="Cart List" 
             component={CartList} 
-            options={{title: 'Đang phục vụ'}}/>
+            options={{title: 'Đang phục vụ'                
+                    }}/>
         <CartStack.Screen 
             name="Cart History" 
             component={CartHistory} 
-            options={{title: 'Đã hoàn thành'}}/>
+            options={{title: 'Đã hoàn thành'
+                    }}/>
         <CartStack.Screen
             name="Cart Detail"
             component={CartDetail}
-            options={{title: 'Chi tiết đơn hàng'}}/>
+            options={{title: 'Chi tiết đơn hàng'                
+                    }}/>
       </CartStack.Navigator>
     )
 }

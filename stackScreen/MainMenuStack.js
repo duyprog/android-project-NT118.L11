@@ -20,39 +20,48 @@ function MainMenuStackScreen() {
             name="Home" 
             component={MainMenu} 
             options={{title: 'Nhà hàng', 
-                      headerTitleStyle: {alignSelf:'center'}}}/>
+                      headerTitleStyle: {alignSelf: 'center'}
+                    }}/>
         <MainMenuStack.Screen 
             name="Select table" 
             component={SelectTable} 
-            options={{title: 'Chọn bàn'}}/>
+            options={{title: 'Tại chỗ'
+                    }}/>
         <MainMenuStack.Screen 
             name="Food Menu" 
             component={Categories} 
-            options={{title: 'Thực đơn'}}/>
+            options={{title: 'Thực đơn'
+                    }}/>
         <MainMenuStack.Screen 
             name="Fast Foods Details" 
             component={FastFoodsDetails} 
-            options={{title: 'Thức ăn nhanh'}}/>
+            options={{title: 'Thức ăn nhanh'                   
+                    }}/>
         <MainMenuStack.Screen 
             name="Hot Pot Details" 
             component={HotPotDetails} 
-            options={{title: 'Lẩu'}}/>
+            options={{title: 'Lẩu'                  
+                    }}/>
         <MainMenuStack.Screen 
             name="Fried Details" 
             component={FriedDetails} 
-            options={{title: 'Món chiên xào'}}/>
+            options={{title: 'Món chiên xào'                  
+                    }}/>
         <MainMenuStack.Screen 
             name="Noodles Details" 
             component={NoodlesDetails} 
-            options={{title: 'Món nước'}}/> 
+            options={{title: 'Món nước'                   
+                    }}/> 
         <MainMenuStack.Screen 
             name="Drinks Details" 
             component={DrinksDetails} 
-            options={{title: 'Thức uống'}}/>
+            options={{title: 'Thức uống'                  
+                    }}/>
         <MainMenuStack.Screen 
             name="Desserts Details" 
             component={DessertsDetails} 
-            options={{title: 'Tráng miệng'}}/>
+            options={{title: 'Tráng miệng'                   
+                    }}/>
       </MainMenuStack.Navigator>
     )
 }

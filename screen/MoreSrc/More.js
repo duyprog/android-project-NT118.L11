@@ -62,6 +62,13 @@ const More = ({ navigation }) => {
                     </View>
                 </View>
             </View>
+
+            <View>
+                <View>
+                    
+                </View>
+            </View>
+
             <View style={{backgroundColor: '#fff'}}>
                 <View style={styles.infoApp}>
                     <Text style={styles.infoAppLabel}> Về ứng dụng </Text>

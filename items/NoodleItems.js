@@ -35,11 +35,11 @@ export default function NoodleItems(props){
                 </View>
             </Modal>
             <View style={styles.container}>
-                <Image style={styles.img} source={{uri: noodleItem.images[0].url}}/>
+                <Image style={styles.img} source={{uri: noodleItem.IMAGE_URL}}/>
                 <View style={styles.info}>
-                    <Text style={styles.name}>{noodleItem.name}</Text>
+                    <Text style={styles.name}>{noodleItem.ITEM_NAME}</Text>
                     <View style={styles.priceRow}>
-                        <Text style={styles.price}>{noodleItem.price}đ</Text>
+                        <Text style={styles.price}>{noodleItem.UNITPRICE}đ</Text>
                     </View>
                 </View>
             </View>
