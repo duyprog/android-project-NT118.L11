@@ -76,7 +76,7 @@ const Categories = ({navigation}) => {
                 <TouchableOpacity
                     activeOpacity={0.5}>
                     <View style={styles.orderBtn}>
-                        <Text style={styles.orderText}> Order </Text>
+                        <Text style={styles.orderText}> Kiểm tra </Text>
                     </View>
                 </TouchableOpacity>
             </View>
