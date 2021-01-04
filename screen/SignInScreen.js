@@ -22,8 +22,6 @@ import Users from '../model/users';
 const SignInScreen = ({navigation}) => {
 
     const [data, setData] = React.useState({
-        username: '',
-        password: '',
         check_textInputChange: false,
         secureTextEntry: true,
         isValidUser: true,
@@ -113,9 +111,9 @@ const SignInScreen = ({navigation}) => {
 
     return (
       <View style={styles.container}>
-          <StatusBar backgroundColor='#009387' barStyle="light-content"/>
+          <StatusBar backgroundColor='#de5543' barStyle="light-content"/>
         <View style={styles.header}>
-            <Text style={styles.text_header}>Welcome!</Text>
+            <Text style={styles.text_header}>Chào mừng!</Text>
         </View>
         <Animatable.View 
             animation="fadeInUpBig"
@@ -125,7 +123,7 @@ const SignInScreen = ({navigation}) => {
         >
             <Text style={[styles.text_footer, {
                 color: colors.text
-            }]}>Username</Text>
+            }]}>Tên đăng nhập:</Text>
             <View style={styles.action}>
                 <FontAwesome 
                     name="user-o"
@@ -133,7 +131,7 @@ const SignInScreen = ({navigation}) => {
                     size={20}
                 />
                 <TextInput 
-                    placeholder="Your Username"
+                    placeholder="Tên đăng nhập được quản lý cấp"
                     placeholderTextColor="#666666"
                     style={[styles.textInput, {
                         color: colors.text
@@ -164,7 +162,7 @@ const SignInScreen = ({navigation}) => {
             <Text style={[styles.text_footer, {
                 color: colors.text,
                 marginTop: 35
-            }]}>Password</Text>
+            }]}>Mật khẩu</Text>
             <View style={styles.action}>
                 <Feather 
                     name="lock"
@@ -172,7 +170,7 @@ const SignInScreen = ({navigation}) => {
                     size={20}
                 />
                 <TextInput 
-                    placeholder="Your Password"
+                    placeholder="Mật khẩu được quản lý cấp"
                     placeholderTextColor="#666666"
                     secureTextEntry={data.secureTextEntry ? true : false}
                     style={[styles.textInput, {
@@ -207,20 +205,20 @@ const SignInScreen = ({navigation}) => {
             
 
             <TouchableOpacity>
-                <Text style={{color: '#009387', marginTop:15}}>Forgot password?</Text>
+                <Text style={{color: '#de5543', marginTop:15}}>Quên mật khẩu?</Text>
             </TouchableOpacity>
             <View style={styles.button}>
             <TouchableOpacity
                     style={[styles.signIn, {
-                        borderColor: '#009387',
+                        borderColor: '#de5543',
                         borderWidth: 1,
                         marginTop: 15
                     }]}
                     onPress={() => {loginHandle( data.username, data.password )}}
                 >
                     <Text style={[styles.textSign, {
-                        color:'#009387'
-                    }]}>Sign In</Text>
+                        color:'#de5543'
+                    }]}>ĐĂNG NHẬP</Text>
                 </TouchableOpacity>
             </View>
         </Animatable.View>
@@ -233,7 +231,7 @@ export default SignInScreen;
 const styles = StyleSheet.create({
     container: {
       flex: 1, 
-      backgroundColor: '#009387'
+      backgroundColor: '#de5543'
     },
     header: {
         flex: 1,
