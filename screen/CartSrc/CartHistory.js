@@ -7,27 +7,27 @@ import {connect} from 'react-redux';
 import {fetchInCompleteReceipt} from '../../redux/actions/receiptActions';
 import PropTypes from 'prop-types'
 import Table from '../../image/cart/table-cart.png'
+import CartL from '../../components/CartL';
 
 
-
-function CartH ({item}) {
-    const navigation = useNavigation()
-    return(
-        <TouchableOpacity
-            activeOpacity={0.5}
-            onPress={() => { navigation.navigate('Cart Detail') }}>
-            <View style={styles.view}>
-                <Image  source={Table}
-                        style={styles.imageStyle} />
-                <View style={{justifyContent: 'center', marginLeft: 20}}>
-                    <Text style={styles.textTable}>Số bàn: {item.TBID} </Text>
-                    <Text style={styles.textTime}>Ngày tạo: {item.createTime} </Text>
-                    <Text> Mã đơn hàng: {item.RECEIPT_ID} </Text>
-                </View>
-            </View>
-        </TouchableOpacity>
-    )
-}
+// function CartH ({item}) {
+//     const navigation = useNavigation()
+//     return(
+//         <TouchableOpacity
+//             activeOpacity={0.5}
+//             onPress={() => { navigation.navigate('Cart Detail') }}>
+//             <View style={styles.view}>
+//                 <Image  source={Table}
+//                         style={styles.imageStyle} />
+//                 <View style={{justifyContent: 'center', marginLeft: 20}}>
+//                     <Text style={styles.textTable}>Số bàn: {item.TBID} </Text>
+//                     <Text style={styles.textTime}>Ngày tạo: {item.createTime} </Text>
+//                     <Text> Mã đơn hàng: {item.RECEIPT_ID} </Text>
+//                 </View>
+//             </View>
+//         </TouchableOpacity>
+//     )
+// }
 
 class CartHistory extends Component {
     componentDidMount(){
@@ -40,7 +40,7 @@ class CartHistory extends Component {
                 data={this.props.incompleteReceipt}
                 renderItem={({item}) =>
                     <View>                  
-                        <CartH item={item}></CartH>
+                        <CartL item={item} nav={'Cart Detail'} ></CartL>
                     </View>}
                 keyExtractor={(item) => `${item.RECEIPT_ID}`} >
             </FlatList>
