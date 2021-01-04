@@ -4,6 +4,9 @@ from './types';
 
 import { authHeader } from '../../components/auth-header';
 
+import { IP } from '../../components/IP';
+
+
 // Fetch Staff
 export const fetchingStaffRequest = () =>({type: FETCHING_STAFF_REQUEST});
 
@@ -22,7 +25,7 @@ export const fetchStaff = () => {
     return async dispatch =>{
         dispatch(fetchingStaffRequest());
         try{
-            let response = await fetch('http://192.168.1.9:8080/api/staffs/getAllStaff');
+            let response = await fetch('http:/'+ IP +':4000/api/staffs/getAllStaff');
             let json = await response.json();
             console.log(json)
             dispatch(fetchingStaffSuccess(json));
@@ -56,7 +59,7 @@ export const deleteStaff = (id) => {
     return async dispatch =>{
         dispatch(deleteStaffRequest());
         try{
-            let response = await fetch('http://192.168.1.9:8080/api/staffs/deleteStaff/' + id,{
+            let response = await fetch('http://'+ IP +':4000/api/staffs/deleteStaff/' + id,{
                 method: 'DELETE',
                 body: JSON.stringify(id)
             });
@@ -92,12 +95,13 @@ export const userLogin = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username, password })
             };
-            return fetch('https://192.168.101.300:4000/users/autheticate', requestOptions)
+            return fetch('https://'+ IP +':4000/users/autheticate', requestOptions)
             .then(handleResponse)
             .then(user => {
                 localStorage.setItem('user', JSON.stringify(user));
                 return user;
             });
+            let json = await requestOptions.json();
             console.log(json)
             dispatch(LoginSuccess(json));
         }
@@ -107,13 +111,13 @@ export const userLogin = () => {
     }
 }
 
-function getAll() {
+export const getAllStaffs = () => {
     const requestOptions = {
         method: 'GET',
         headers: authHeader()
     };
 
-    return fetch('https://192.168.111.3000/users', requestOptions).then(handleResponse);
+    return fetch('https://'+ IP +':3000/users', requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {
