@@ -1,8 +1,10 @@
-import {FETCHING_DETAIL_FAILURE, FETCHING_DETAIL_SUCCESS, FETCHING_DETAIL_REQUEST} from '../actions/receiptDetailActions';
+import {FETCHING_DETAIL_FAILURE, FETCHING_DETAIL_SUCCESS, FETCHING_DETAIL_REQUEST} from '../actions/types';
 const initialState = { 
-    receiptDetailData: {
+    receiptDetailData: 
+    {
+        receiptDetail: [], 
+
         refreshing: false, 
-        receiptDetail:[], 
     }
 }
 
