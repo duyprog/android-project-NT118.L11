@@ -12,12 +12,14 @@ import {
 import * as Animatable from 'react-native-animatable';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
+import {connect} from 'react-redux';
+
+import { userLogin } from '../redux/actions/staffActions';
+import PropTypes from 'prop-types';
 
 import { useTheme } from 'react-native-paper';
 
 import { AuthContext } from '../App';
-
-import Users from '../model/users';
 
 const SignInScreen = ({navigation}) => {
 
@@ -26,6 +28,8 @@ const SignInScreen = ({navigation}) => {
         secureTextEntry: true,
         isValidUser: true,
         isValidPassword: true,
+        username: '',
+        password: ''
     });
 
     const { colors } = useTheme();
@@ -87,11 +91,11 @@ const SignInScreen = ({navigation}) => {
         }
     }
 
-    const loginHandle = (userName, password) => {
+    const loginHandle = (userName, password, userLogin) => {
 
-        const foundUser = Users.filter( item => {
-            return userName == item.username && password == item.password;
-        } );
+        const foundUser = () => {
+            userLogin();
+        }
 
         if ( data.username.length == 0 || data.password.length == 0 ) {
             Alert.alert('Wrong Input!', 'Username or password field cannot be empty.', [
@@ -214,7 +218,8 @@ const SignInScreen = ({navigation}) => {
                         borderWidth: 1,
                         marginTop: 15
                     }]}
-                    onPress={() => {loginHandle( data.username, data.password )}}
+                    onPress={() => {loginHandle( data.username, data.password, userLogin )
+                    console.log(data.username)}}
                 >
                     <Text style={[styles.textSign, {
                         color:'#de5543'
@@ -226,7 +231,18 @@ const SignInScreen = ({navigation}) => {
     );
 };
 
-export default SignInScreen;
+
+SignInScreen.propTypes = {
+    userLogin: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state =>{
+    return{
+        userLogin: state.staffReducer.staffData.staff
+    };
+}
+
+export default connect(mapStateToProps, {userLogin}) (SignInScreen);
 
 const styles = StyleSheet.create({
     container: {

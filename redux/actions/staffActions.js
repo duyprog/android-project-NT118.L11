@@ -1,4 +1,4 @@
-import { FETCHING_STAFF_REQUEST, FETCHING_STAFF_SUCCESS, FETCHING_STAFF_FAILURE,
+import { CHOOSE_A_STAFF, FETCHING_STAFF_REQUEST, FETCHING_STAFF_SUCCESS, FETCHING_STAFF_FAILURE,
         DELETE_STAFF_REQUEST, DELETE_STAFF_SUCCESS, DELETE_STAFF_FAILURE,SWIPE_TO_CHOOSE_DELETEID, LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE}
 from './types';
 
@@ -26,7 +26,10 @@ export const fetchStaff = () => {
     return async dispatch =>{
         dispatch(fetchingStaffRequest());
         try{
-            let response = await fetch('http:/'+ IP +':4000/api/staffs/getAllStaff');
+            let response = await fetch('http:/'+ IP +':4000/users') + {
+                method: 'GET',
+                headers: authHeader()
+            };
             let json = await response.json();
             dispatch(fetchingStaffSuccess(json));
         }
@@ -86,7 +89,7 @@ export const LoginFailure = (error) =>({
     payload: error
 });
 
-export const userLogin = () => {
+export const userLogin = (username, password) => {
     return async dispatch =>{
         dispatch(LoginRequest());
         try{
@@ -95,44 +98,13 @@ export const userLogin = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username, password })
             };
-            return fetch('https://'+ IP +':4000/users/autheticate', requestOptions)
-            .then(handleResponse)
-            .then(user => {
-                localStorage.setItem('user', JSON.stringify(user));
-                return user;
-            });
-            let json = await requestOptions.json();
-            console.log(json)
+            let response = await fetch('https://'+ IP +':4000/users/authenticate', requestOptions)
+            let json = await response.json();
             dispatch(LoginSuccess(json));
+            console.log(json);
         }
         catch(error){
             dispatch(LoginFailure(error));
         }
     }
-}
-
-export const getAllStaffs = () => {
-    const requestOptions = {
-        method: 'GET',
-        headers: authHeader()
-    };
-
-    return fetch('https://'+ IP +':3000/users', requestOptions).then(handleResponse);
-}
-
-function handleResponse(response) {
-    return response.text().then(text => {
-        const data = text && JSON.parse(text);
-        if (!response.ok) {
-            if (response.status === 401) {
-                logout();
-                location.reload(true);
-            }
-
-            const error = (data && data.message) || response.statusText;
-            return Promise.reject(error);
-        }
-
-        return data;
-    });
 }

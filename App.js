@@ -106,8 +106,6 @@ const App = () => {
 
   const authContext = React.useMemo(() => ({
     signIn: async(foundUser) => {
-      // setUserToken('fgkj');
-      // setIsLoading(false);
       const userToken = String(foundUser[0].userToken);
       const userName = foundUser[0].username;
       
@@ -116,12 +114,10 @@ const App = () => {
       } catch(e) {
         console.log(e);
       }
-      // console.log('user token: ', userToken);
       dispatch({ type: 'LOGIN', id: userName, token: userToken });
     },
     signOut: async() => {
-      // setUserToken(null);
-      // setIsLoading(false);
+
       try {
         await AsyncStorage.removeItem('userToken');
       } catch(e) {
@@ -130,8 +126,7 @@ const App = () => {
       dispatch({ type: 'LOGOUT' });
     },
     signUp: () => {
-      // setUserToken('fgkj');
-      // setIsLoading(false);
+
     },
     toggleTheme: () => {
       setIsDarkTheme( isDarkTheme => !isDarkTheme );
@@ -140,7 +135,7 @@ const App = () => {
 
   useEffect(() => {
     setTimeout(async() => {
-      // setIsLoading(false);
+
       let userToken;
       userToken = null;
       try {
@@ -148,7 +143,6 @@ const App = () => {
       } catch(e) {
         console.log(e);
       }
-      // console.log('user token: ', userToken);
       dispatch({ type: 'RETRIEVE_TOKEN', token: userToken });
     }, 1000);
   }, []);

@@ -6,6 +6,8 @@ const initialState = {
   staffData:{
     refreshing: false,
     staff: [],
+    staffusername: '',
+    password: '',
     deleteID: ''
   }
 };
@@ -13,11 +15,11 @@ const initialState = {
 const staffReducer = (state=initialState, action) =>{
     switch(action.type) {
         case LOGIN_REQUEST:
-            return { ...state, refreshing: true};
+            return { ...state.staffData, refreshing: true};
         case LOGIN_FAILURE:
-            return { ...state, refreshing: false};
+            return { ...state.staffData, refreshing: false};
         case LOGIN_SUCCESS:
-            return { ...state, refreshing: false, staff: action.payload};        
+            return { ...state.staffData, refreshing: false, staff: action.payload};        
         case FETCHING_STAFF_REQUEST: 
             return {...state, 
                 staffData:{...state.staffData, 
