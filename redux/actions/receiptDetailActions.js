@@ -4,8 +4,8 @@ import {
 
 import {IP} from '../../components/IP'
 
-export const fetchingDetailRequest = (receiptID) => ({
-    type: FETCHING_DETAIL_FAILURE, 
+export const fetchingDetailRequest = () => ({
+    type: FETCHING_DETAIL_REQUEST,
 });
 
 export const fetchingDetailSuccess = (json) => ({
@@ -22,7 +22,7 @@ export const fetchDetailById = (receiptID) => {
     return async dispatch => {
         dispatch(fetchingDetailRequest());
         try {
-            let response = await fetch('http://'+ IP + ':3000/get_receiptdetail_by_id' +receiptID);
+            let response = await fetch('http://'+ IP + ':3000/get_receiptdetail_by_id/' + receiptID);
             let json = await response.json();
             dispatch(fetchingDetailSuccess(json));
         } catch (error) {
@@ -30,4 +30,6 @@ export const fetchDetailById = (receiptID) => {
         }
     }
 }
+
+
 

@@ -10,7 +10,7 @@ import FriedDetails from '../screen/HomeSrc/FriedDetails'
 import MainMenu from '../screen/MainMenu'
 import SelectTable from '../screen/HomeSrc/SelectTable'
 import NoodlesDetails from '../screen/HomeSrc/NoodlesDetails'
-
+import Confirm from "../screen/HomeSrc/Confirm"
 const MainMenuStack = createStackNavigator()
 
 function MainMenuStackScreen() {
@@ -61,6 +61,11 @@ function MainMenuStackScreen() {
             name="Desserts Details" 
             component={DessertsDetails} 
             options={{title: 'Tráng miệng'                   
+                    }}/>
+        <MainMenuStack.Screen 
+            name="Confirm" 
+            component={Confirm} 
+            options={{title: 'Xác nhận đơn hàng'                   
                     }}/>
       </MainMenuStack.Navigator>
     )

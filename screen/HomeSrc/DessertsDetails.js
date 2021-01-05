@@ -111,7 +111,7 @@ import DessertItems from '../../items/DessertItems'
                 numColumns={2}
                 renderItem={({item}) =>
                 <View style={styles.wrapper}>
-                    <DessertItems dessertItem={item}/>
+                    <DessertItems item={item}/>
                 </View>}
                 keyExtractor={(item) => `${item.ITEM_ID}`}/>
         )

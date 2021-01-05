@@ -1,10 +1,16 @@
 import React, { Component, useState } from 'react'
 import { Text, View, Image, TouchableOpacity, StyleSheet, Modal } from 'react-native'
 import NumericInput from 'react-native-numeric-input'
-export default function DessertItems(props){
+import {connect} from 'react-redux';
+import {chooseItems} from '../redux/actions/itemActions';
+import PropTypes from 'prop-types';
+ function DessertItems({item, chooseItems, choItem}, props){
 
-    const{dessertItem} = props;
     const [modalVisible, setModalVisible] = useState(false);
+    var quantity = 0;
+    const setValue = (value) =>{
+        quantity = value;
+    }
     return(
         <TouchableOpacity
             activeOpacity={0.5}
@@ -22,11 +28,15 @@ export default function DessertItems(props){
                             minValue={0}
                             rounded={true}
                             totalHeight={40}
-                            onChange={value => console.log(value)} />
+                            onChange={value => setValue(value)}
+                            />
                         <View style={styles.compBtn}>
                             <TouchableOpacity
                                 onPress={() => {
                                     setModalVisible(!modalVisible);
+                                    chooseItems(item.ITEM_ID, quantity);
+                                    console.log(choItem)
+                                    
                                 }}>
                                 <Text style={styles.compText}>Hoàn tất</Text>
                             </TouchableOpacity>
@@ -35,18 +45,21 @@ export default function DessertItems(props){
                 </View>
             </Modal>
             <View style={styles.container}>
-                <Image style={styles.img} source={{uri: dessertItem.IMAGE_URL}}/>
+                <Image style={styles.img} source={{uri: item.IMAGE_URL}}/>
                 <View style={styles.info}>
-                    <Text style={styles.name}>{dessertItem.ITEM_NAME}</Text>
+                    <Text style={styles.name}>{item.ITEM_NAME}</Text>
                     <View style={styles.priceRow}>
-                        <Text style={styles.price}>{dessertItem.UNITPRICE}đ</Text>
+                        <Text style={styles.price}>{item.UNITPRICE}đ</Text>
                     </View>
                 </View>
             </View>
         </TouchableOpacity>
     );
 }
-
+DessertItems.propTypes = {
+    chooseItems: PropTypes.func.isRequired, 
+    choItem: PropTypes.array.isRequired
+}
 const styles = StyleSheet.create({
     cartText: {
         textTransform: 'uppercase',
@@ -116,4 +129,10 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 14
     }
-})
+});
+const mapStateToProps = state => {
+    return{
+        choItem: state.itemReducer.itemData.choItem
+    }
+}
+export default connect(mapStateToProps, {chooseItems})(DessertItems);

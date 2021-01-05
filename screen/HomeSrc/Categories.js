@@ -74,7 +74,10 @@ const Categories = ({navigation}) => {
             </View>
             <View style={{alignItems: 'center', marginTop: 15}}>
                 <TouchableOpacity
-                    activeOpacity={0.5}>
+                    activeOpacity={0.5}
+                    onPress={() =>{
+                        navigation.navigate('Confirm');
+                    }}>
                     <View style={styles.orderBtn}>
                         <Text style={styles.orderText}> Kiểm tra </Text>
                     </View>
