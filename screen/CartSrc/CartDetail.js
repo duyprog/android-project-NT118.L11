@@ -33,7 +33,7 @@ class CartDetail extends Component {
     {
         return(
             <SafeAreaView>
-                 <View style={styles.container}>
+                 {/* <View style={styles.container}>
                     <Text style={styles.label}> Thông tin bàn </Text>
                     <View style={styles.infoTable}>
                         <Text style={{fontSize: 17}}> Số bàn: {this.props.receiptDetail[1].TBID} </Text>
@@ -43,7 +43,7 @@ class CartDetail extends Component {
                 </View> 
                 <View style={styles.container}>
                     <Text style={styles.label}> Chi tiết đơn hàng </Text>
-                </View>
+                </View> */}
                 <FlatList 
                     data={this.props.receiptDetail}
                     renderItem={({item}) => 
