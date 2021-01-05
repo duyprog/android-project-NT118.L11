@@ -25,6 +25,9 @@ function CartD( {item} ) {
     )
 }
 class CartDetail extends Component {
+    // constructor(){
+    //     this.props.fetchDetailById(this.props.chooseReceipt);
+    // }
     componentDidMount(){
         this.props.fetchDetailById(this.props.chooseReceipt); 
         console.log(this.props.receiptDetail);
@@ -33,14 +36,14 @@ class CartDetail extends Component {
     {
         return(
             <SafeAreaView>
-                 <View style={styles.container}>
+                 {/* <View style={styles.container}>
                     <Text style={styles.label}> Thông tin bàn </Text>
                     <View style={styles.infoTable}>
-                        <Text style={{fontSize: 17}}> Số bàn: {this.props.receiptDetail[1].TBID} </Text>
-                        <Text style={{fontSize: 17}}> Thời gian: {this.props.receiptDetail[1].createTime} </Text>
-                        <Text style={{fontSize: 17}}> Mã đơn hàng: {this.props.receiptDetail[1].RECEIPT_ID} </Text>
+                        <Text style={{fontSize: 17}}> Số bàn: {this.props.receiptDetail[0].TBID} </Text>
+                        <Text style={{fontSize: 17}}> Thời gian: {this.props.receiptDetail[0].createTime} </Text>
+                        <Text style={{fontSize: 17}}> Mã đơn hàng: {this.props.receiptDetail[0].RECEIPT_ID} </Text>
                     </View>
-                </View> 
+                </View>  */}
                 <View style={styles.container}>
                     <Text style={styles.label}> Chi tiết đơn hàng </Text>
                 </View>
