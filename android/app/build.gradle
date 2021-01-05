@@ -131,7 +131,7 @@ android {
 
     defaultConfig {
         applicationId "com.restaurant"
-        minSdkVersion rootProject.ext.minSdkVersion
+        minSdkVersion 21
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
@@ -187,7 +187,7 @@ dependencies {
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
     compile 'com.android.support:multidex:1.0.1' //enter the latest version
-
+    implementation 'com.android.support:multidex:1.0.3' //enter the latest version
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
