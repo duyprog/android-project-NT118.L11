@@ -15,11 +15,14 @@ import Feather from 'react-native-vector-icons/Feather';
 import {connect} from 'react-redux';
 
 import { userLogin } from '../redux/actions/staffActions';
+
 import PropTypes from 'prop-types';
 
 import { useTheme } from 'react-native-paper';
 
 import { AuthContext } from '../App';
+
+import Users from '../model/users';
 
 const SignInScreen = ({navigation}) => {
 
@@ -91,10 +94,11 @@ const SignInScreen = ({navigation}) => {
         }
     }
 
-    const loginHandle = (userName, password, userLogin) => {
+    const loginHandle = (userName, password) => {
 
         const foundUser = () => {
-            userLogin();
+            this.props.userLogin(data.username, data.password);
+            console.log(this.props.userLogin);
         }
 
         if ( data.username.length == 0 || data.password.length == 0 ) {
@@ -104,12 +108,12 @@ const SignInScreen = ({navigation}) => {
             return;
         }
 
-        if ( foundUser.length == 0 ) {
-            Alert.alert('Invalid User!', 'Username or password is incorrect.', [
-                {text: 'Okay'}
-            ]);
-            return;
-        }
+        // if ( foundUser.length == 0 ) {
+        //     Alert.alert('Invalid User!', 'Username or password is incorrect.', [
+        //         {text: 'Okay'}
+        //     ]);
+        //     return;
+        // }
         signIn(foundUser);
     }
 
@@ -218,8 +222,9 @@ const SignInScreen = ({navigation}) => {
                         borderWidth: 1,
                         marginTop: 15
                     }]}
-                    onPress={() => {loginHandle( data.username, data.password, userLogin )
-                    console.log(data.username)}}
+                    onPress={() => {
+                        loginHandle(data.username, data.password)
+                    }}
                 >
                     <Text style={[styles.textSign, {
                         color:'#de5543'
@@ -230,7 +235,6 @@ const SignInScreen = ({navigation}) => {
       </View>
     );
 };
-
 
 SignInScreen.propTypes = {
     userLogin: PropTypes.func.isRequired

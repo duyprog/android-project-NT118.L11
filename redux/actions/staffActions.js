@@ -26,7 +26,7 @@ export const fetchStaff = () => {
     return async dispatch =>{
         dispatch(fetchingStaffRequest());
         try{
-            let response = await fetch('http:/'+ IP +':4000/users') + {
+            let response = await fetch('http://'+ IP +':4000/users') + {
                 method: 'GET',
                 headers: authHeader()
             };
@@ -89,14 +89,14 @@ export const LoginFailure = (error) =>({
     payload: error
 });
 
-export const userLogin = (username, password) => {
+export const userLogin = (staffusername, password) => {
     return async dispatch =>{
         dispatch(LoginRequest());
         try{
             const requestOptions = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username, password })
+                body: JSON.stringify({ staffusername, password })
             };
             let response = await fetch('https://'+ IP +':4000/users/authenticate', requestOptions)
             let json = await response.json();
