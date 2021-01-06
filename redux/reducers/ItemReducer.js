@@ -1,6 +1,6 @@
 import {  FETCHING_ITEM_REQUEST, FETCHING_ITEM_FAILURE, FETCHING_FOOD_SUCCESS,
     FETCHING_DESSERT_SUCCESS, FETCHING_DRINK_SUCCESS, FETCHING_FRIED_SUCCESS,
-    FETCHING_HOTPOT_SUCCESS, FETCHING_NOODLE_SUCCESS} from '../actions/types';
+    FETCHING_HOTPOT_SUCCESS, FETCHING_NOODLE_SUCCESS, CHOOSE_ITEM} from '../actions/types';
 
 const initialState = { 
     itemData: { 
@@ -11,6 +11,7 @@ const initialState = {
         foodItems: [],
         noodleItems: [],
         friedItems: [],
+        choosedItem: []
     }
 }
 
@@ -86,6 +87,15 @@ const itemReducer = (state=initialState, action) =>{
                     ...state.itemData, 
                     refreshing: false, 
                 }
+            }
+        case CHOOSE_ITEM:
+            return{
+                ...state, 
+                itemData:{
+                    ...state.itemData,
+                    refreshing:false, 
+                    choosedItem: choosedItem.push(action.payload)
+                } 
             }
         default: 
                 return state;

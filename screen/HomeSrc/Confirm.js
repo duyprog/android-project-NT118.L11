@@ -50,7 +50,7 @@ const createAlert = () =>
 
 function List({item}) {
     return(
-        <View style={{alignSelf: 'center'}}>
+        <View style={{alignSelf: 'center', marginBottom: 10}}>
             <View style={styles.card}>
                 <View style={styles.cardImgWrapper}>
                     <Image source={{uri: item.image[0].url}}
@@ -71,28 +71,30 @@ const Confirm = ({navigation}) => {
         <SafeAreaView>
             <View style={styles.container}>
                 <Text style={styles.label}> Thông tin bàn </Text>
+                <View style={styles.labelView}></View>
                 <View style={styles.infoTable}>
-                    <Text style={{fontSize: 17}}> Số bàn: {details.name} </Text>
-                    <Text style={{fontSize: 17}}> Thời gian: {details.time} </Text>
-                    <Text style={{fontSize: 17}}> Mã đơn hàng: {details.code} </Text>
+                    <Text style={{fontSize: 18}}> Số bàn: {details.name} </Text>
+                    <Text style={{fontSize: 18}}> Thời gian: {details.time} </Text>
+                    <Text style={{fontSize: 18}}> Mã đơn hàng: {details.code} </Text>
                 </View>
             </View>
             <View style={styles.container}>
                 <Text style={styles.label}> Chi tiết đơn hàng </Text>
+                <View style={styles.labelView}></View>
+                <FlatList 
+                    data={order}
+                    renderItem={({item}) => 
+                        <View>
+                            <List item={item} />
+                        </View>}
+                    keyExtractor={(item) => `${item.id}`} />
             </View>
-            <FlatList 
-                data={order}
-                renderItem={({item}) => 
-                    <View>
-                        <List item={item} />
-                    </View>}
-                keyExtractor={(item) => `${item.id}`} />
             <View style={styles.btnView}>
                 <TouchableOpacity
                     activeOpacity={0.5}
                     onPress={() => {
+                        createAlert();
                         navigation.navigate("Home");
-                        createAlert()
                     }}>
                     <View style={styles.payBtn}>
                         <Text style={styles.payText}> Xác nhận </Text>
@@ -104,6 +106,13 @@ const Confirm = ({navigation}) => {
 }
 
 const styles = StyleSheet.create({
+    labelView:{
+        borderBottomWidth: 1,
+        borderBottomColor: "#d4d4d4",
+        width: "90%",
+        alignSelf: 'center',
+        marginBottom: 5
+    },
     label: {
         textTransform: 'uppercase',
         fontWeight: '700',
@@ -114,9 +123,12 @@ const styles = StyleSheet.create({
     },
     container: {
         backgroundColor: '#fff',
-        borderBottomWidth: 1,
-        borderBottomColor: '#dddddd',
-        padding: 5
+        padding: 5,
+        borderRadius: 10,
+        marginTop: 10,
+        elevation: 8,
+        width: "90%",
+        alignSelf: 'center'
     },
     infoTable: {
         marginBottom: 5,
@@ -126,7 +138,7 @@ const styles = StyleSheet.create({
         height: 80,
         width: '90%',
         flexDirection: 'row',
-        marginTop: 10
+        marginTop: 5
     },
     cardImgWrapper: {
         flex: 1,
@@ -142,15 +154,13 @@ const styles = StyleSheet.create({
     cardInfo: {
         flex: 2,
         padding: 5,
-        borderColor: '#ccc',
-        borderWidth: 1,
         borderLeftWidth: 0,
         borderBottomRightRadius: 8,
         borderTopRightRadius: 8,
         backgroundColor: '#fff',
     },
     cardTitle: {
-        fontSize: 17,
+        fontSize: 20,
         color: '#444'
     },
     cardDetails: {
@@ -159,42 +169,24 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     btnView: {
-        alignItems: 'center', 
-        marginTop: 5
+        alignSelf: 'center', 
+        marginTop: 10,
+        width: "90%"
     },
     payBtn: {
         backgroundColor: '#de5543',
         borderRadius: 20,
-        height: 40,
-        width: 130,
+        height: 45,
         alignItems: 'center',
-        elevation: 4,
+        elevation: 8,
         marginTop: 5
     },
     payText: {
-        textTransform: 'uppercase',
         fontWeight: '700',
         alignSelf: 'center',
-        marginTop: 8,
+        marginTop: 9,
         color: '#fff',
         fontSize: 17
-    },
-    compBtn: {
-        backgroundColor: '#de5543',
-        borderRadius: 20,
-        height: 35,
-        width: 100,
-        alignItems: 'center',
-        elevation: 4,
-        marginTop: 15
-    },
-    compText: {
-        textTransform: 'uppercase',
-        fontWeight: '700',
-        alignSelf: 'center',
-        marginTop: 8,
-        color: '#fff',
-        fontSize: 14
     },
     centeredView: {
         flex: 1,

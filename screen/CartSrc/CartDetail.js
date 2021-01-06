@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import {fetchDetailById} from '../../redux/actions/receiptDetailActions';
 
 
-
 function CartD( {item} ) {
     return(
         <View style={{alignSelf: 'center'}}>
@@ -25,6 +24,9 @@ function CartD( {item} ) {
     )
 }
 class CartDetail extends Component {
+    // constructor(){
+    //     this.props.fetchDetailById(this.props.chooseReceipt);
+    // }
     componentDidMount(){
         this.props.fetchDetailById(this.props.chooseReceipt); 
         console.log(this.props.receiptDetail);
@@ -36,14 +38,14 @@ class CartDetail extends Component {
                  {/* <View style={styles.container}>
                     <Text style={styles.label}> Thông tin bàn </Text>
                     <View style={styles.infoTable}>
-                        <Text style={{fontSize: 17}}> Số bàn: {this.props.receiptDetail[1].TBID} </Text>
-                        <Text style={{fontSize: 17}}> Thời gian: {this.props.receiptDetail[1].createTime} </Text>
-                        <Text style={{fontSize: 17}}> Mã đơn hàng: {this.props.receiptDetail[1].RECEIPT_ID} </Text>
+                        <Text style={{fontSize: 17}}> Số bàn: {this.props.receiptDetail[0].TBID} </Text>
+                        <Text style={{fontSize: 17}}> Thời gian: {this.props.receiptDetail[0].createTime} </Text>
+                        <Text style={{fontSize: 17}}> Mã đơn hàng: {this.props.receiptDetail[0].RECEIPT_ID} </Text>
                     </View>
-                </View> 
+                </View>  */}
                 <View style={styles.container}>
-                    <Text style={styles.label}> Chi tiết đơn hàng </Text>
-                </View> */}
+                    <Text style={styles.label}> Đơn hàng </Text>
+                </View> 
                 <FlatList 
                     data={this.props.receiptDetail}
                     renderItem={({item}) => 
@@ -54,15 +56,6 @@ class CartDetail extends Component {
                 />
                 <View style={{borderTopWidth: 1, borderTopColor: '#c4c4c4', marginTop: 10}}>
                     <Text style={{fontSize: 18, fontWeight: '700', margin: 5}}> Tổng cộng: 1.380.000đ </Text>
-                </View>
-                <View style={styles.btnView}>
-                    <TouchableOpacity
-                        activeOpacity={0.5}
-                        >
-                        <View style={styles.payBtn}>
-                            <Text style={styles.payText}> Thanh toán </Text>
-                        </View>
-                    </TouchableOpacity>
                 </View>
             </SafeAreaView>
         )
@@ -101,23 +94,6 @@ const styles = StyleSheet.create({
         marginBottom: 5,
         marginLeft: 15
     },
-    payBtn: {
-        backgroundColor: '#de5543',
-        borderRadius: 20,
-        height: 40,
-        width: 130,
-        alignItems: 'center',
-        elevation: 4,
-        marginTop: 5
-    },
-    payText: {
-        textTransform: 'uppercase',
-        fontWeight: '700',
-        alignSelf: 'center',
-        marginTop: 8,
-        color: '#fff',
-        fontSize: 17
-    },
     card: {
         height: 80,
         width: '90%',
@@ -153,10 +129,6 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: '#444',
         fontWeight: 'bold',
-    },
-    btnView: {
-        alignItems: 'center', 
-        marginTop: 5
     }
 })
 
