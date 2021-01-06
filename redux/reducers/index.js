@@ -4,7 +4,7 @@ import receiptDetailReducer from './receiptDetailReducer';
 import receiptReducer from './receiptReducer';
 import staffReducer from './staffReducer';
 import tableReducer from './tableReducer';
-import customReducer from './customerReducer';
+import customerReducer from './customerReducer';
 
 const rootReducer = combineReducers({
  staffReducer:  staffReducer,
@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
  itemReducer: itemReducer,
  receiptReducer: receiptReducer,
  receiptDetailReducer: receiptDetailReducer,
- customReducer: customReducer
+ customerReducer: customerReducer
 });
 
 export default rootReducer;
