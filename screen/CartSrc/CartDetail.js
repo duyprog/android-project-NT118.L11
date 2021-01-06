@@ -17,7 +17,7 @@ function CartD( {item} ) {
                 </View>
                 <View style={styles.cardInfo}>
                     <Text style={styles.cardTitle}> {item.ITEM_NAME} x {item.QUANTITY} </Text>
-                    <Text style={styles.cardDetails}> {item.UNITPRICE} đ</Text>
+                    <Text style={styles.cardDetails}> Đơn giá: {item.UNITPRICE} đ</Text>
                 </View>
             </View>
         </View>

@@ -5,7 +5,7 @@ const initialState = {
         receiptDetail: [], 
 
         refreshing: false, 
-        currentReceiptID: ''
+        currentReceiptID: []
     }
 }
 

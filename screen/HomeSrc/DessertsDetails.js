@@ -102,7 +102,6 @@ import DessertItems from '../../items/DessertItems'
     // }
     componentDidMount(){
         this.props.fetchDessert();
-        console.log(this.props.dessertItems);
     }
     render() {
         return (

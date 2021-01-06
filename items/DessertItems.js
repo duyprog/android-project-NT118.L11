@@ -3,8 +3,9 @@ import { Text, View, Image, TouchableOpacity, StyleSheet, Modal } from 'react-na
 import NumericInput from 'react-native-numeric-input'
 import {connect} from 'react-redux';
 import {chooseItems} from '../redux/actions/itemActions';
+import {insertNewDetail} from '../redux/actions/receiptDetailActions';
 import PropTypes from 'prop-types';
- function DessertItems({item, chooseItems, choItem}, props){
+ function DessertItems({item, currentReceiptID, insertNewDetail}, props){
 
     const [modalVisible, setModalVisible] = useState(false);
     var quantity = 0;
@@ -34,8 +35,8 @@ import PropTypes from 'prop-types';
                             <TouchableOpacity
                                 onPress={() => {
                                     setModalVisible(!modalVisible);
-                                    chooseItems(item.ITEM_ID, quantity);
-                                    console.log(choItem)
+                                    insertNewDetail(currentReceiptID, item.ITEM_ID, quantity);
+                                    //console.log(choItem)
                                     
                                 }}>
                                 <Text style={styles.compText}>Hoàn tất</Text>
@@ -58,7 +59,6 @@ import PropTypes from 'prop-types';
 }
 DessertItems.propTypes = {
     chooseItems: PropTypes.func.isRequired, 
-    choItem: PropTypes.array.isRequired
 }
 const styles = StyleSheet.create({
     cartText: {
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
 });
 const mapStateToProps = state => {
     return{
-        choItem: state.itemReducer.itemData.choItem
+        currentReceiptID: state.receiptDetailReducer.receiptDetailData.currentReceiptID
     }
 }
-export default connect(mapStateToProps, {chooseItems})(DessertItems);
+export default connect(mapStateToProps, {insertNewDetail})(DessertItems);

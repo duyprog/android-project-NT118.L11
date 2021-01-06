@@ -8,7 +8,7 @@ import empty from '../image/foodMenu/empty-table.png';
 import serving from '../image/foodMenu/serving-table.png';
 import {insertReceipt} from '../redux/actions/receiptActions';
 import {fetchCurrentReceiptId} from '../redux/actions/receiptDetailActions'
-function Table({item, insertReceipt}) {
+function Table({item, insertReceipt,fetchCurrentReceiptId, currentReceiptID}) {
     var ima = serving;
     const navigation = useNavigation();
     if(item.TB_STATUS){
@@ -27,7 +27,9 @@ function Table({item, insertReceipt}) {
             onPress={ async () => {
                 navigation.navigate('Food Menu');
                 console.log(item.TB_ID);
-                insertReceipt(item.TB_ID);
+
+                await insertReceipt(item.TB_ID);
+                await fetchCurrentReceiptId();
 
             }}>
             <View style={styles.viewStyle}>
@@ -45,6 +47,11 @@ function Table({item, insertReceipt}) {
 }
 Table.propTypes = { 
     chooseATable: PropTypes.func.isRequired
+}
+const mapStateToProps = (state) => {
+    return{
+        currentReceiptID: state.receiptDetailReducer.receiptDetailData.currentReceiptID
+    }
 }
 const styles = StyleSheet.create({
     wrapper: {
@@ -80,4 +87,4 @@ const styles = StyleSheet.create({
         fontWeight: '600'
     }
 })
-export default connect(null, {chooseATable, insertReceipt}) (Table);
+export default connect(null, {chooseATable, insertReceipt, fetchCurrentReceiptId}) (Table);
