@@ -5,6 +5,8 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types'; 
 import {fetchDetailById} from '../../redux/actions/receiptDetailActions';
 import {fetchTotalPriceById} from '../../redux/actions/receiptActions';
+import {updateDoneReceipt} from '../../redux/actions/receiptActions';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 function CartD( {item} ) {
@@ -68,7 +70,8 @@ CartDetail.propsTypes = {
     fetchDetailById: PropTypes.func.isRequired,
     receiptDetail: PropTypes.array.isRequired, 
     chooseReceipt: PropTypes.string.isRequired,
-    fetchTotalPriceById: PropTypes.func.isRequired
+    fetchTotalPriceById: PropTypes.func.isRequired,
+    updateDoneReceipt: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => {
@@ -78,7 +81,7 @@ const mapStateToProps = state => {
         totalPrice: state.receiptReducer.receiptData.totalPrice,
     }
 }
-export default connect(mapStateToProps, {fetchDetailById, fetchTotalPriceById}) (CartDetail);
+export default connect(mapStateToProps, {fetchDetailById, fetchTotalPriceById, updateDoneReceipt}) (CartDetail);
 
 const styles = StyleSheet.create({
     labelView:{
