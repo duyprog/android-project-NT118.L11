@@ -4,8 +4,10 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import Swiper from 'react-native-swiper'
 import AtStore from '../image/mainMenu/dining-table.png'
 import Takeaway from '../image/mainMenu/take-away.png'
-
-const MainMenu = ({ navigation }) => {
+import {connect} from 'react-redux'; 
+import PropTypes from 'prop-types';
+import {customerChooseAtStore, customerChoosePickup} from '../redux/actions/customerActions';
+const MainMenu = ({ navigation, customerChooseAtStore, customerChoosePickup }) => {
     const [modalVisible, setModalVisible] = useState(false);
     return (
         <ScrollView>
@@ -47,6 +49,7 @@ const MainMenu = ({ navigation }) => {
                     activeOpacity={0.5}
                     onPress={() => {
                         navigation.navigate('Info');
+                        customerChooseAtStore();
                     }}>
                     <View  style={styles.viewStyle}>
                         <View>
@@ -58,8 +61,9 @@ const MainMenu = ({ navigation }) => {
                 </TouchableOpacity>
                 <TouchableOpacity
                     activeOpacity={0.5}
-                    onPress={() => {
+                    onPress={ () => {
                         navigation.navigate('Info');
+                        customerChoosePickup();
                     }}>
                     <View  style={styles.viewStyle}>
                         <View>
@@ -226,4 +230,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default MainMenu
+export default connect(null, {customerChooseAtStore, customerChoosePickup}) (MainMenu);
