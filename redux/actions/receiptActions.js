@@ -1,4 +1,6 @@
-import {FETCHING_RECEIPT_REQUEST, FETCHING_RECEIPT_FAILURE, FETCHING_RECEIPT_COMPLETE_SUCCESS, FETCHING_RECEIPT_INCOMPLETE_SUCCESS, CHOOSE_RECEIPT_TO_SEE} from './types';
+import {FETCHING_RECEIPT_REQUEST, FETCHING_RECEIPT_FAILURE,
+     FETCHING_RECEIPT_COMPLETE_SUCCESS, FETCHING_RECEIPT_INCOMPLETE_SUCCESS, 
+     CHOOSE_RECEIPT_TO_SEE, INSERT_RECEIPT_REQUEST, INSERT_RECEIPT_FAILURE, INSERT_RECEIPT_SUCCESS} from './types';
 
 import { IP } from '../../components/IP';
 
@@ -25,6 +27,39 @@ export const chooseReceipt = (receiptID) =>({
     type: CHOOSE_RECEIPT_TO_SEE, 
     payload: receiptID
 }) 
+export const insertReceiptRequest = () => ({
+    type: INSERT_RECEIPT_REQUEST, 
+});
+
+export const insertReceiptSuccess = (json) => ({
+    type: INSERT_RECEIPT_SUCCESS, 
+    payload: json
+});
+export const insertReceiptFailure = (err) =>({
+    type: INSERT_RECEIPT_FAILURE, 
+    payload: err
+});
+
+export const insertReceipt = (TABLEID) => {
+    return async dispatch =>{
+        dispatch(insertReceiptRequest());
+        try{
+            let response = await fetch('http://' + IP + `:3000/insert_new_receipt/2/1/${TABLEID}/1`, {
+                method: 'POST',
+                headers: {
+                    'Accept':'application/json', 
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({TABLEID})
+            });
+            let json = await response.json();
+            dispatch(insertReceiptSuccess(json));
+        }
+        catch(err) {
+            dispatch(insertReceiptFailure(err));
+        }
+    }
+}
 
 
 export const chooseReceiptToSee = (receiptID) =>{
