@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 const More = ({ navigation }) => {
     return (
         <SafeAreaView>
-            <View style={{backgroundColor: '#fff'}}>
+            <View style={styles.infoCard}>
                 <View style={styles.avatarName}>
                     <Avatar.Image 
                         source={{
@@ -16,40 +16,27 @@ const More = ({ navigation }) => {
                     />
                     <View style={styles.nameView}>
                         <Title> Hoang My Phi</Title>
-                        <Caption> Owner & Founder </Caption>
-                    </View>
-                    <View >
-                        <TouchableOpacity
-                            activeOpacity={0.5}
-                            onPress={() => {
-                                navigation.navigate('Update Info')
-                            }}>
-                            <View style={styles.updateBtn}>
-                                <Text style={styles.updateText}> Cập nhật </Text>
-                            </View>
-                        </TouchableOpacity>
+                        <Caption style={{marginLeft: 10}}> Owner & Founder </Caption>
                     </View>
                 </View>
 
                 <View style={styles.infoBoxWapper}>
-                    <View style={{marginLeft: 30}}>
-                        <View style={{flexDirection: 'row'}}>
-                            <View style={{flexDirection: 'row'}}>
-                                <Icon
-                                    name='calendar-range'
-                                    color={'#636363'}
-                                    size={28} />
-                                <Text style={styles.infoText}> 11-11-2020 </Text>
-                            </View>
-                            <View style={{flexDirection: 'row', marginLeft: 80}}>
+                    <View style={{marginTop: 10, marginLeft: 30}}>
+                        <View style={{flexDirection: 'row', marginBottom: 10}}>
+                            <Icon
+                                name='calendar-range'
+                                color={'#636363'}
+                                size={28} />
+                            <Text style={styles.infoText}> 11-11-2020 </Text>
+                        </View>
+                        <View style={{flexDirection: 'row', marginBottom: 10}}>
                             <Icon
                                 name='phone'
                                 color={'#636363'}
                                 size={28} />
                             <Text style={styles.infoText}> 0909123456 </Text>
                         </View>
-                        </View>
-                        <View style={{flexDirection: 'row', marginTop: 10}}>
+                        <View style={{flexDirection: 'row', marginBottom: 10}}>
                             <Icon
                                 name='email'
                                 color={'#636363'}
@@ -66,10 +53,11 @@ const More = ({ navigation }) => {
                 </View>
             </View>
 
-            <View style={{backgroundColor: '#fff'}}>
+            <View style={styles.infoCard}>
                 <View style={styles.infoApp}>
                     <Text style={styles.infoAppLabel}> Về ứng dụng </Text>
-                    <Text style={styles.infoAppText}> Đồ án: ứng dụng quản lý kinh doanh nhà hàng </Text>
+                    <View style={styles.labelView}></View>
+                    <Text style={styles.infoAppText}> Đồ án: ứng dụng quản lý kinh doanh dành cho nhà hàng </Text>
                 </View>
             </View>
             <View style={{alignItems: 'center', marginTop: 15}}>
@@ -86,8 +74,8 @@ const More = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     avatarName: {
-        marginTop: 20,
-        marginLeft: 25,
+        marginTop: 10,
+        marginLeft: 20,
         flexDirection: 'row', 
         alignItems: 'center'
     },
@@ -111,14 +99,9 @@ const styles = StyleSheet.create({
         color: '#fff'
     },
     infoBoxWapper: {
-        borderBottomColor: '#dddddd',
-        borderBottomWidth: 1,
-        borderTopColor: '#dddddd',
+        borderTopColor: '#d4d4d4',
         borderTopWidth: 1,
-        height: 100,
-        marginTop: 20,
-        flexDirection: 'row',
-        alignItems: 'center'
+        marginTop: 10
     },
     infoText: {
         color: '#636363',
@@ -128,12 +111,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#de5543',
         borderRadius: 20,
         height: 40,
-        width: 130,
+        width: 330,
         alignItems: 'center',
-        elevation: 4
+        elevation: 8
     },
     logoutText: {
-        textTransform: 'uppercase',
         fontWeight: '700',
         alignSelf: 'center',
         marginTop: 8,
@@ -141,10 +123,7 @@ const styles = StyleSheet.create({
         fontSize: 17
     },
     infoApp: {
-        borderBottomColor: '#dddddd',
-        borderBottomWidth: 1,
-        height: 100,
-        marginTop: 10,
+        marginTop: 5,
         alignItems: 'center'
     },
     infoAppText: {
@@ -158,6 +137,23 @@ const styles = StyleSheet.create({
         color: '#000',
         fontWeight: '700',
         textTransform: 'uppercase'
+    },
+    infoCard: {
+        backgroundColor: '#fff',
+        padding: 5,
+        borderRadius: 10,
+        marginTop: 10,
+        elevation: 8,
+        width: "90%",
+        alignSelf: 'center',
+        marginBottom: 10
+    },
+    labelView:{
+        borderBottomWidth: 1,
+        borderBottomColor: "#d4d4d4",
+        width: "90%",
+        alignSelf: 'center',
+        marginBottom: 5
     }
 })
 

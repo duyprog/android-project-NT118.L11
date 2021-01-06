@@ -1,7 +1,7 @@
 import {
    FETCHING_ITEM_REQUEST, FETCHING_ITEM_FAILURE, FETCHING_FOOD_SUCCESS,
    FETCHING_DESSERT_SUCCESS, FETCHING_DRINK_SUCCESS, FETCHING_FRIED_SUCCESS,
-   FETCHING_HOTPOT_SUCCESS, FETCHING_NOODLE_SUCCESS,
+   FETCHING_HOTPOT_SUCCESS, FETCHING_NOODLE_SUCCESS, CHOOSE_ITEM,
 } from './types';
 import { IP } from '../../components/IP';
 
@@ -178,5 +178,16 @@ export const fetchDessert = () => {
         } catch (error) {
             dispatch(fetchingDessertItemFailure(error));
         } 
+    }
+}
+
+export const chooseItem = (ITEM_ID, QUANTITY) =>({
+    type: CHOOSE_ITEM,
+    payload: {ITEM_ID, QUANTITY}
+});
+
+export const chooseItems = (ITEM_ID, QUANTITY) =>{
+    return async dispatch =>{
+        dispatch(chooseItem(ITEM_ID, QUANTITY));
     }
 }
