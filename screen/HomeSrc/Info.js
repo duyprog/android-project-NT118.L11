@@ -1,10 +1,24 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 import { TextInput } from 'react-native-gesture-handler';
+import { connect } from 'react-redux';
+import  PropTypes  from 'prop-types';
+import {insertNewCustomer} from '../../redux/actions/customerActions';
 
-const isAtStore = false;
 
-const Info = ({navigation}) => {
+const Info = ({navigation, insertNewCustomer, isAtStore}) => {
+
+     var name;
+     var phone;
+
+    const setName = (value) => {
+        name = value; 
+    }
+
+    const setPhone = (value) => {
+        phone = value;
+    }
+    
     return (
         <View>
             <View style={styles.container}>
@@ -16,7 +30,10 @@ const Info = ({navigation}) => {
                             autoCapitalize='words'
                             autoCompleteType='name'
                             placeholder='Bạn tên gì nè ?'
-                            style={{borderBottomWidth: 1, fontSize: 18, borderBottomColor: '#d4d4d4'}} />
+                            style={{borderBottomWidth: 1, fontSize: 18, borderBottomColor: '#d4d4d4'}}
+                            onChangeText= { value => {
+                                setName(value);
+                            } } />
                     </View>
                     <View style={{flexDirection: 'row'}}>
                         <TextInput
@@ -32,6 +49,9 @@ const Info = ({navigation}) => {
                             autoCompleteType='cc-number'
                             keyboardType='phone-pad'
                             placeholder='Số điện thoại bạn bao nhiêu nè?'
+                            onChangeText = {value => {
+                                setPhone(value)}
+                            }
                             style={{borderBottomWidth: 1, fontSize: 18, borderBottomColor: '#d4d4d4'}} />
                     </View>
                     <View style={{flexDirection: 'row'}}>
@@ -47,7 +67,8 @@ const Info = ({navigation}) => {
                 <TouchableOpacity
                     activeOpacity={0.5}
                     onPress={() => {
-                        isAtStore == true ? navigation.navigate("Select Table") : navigation.navigate("Food Menu")
+                        isAtStore == true ? navigation.navigate("Select table") : navigation.navigate("Food Menu");
+                        insertNewCustomer(name, phone);
                     }}>
                     <View style={styles.payBtn}>
                         <Text style={styles.payText}> Xác nhận </Text>
@@ -58,6 +79,16 @@ const Info = ({navigation}) => {
     )
 }
 
+Info.propTypes = {
+    insertNewCustomer: PropTypes.func.isRequired,
+    isAtStore: PropTypes.bool.isRequired
+}
+const mapStateToProps = state => {
+    return{ 
+        isAtStore : state.customerReducer.customerData.isAtStore
+    }
+}
+export default connect(mapStateToProps, {insertNewCustomer}) (Info);
 const styles = StyleSheet.create({
     labelView:{
         borderBottomWidth: 1,
@@ -112,4 +143,3 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Info
