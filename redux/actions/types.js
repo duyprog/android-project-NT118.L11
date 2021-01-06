@@ -67,7 +67,6 @@ export const INSERT_CUSTOMER_FAILURE = 'INSERT_CUSTOMER_FAILURE';
 
 export const CHOOSE_PICKUP = 'CHOOSE_PICKUP'
 export const CHOOSE_AT_STORE = 'CHOOSE_AT_STORE'
-<<<<<<< HEAD
 
 // Them chi tiet hoa don 
 
@@ -76,5 +75,3 @@ export const INSERT_DETAIL_SUCCESS = 'INSERT_DETAIL_SUCCESS';
 export const INSERT_DETAIL_FAILURE = 'INSERT_DETAIL_FAILURE';
 
 // LAY ID RECEIPT MOI NHAT 
-=======
->>>>>>> fa6cf42ad170a7564cdcfb6881e92f28d599961a

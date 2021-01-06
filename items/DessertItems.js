@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {chooseItems} from '../redux/actions/itemActions';
 import {insertNewDetail} from '../redux/actions/receiptDetailActions';
 import PropTypes from 'prop-types';
- function DessertItems({item, currentReceiptID, insertNewDetail}, props){
+ function DessertItems({item, currentReceiptID, insertNewDetail}){
 
     const [modalVisible, setModalVisible] = useState(false);
     var quantity = 0;
@@ -57,9 +57,7 @@ import PropTypes from 'prop-types';
         </TouchableOpacity>
     );
 }
-DessertItems.propTypes = {
-    chooseItems: PropTypes.func.isRequired, 
-}
+
 const styles = StyleSheet.create({
     cartText: {
         textTransform: 'uppercase',
