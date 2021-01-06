@@ -4,12 +4,12 @@ import NumericInput from 'react-native-numeric-input'
 import {connect} from 'react-redux';
 import {chooseItems} from '../redux/actions/itemActions';
 import PropTypes from 'prop-types';
- function DessertItems({item, chooseItems, itemChoosed}){
+ function DessertItems({item, chooseItems, choItem}, props){
 
     const [modalVisible, setModalVisible] = useState(false);
-    var a = 0;
+    var quantity = 0;
     const setValue = (value) =>{
-        a = value;
+        quantity = value;
     }
     return(
         <TouchableOpacity
@@ -34,9 +34,9 @@ import PropTypes from 'prop-types';
                             <TouchableOpacity
                                 onPress={() => {
                                     setModalVisible(!modalVisible);
-                                    chooseItems(item.ITEM_ID, a);
-
-                                   
+                                    chooseItems(item.ITEM_ID, quantity);
+                                    console.log(choItem)
+                                    
                                 }}>
                                 <Text style={styles.compText}>Hoàn tất</Text>
                             </TouchableOpacity>
@@ -58,7 +58,7 @@ import PropTypes from 'prop-types';
 }
 DessertItems.propTypes = {
     chooseItems: PropTypes.func.isRequired, 
-    itemChoosed: PropTypes.array.isRequired
+    choItem: PropTypes.array.isRequired
 }
 const styles = StyleSheet.create({
     cartText: {
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
 });
 const mapStateToProps = state => {
     return{
-        itemChoosed: state.itemReducer.itemData.choosedItem
+        choItem: state.itemReducer.itemData.choItem
     }
 }
 export default connect(mapStateToProps, {chooseItems})(DessertItems);
