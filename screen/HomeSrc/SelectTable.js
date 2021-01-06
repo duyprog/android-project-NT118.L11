@@ -1,45 +1,9 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, Image, FlatList, SafeAreaView, TouchableOpacity } from 'react-native'
-import { useNavigation } from '@react-navigation/native';
-import {useStore} from 'react-redux'
-import empty from '../../image/foodMenu/empty-table.png'
-import serving from '../../image/foodMenu/serving-table.png'
+import { View, StyleSheet, FlatList, SafeAreaView } from 'react-native'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchTable, chooseATable } from '../../redux/actions/tableActions';
 import Table from '../../components/Table';
-
-// function Table({item, props}) {
-//     var ima = serving;
-//     const navigation = useNavigation();
-//     if(item.TB_STATUS){
-//         ima = serving;
-//         }
-//     else{
-//         ima = empty;
-//        }
-//     //var ima = item.TB_STATUS ? serving : empty
-//     return(
-//         <TouchableOpacity
-//             activeOpacity={0.5}
-//             disabled={item.TB_STATUS}
-//             onPress={() => { navigation.navigate('Food Menu');
-//                 props;
-//             }}>
-//             <View style={styles.viewStyle}>
-//                 <View>
-//                     <View style={styles.container}>
-//                         <Image style={styles.img} source={ima}/>
-//                     </View>
-//                     <View style={styles.info}>
-//                             <Text style={styles.name}>{'Bàn ' + item.TB_ID}</Text>
-//                     </View>
-//                 </View>
-//             </View>
-//         </TouchableOpacity>
-//     )
-// }
-
 class SelectTable extends Component {
     componentDidMount(){
         this.props.fetchTable();
