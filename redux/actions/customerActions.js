@@ -18,11 +18,37 @@ export const fetchingCustomerFailure = (error) =>({
     payload: error
 });
 
+export const fetchCustomer = () => {
+    return async dispatch => {
+        dispatch(fetchingCustomerRequest());
+        try {
+            let response = await fetch('http://'+ IP + ':3000/get_all_customer/');
+            let json = await response.json();
+            dispatch(fetchingCustomerSuccess(json));
+        } catch (error) {
+            dispatch(fetchingCustomerFailure(error));
+        }
+    }
+}
+
 export const fetchCustomerById = (customerID) => {
     return async dispatch => {
         dispatch(fetchingCustomerRequest());
         try {
             let response = await fetch('http://'+ IP + ':3000/get_customer_by_id/' + customerID);
+            let json = await response.json();
+            dispatch(fetchingCustomerSuccess(json));
+        } catch (error) {
+            dispatch(fetchingCustomerFailure(error));
+        }
+    }
+}
+
+export const insertNewCustomer = (customerID, customer_name, phone) => {
+    return async dispatch => {
+        dispatch(fetchingCustomerRequest());
+        try {
+            let response = await fetch('http://'+ IP + ':3000/insert_new_customer/'+ customerID +'/'+ customer_name +'/'+ phone +'/');
             let json = await response.json();
             dispatch(fetchingCustomerSuccess(json));
         } catch (error) {
