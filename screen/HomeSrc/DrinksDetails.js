@@ -110,7 +110,7 @@ class DrinkDetails extends Component {
                 numColumns={2}
                 renderItem={({item}) =>
                 <View style={styles.wrapper}>
-                    <DrinkItems drinkItem={item}/>
+                    <DrinkItems item={item}/>
                 </View>}
                 keyExtractor={(item) => `${item.ITEM_ID}`}/>
         )
