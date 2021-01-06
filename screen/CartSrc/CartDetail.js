@@ -8,7 +8,7 @@ import {fetchDetailById} from '../../redux/actions/receiptDetailActions';
 
 function CartD( {item} ) {
     return(
-        <View style={{alignSelf: 'center'}}>
+        <View style={{alignSelf: 'center', marginBottom: 10}}>
             <View style={styles.card}>
                 <View style={styles.cardImgWrapper}>
                     <Image source={{uri: item.IMAGE_URL}}
@@ -44,7 +44,8 @@ class CartDetail extends Component {
                     </View>
                 </View>  */}
                 <View style={styles.container}>
-                    <Text style={styles.label}> Đơn hàng </Text>
+                    <Text style={styles.label}> Chi tiết đơn hàng </Text>
+                    <View style={styles.labelView}></View>
                 </View> 
                 <FlatList 
                     data={this.props.receiptDetail}
@@ -76,6 +77,13 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {fetchDetailById}) (CartDetail);
 
 const styles = StyleSheet.create({
+    labelView:{
+        borderBottomWidth: 1,
+        borderBottomColor: "#d4d4d4",
+        width: "90%",
+        alignSelf: 'center',
+        marginBottom: 5
+    },
     label: {
         textTransform: 'uppercase',
         fontWeight: '700',
@@ -98,7 +106,7 @@ const styles = StyleSheet.create({
         height: 80,
         width: '90%',
         flexDirection: 'row',
-        marginTop: 10
+        marginTop: 5
     },
     cardImgWrapper: {
         flex: 1,
@@ -114,15 +122,13 @@ const styles = StyleSheet.create({
     cardInfo: {
         flex: 2,
         padding: 5,
-        borderColor: '#ccc',
-        borderWidth: 1,
         borderLeftWidth: 0,
         borderBottomRightRadius: 8,
         borderTopRightRadius: 8,
         backgroundColor: '#fff',
     },
     cardTitle: {
-        fontSize: 17,
+        fontSize: 20,
         color: '#444'
     },
     cardDetails: {
