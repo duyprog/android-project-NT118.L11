@@ -1,10 +1,17 @@
 import React, { Component, useState } from 'react'
 import { Text, View, Image, TouchableOpacity, StyleSheet, Modal } from 'react-native'
 import NumericInput from 'react-native-numeric-input'
-export default function NoodleItems(props){
+import {connect} from 'react-redux';
+import {insertNewDetail} from '../redux/actions/receiptDetailActions';
+import PropTypes from 'prop-types';
 
-    const{noodleItem} = props;
+export default function NoodleItems(item, currentReceiptID, insertNewDetail){
     const [modalVisible, setModalVisible] = useState(false);
+    var quantity = 0;
+    const setValue = (value) =>{
+        quantity = value;
+    }
+
     return(
         <TouchableOpacity
             activeOpacity={0.5}
@@ -22,7 +29,7 @@ export default function NoodleItems(props){
                             minValue={0}
                             rounded={true}
                             totalHeight={40}
-                            onChange={value => console.log(value)} />
+                            onChange={value => setValue(value)} />
                         <View style={styles.compBtn}>
                             <TouchableOpacity
                                 onPress={() => {
@@ -35,11 +42,11 @@ export default function NoodleItems(props){
                 </View>
             </Modal>
             <View style={styles.container}>
-                <Image style={styles.img} source={{uri: noodleItem.IMAGE_URL}}/>
+                <Image style={styles.img} source={{uri: item.IMAGE_URL}}/>
                 <View style={styles.info}>
-                    <Text style={styles.name}>{noodleItem.ITEM_NAME}</Text>
+                    <Text style={styles.name}>{item.ITEM_NAME}</Text>
                     <View style={styles.priceRow}>
-                        <Text style={styles.price}>{noodleItem.UNITPRICE}đ</Text>
+                        <Text style={styles.price}>{item.UNITPRICE}đ</Text>
                     </View>
                 </View>
             </View>

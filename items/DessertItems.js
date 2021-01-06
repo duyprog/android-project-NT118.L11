@@ -2,10 +2,9 @@ import React, { Component, useState } from 'react'
 import { Text, View, Image, TouchableOpacity, StyleSheet, Modal } from 'react-native'
 import NumericInput from 'react-native-numeric-input'
 import {connect} from 'react-redux';
-import {chooseItems} from '../redux/actions/itemActions';
 import {insertNewDetail} from '../redux/actions/receiptDetailActions';
 import PropTypes from 'prop-types';
- function DessertItems({item, currentReceiptID, insertNewDetail}, props){
+ function DessertItems({item, currentReceiptID, insertNewDetail}){
 
     const [modalVisible, setModalVisible] = useState(false);
     var quantity = 0;
