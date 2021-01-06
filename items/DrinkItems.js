@@ -3,7 +3,6 @@ import { Text, View, Image, TouchableOpacity, StyleSheet, Modal } from 'react-na
 import NumericInput from 'react-native-numeric-input'
 import {connect} from 'react-redux';
 import {insertNewDetail} from '../redux/actions/receiptDetailActions';
-import PropTypes from 'prop-types';
 function DrinkItems({item, currentReceiptID, insertNewDetail}){
 
     const [modalVisible, setModalVisible] = useState(false);
