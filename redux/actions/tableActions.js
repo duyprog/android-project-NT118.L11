@@ -37,7 +37,7 @@ export const fetchTable = () => {
 
 
 export const chooseATable = (tableID) => {
-    return async dispatch => {
-        dispatch(choosingTable(tableID));
+    return dispatch => {
+         dispatch(choosingTable(tableID));
     }
 }

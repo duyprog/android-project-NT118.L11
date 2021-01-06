@@ -11,7 +11,7 @@ const initialState = {
         foodItems: [],
         noodleItems: [],
         friedItems: [],
-        choosedItem: []
+        choItem: []
     }
 }
 
@@ -94,7 +94,7 @@ const itemReducer = (state=initialState, action) =>{
                 itemData:{
                     ...state.itemData,
                     refreshing:false, 
-                    choosedItem: choosedItem.push(action.payload)
+                    choItem: action.payload
                 } 
             }
         default: 
