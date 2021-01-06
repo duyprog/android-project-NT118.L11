@@ -3,7 +3,6 @@ import { Text, View, StyleSheet, ScrollView, Button} from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import {insertAStaff} from '../../networking/server'
 import {Picker} from '@react-native-picker/picker'
-import DatePicker from 'react-native-datepicker'
 import {TextInput} from 'react-native-paper'
 export default class AddStaff extends Component {
     constructor(props){

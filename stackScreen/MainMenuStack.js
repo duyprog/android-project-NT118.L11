@@ -11,6 +11,8 @@ import MainMenu from '../screen/MainMenu'
 import SelectTable from '../screen/HomeSrc/SelectTable'
 import NoodlesDetails from '../screen/HomeSrc/NoodlesDetails'
 import Confirm from "../screen/HomeSrc/Confirm"
+import Info from "../screen/HomeSrc/Info"
+
 const MainMenuStack = createStackNavigator()
 
 function MainMenuStackScreen() {
@@ -66,6 +68,11 @@ function MainMenuStackScreen() {
             name="Confirm" 
             component={Confirm} 
             options={{title: 'Xác nhận đơn hàng'                   
+                    }}/>
+        <MainMenuStack.Screen 
+            name="Info" 
+            component={Info} 
+            options={{title: 'Lập hóa đơn'                   
                     }}/>
       </MainMenuStack.Navigator>
     )

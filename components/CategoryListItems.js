@@ -5,7 +5,7 @@ export default class CategoryListItems extends Component {
     render() {
         return (
             <View style={styles.containter}>
-                <View style={{borderWidth: 1, borderColor: '#c4c4c4', padding: 5, borderRadius: 8}}>
+                <View>
                     <Image 
                         style={styles.CategoryImage} 
                         source={this.props.uri}/>
