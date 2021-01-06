@@ -1,10 +1,11 @@
-import {FETCHING_RECEIPT_REQUEST, FETCHING_RECEIPT_FAILURE, FETCHING_RECEIPT_COMPLETE_SUCCESS, FETCHING_RECEIPT_INCOMPLETE_SUCCESS, CHOOSE_RECEIPT_TO_SEE} from '../actions/types';
+import {FETCHING_RECEIPT_REQUEST, FETCHING_RECEIPT_FAILURE, FETCHING_RECEIPT_COMPLETE_SUCCESS, FETCHING_RECEIPT_INCOMPLETE_SUCCESS, CHOOSE_RECEIPT_TO_SEE, FETCHING_TOTAL_REQUEST, FETCHING_TOTAL_SUCCESS} from '../actions/types';
 const intitialState = { 
     receiptData: {
         refreshing: false, 
         completeReceipt: [], 
         incompleteReceipt: [], 
-        chooseReceipt:''
+        chooseReceipt:'', 
+        totalPrice: []
     }
 }
 
@@ -51,6 +52,23 @@ const receiptReducer = (state = intitialState, action) =>{
                     ...state.receiptData, 
                     refreshing: false,
                     chooseReceipt: action.payload
+                }
+            }
+        case FETCHING_TOTAL_REQUEST: 
+            return{
+                ...state, 
+                receiptData:{
+                    ...state.receiptData, 
+                    refreshing: true, 
+                }
+            }
+        case FETCHING_TOTAL_SUCCESS: 
+            return{
+                ...state, 
+                receiptData: {
+                    ...state.receiptData,
+                    refreshing: false, 
+                    totalPrice: action.payload
                 }
             }
         default: 
