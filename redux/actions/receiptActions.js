@@ -2,7 +2,7 @@ import {FETCHING_RECEIPT_REQUEST, FETCHING_RECEIPT_FAILURE,
      FETCHING_RECEIPT_COMPLETE_SUCCESS, FETCHING_RECEIPT_INCOMPLETE_SUCCESS, 
      CHOOSE_RECEIPT_TO_SEE, INSERT_RECEIPT_REQUEST, INSERT_RECEIPT_FAILURE, 
      INSERT_RECEIPT_SUCCESS, UPDATE_TOTAL_REQUEST, UPDATE_TOTAL_SUCCESS, UPDATE_TOTAL_FAILURE,
-    FETCHING_TOTAL_REQUEST, FETCHING_TOTAL_SUCCESS, FETCHING_TOTAL_FAILURE} from './types';
+    FETCHING_TOTAL_REQUEST, FETCHING_TOTAL_SUCCESS, FETCHING_TOTAL_FAILURE, UPDATE_DONE_RECEIPT} from './types';
 
 import { IP } from '../../components/IP';
 
@@ -142,7 +142,24 @@ export const updateTotalPrice = () => {
 
     }
 }
-
+export const updateDoneReceipt = (RECEIPT_ID) => {
+    return async dispatch => {
+        try{
+            dispatch({
+                type: UPDATE_DONE_RECEIPT
+            });
+            await fetch(`http://${IP}:3000/update_receipt_done/${RECEIPT_ID}`,{
+                method: 'PUT',
+                headers: {
+                    'Accept':'application/json', 
+                    'Content-Type': 'application/json'
+                }});
+        }
+        catch(err){
+            
+        }
+    }
+}
 export const fetchTotalPriceById = (RECEIPT_ID) => {
     return async dispatch => {
         dispatch(fetchingTotalRequest());

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Text, View, TouchableOpacity, SafeAreaView, StyleSheet, Alert } from 'react-native'
 import CartDetail from './CartDetail'
-
+import {connect} from 'react-redux';
+import {updateDoneReceipt} from '../../redux/actions/receiptActions';
 const createAlert = () =>
     Alert.alert(
       "Xác nhận",
@@ -12,7 +13,7 @@ const createAlert = () =>
       { cancelable: false }
     );
 
-function Payment({navigation}){
+function Payment({navigation, chooseReceipt, updateDoneReceipt}){
     return(
         <SafeAreaView>
             <CartDetail></CartDetail>
@@ -25,10 +26,13 @@ function Payment({navigation}){
                             "Thanh toán cho đơn hàng này?",
                             [
                               { text: "OK", 
-                                onPress: () => navigation.navigate("Cart"),
+                                onPress: () =>{ 
+                                navigation.navigate("Cart");
+                                updateDoneReceipt(chooseReceipt);
+                                },
                                 style: "default" },
                               { text: "Cancel",
-                                onPress: () => console.log("Cancel Pressed"),
+                            onPress: () => {console.log("Cancel Pressed")},
                                 style: "cancel" }
                             ],
                           );
@@ -65,5 +69,9 @@ const styles = StyleSheet.create({
         fontSize: 17
     }
 })
-
-export default Payment
+const mapStateToProps = state => {
+    return { 
+        chooseReceipt: state.receiptReducer.receiptData.chooseReceipt, 
+    }
+}
+export default connect(mapStateToProps, {updateDoneReceipt}) (Payment);
