@@ -55,7 +55,7 @@ function FriedItems({item, currentReceiptID, insertNewDetail}){
         </TouchableOpacity>
     );
 }
-FriedItems.PropTypes = {
+FriedItems.propTypes = {
     chooseItems: PropTypes.func.isRequired,
 }
 

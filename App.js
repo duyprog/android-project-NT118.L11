@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, { useEffect } from 'react';
 import { View, ActivityIndicator } from 'react-native';
 import { 

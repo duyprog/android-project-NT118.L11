@@ -5,13 +5,12 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux'; 
 import {fetchStaffByID} from '../../redux/actions/staffActions';
-
 import { AuthContext } from '../../App'
 
 const More = ({navigation, fetchStaffByID, staff}) => {
     const { signOut } = React.useContext(AuthContext);
-    fetchStaffByID('1');
-    console.log(staff);
+    // fetchStaffByID('1');
+    // console.log(staff);
     return (
         <SafeAreaView>
             <View style={styles.infoCard}>
