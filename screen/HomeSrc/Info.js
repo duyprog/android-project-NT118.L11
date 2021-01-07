@@ -4,6 +4,7 @@ import { TextInput } from 'react-native-gesture-handler';
 import { connect } from 'react-redux';
 import  PropTypes  from 'prop-types';
 import {fetchCurrentCustomer, insertNewCustomer} from '../../redux/actions/customerActions';
+import {insertTakeAwayReceipt} from '../../redux/actions/receiptActions';
 
 
 
@@ -17,7 +18,7 @@ const createAlert = () =>
       { cancelable: false }
     );
 
-const Info = ({navigation, insertNewCustomer, isAtStore, fetchCurrentCustomer, currentCustomerId}) => {
+const Info = ({navigation, insertNewCustomer, isAtStore, insertTakeAwayReceipt, fetchCurrentCustomer, currentCustomerId}) => {
 
      var name;
      var phone;
@@ -81,10 +82,20 @@ const Info = ({navigation, insertNewCustomer, isAtStore, fetchCurrentCustomer, c
                         if(name == undefined || phone == undefined){
                             createAlert();
                         }
-                        else
-                        {isAtStore == true ? navigation.navigate("Select table") : navigation.navigate("Food Menu");}
-                        await insertNewCustomer(name, phone);
-                    }}>
+                        else{
+                            if(isAtStore == true){
+                                navigation.navigate("Select table");
+                            }
+                            else{
+                                navigation.navigate('Food Menu');
+                                await insertNewCustomer(name, phone);
+                                
+
+                            }
+                            fetchCurrentCustomer();
+                        }
+                        // {isAtStore == true ? navigation.navigate("Select table") : navigation.navigate("Food Menu");}
+                     }}>
                     <View style={styles.payBtn}>
                         <Text style={styles.payText}> Xác nhận </Text>
                     </View>

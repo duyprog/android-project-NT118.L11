@@ -3,8 +3,10 @@ import { View, Text, StyleSheet, TouchableOpacity} from 'react-native'
 import CategoryListItems from '../../components/CategoryListItems'
 import {connect} from 'react-redux'; 
 import {updateTotalPrice} from '../../redux/actions/receiptActions';
-import {fetchTotalPriceById} from '../../redux/actions/receiptActions';
-const Categories = ({navigation, updateTotalPrice, fetchTotalPriceById, currentReceiptID}) => {
+import {fetchTotalPriceById, insertTakeAwayReceipt} from '../../redux/actions/receiptActions';
+import {fetchCurrentCustomer} from '../../redux/actions/customerActions'
+
+const Categories = ({navigation, updateTotalPrice, fetchTotalPriceById, currentReceiptID, currentCustomerId, fetchCurrentCustomer, isAtStore}) => {
     return (
         <View>
             <View style={styles.mainView}>
@@ -127,6 +129,8 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => {
     return {
         currentReceiptID: state.receiptDetailReducer.receiptDetailData.currentReceiptID,
+        currentCustomerId: state.customerReducer.customerData.currentCustomerId, 
+        isAtStore: state.customerReducer.customerData.isAtStore
     }
 }
-export default connect(mapStateToProps, {updateTotalPrice, fetchTotalPriceById}) (Categories)
+export default connect(mapStateToProps, {updateTotalPrice, fetchTotalPriceById, fetchCurrentCustomer, insertTakeAwayReceipt}) (Categories)

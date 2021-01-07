@@ -2,7 +2,7 @@ import {FETCHING_RECEIPT_REQUEST, FETCHING_RECEIPT_FAILURE,
      FETCHING_RECEIPT_COMPLETE_SUCCESS, FETCHING_RECEIPT_INCOMPLETE_SUCCESS, 
      CHOOSE_RECEIPT_TO_SEE, INSERT_RECEIPT_REQUEST, INSERT_RECEIPT_FAILURE, 
      INSERT_RECEIPT_SUCCESS, UPDATE_TOTAL_REQUEST, UPDATE_TOTAL_SUCCESS, UPDATE_TOTAL_FAILURE,
-    FETCHING_TOTAL_REQUEST, FETCHING_TOTAL_SUCCESS, FETCHING_TOTAL_FAILURE, UPDATE_DONE_RECEIPT, INSERT_TAKEAWAY_SUCCESS, INSERT_CUSTOMER_FAILURE} from './types';
+    FETCHING_TOTAL_REQUEST, FETCHING_TOTAL_SUCCESS, INSERT_TAKEAWAY_REQUEST, UPDATE_DONE_RECEIPT, INSERT_TAKEAWAY_SUCCESS, INSERT_TAKEAWAY_FAILURE} from './types';
 
 import { IP } from '../../components/IP';
 
@@ -95,20 +95,19 @@ export const insertReceipt = (TABLEID, CUSTOMER_ID) => {
     }
 }
 
-export const insertTakeAwayReceipt = (CUSTOMER_ID) => {
+export const insertTakeAwayReceipt = () => {
     return async dispatch =>{
         dispatch(insertTakeAwayRequest());
         try{
-            let response = await fetch('http://' + IP + `:3000/insert_takeaway_receipt/2/${CUSTOMER_ID}`, {
+            let response = await fetch('http://' + IP + `:3000/insert_takeaway_receipt/1`, {
                 method: 'POST',
                 headers: {
                     'Accept':'application/json', 
                     'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({TABLEID})
+                }
             });
             let json = await response.json();
-            dispatch(insertTakeAwaySuccess(json));
+            await dispatch(insertTakeAwaySuccess(json));
         }
         catch(err) {
             dispatch(insertTakeAwayFailure(err));
