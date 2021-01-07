@@ -7,7 +7,6 @@ import FriedItems from '../../items/FriedItems'
 class FriedDetails extends Component {
     componentDidMount(){
         this.props.fetchFried();
-        console.log(this.props.friedItems);
     }
     render() {
         return (

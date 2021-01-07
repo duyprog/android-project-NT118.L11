@@ -8,7 +8,6 @@ import NoodleItems from '../../items/NoodleItems'
 export class NoodleDetails extends Component {
     componentDidMount(){
         this.props.fetchNoodle();
-        console.log(this.props.noodleItems);
     }
     render() {
         return (

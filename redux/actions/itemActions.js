@@ -144,7 +144,7 @@ export const fetchHotpot = () => {
     return async dispatch => {
         dispatch(fetchingHotpotItemRequest());
         try {
-            let response = await fetch('http://' + IP + ':3000/get_all_hotpot_item');
+            let response = await fetch(`http://${IP}:3000/get_all_hotpot_item`);
             let json = await response.json();
             dispatch(fetchingHotpotItemSuccess(json));
         } catch (error) {

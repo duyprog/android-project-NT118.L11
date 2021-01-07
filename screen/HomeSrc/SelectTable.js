@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchTable, chooseATable } from '../../redux/actions/tableActions';
 import Table from '../../components/Table';
-
 class SelectTable extends Component {
     componentDidMount(){
         this.props.fetchTable();

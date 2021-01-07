@@ -5,7 +5,15 @@
 5    android:versionName="1.0" >
 6
 7    <uses-sdk
+<<<<<<< HEAD
 8        android:minSdkVersion="21"
+=======
+<<<<<<< HEAD
+8        android:minSdkVersion="21"
+=======
+8        android:minSdkVersion="16"
+>>>>>>> af873c43444cc43d6c39e617380084db842988f0
+>>>>>>> developer
 9        android:targetSdkVersion="29" />
 10
 11    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />

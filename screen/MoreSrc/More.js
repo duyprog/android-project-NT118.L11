@@ -2,8 +2,15 @@ import React, { Component } from 'react'
 import { Text, View, StyleSheet, Button, TouchableOpacity, SafeAreaView } from 'react-native'
 import { Avatar, Title, Caption} from 'react-native-paper'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux'; 
+import {fetchStaffByID} from '../../redux/actions/staffActions';
+import { AuthContext } from '../../App'
 
-const More = ({ navigation }) => {
+const More = ({navigation, fetchStaffByID, staff}) => {
+    const { signOut } = React.useContext(AuthContext);
+    // fetchStaffByID('1');
+    // console.log(staff);
     return (
         <SafeAreaView>
             <View style={styles.infoCard}>
@@ -32,10 +39,10 @@ const More = ({ navigation }) => {
                         </View>
                         <View style={{flexDirection: 'row', marginBottom: 10}}>
                             <Icon
-                                name='phone'
+                                name='calendar-range'
                                 color={'#636363'}
                                 size={28} />
-                            <Text style={styles.infoText}> 0909123456 </Text>
+                            <Text style={styles.infoText}> {staff.staffDOB} </Text>
                         </View>
                         <View style={{flexDirection: 'row', marginBottom: 10}}>
                             <Icon
@@ -95,7 +102,8 @@ const More = ({ navigation }) => {
             
             <View style={{alignItems: 'center', marginTop: 15}}>
                 <TouchableOpacity
-                    activeOpacity={0.5}>
+                    activeOpacity={0.5}
+                    onPress={() => {signOut()}} >
                     <View style={styles.logoutBtn}>
                         <Text style={styles.logoutText}> Đăng xuất </Text>
                     </View>
@@ -104,6 +112,17 @@ const More = ({ navigation }) => {
         </SafeAreaView>
     )
 }
+
+More.propTypes = {
+    fetchStaffByID: PropTypes.func.isRequired,
+    staff: PropTypes.array.isRequired
+}
+const mapStateToProps = (state) => {
+    return{
+        staff: state.staffReducer.staffData.staff,
+    }
+}
+export default connect(mapStateToProps, {fetchStaffByID}) (More);
 
 const styles = StyleSheet.create({
     infoCard: {
@@ -179,5 +198,3 @@ const styles = StyleSheet.create({
     },
     
 })
-
-export default More

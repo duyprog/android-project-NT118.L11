@@ -8,7 +8,11 @@ target 'restaurant' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+<<<<<<< HEAD
   pod 'RNCPicker', :path => '../node_modules/@react-native-picker/picker'
+=======
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+>>>>>>> developer
 
   target 'restaurantTests' do
     inherit! :complete

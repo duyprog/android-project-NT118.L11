@@ -25,7 +25,6 @@ const createAlert = () =>
       { cancelable: false }
     );
 
-
 function List({item}) {
     return(
         <View style={{alignSelf: 'center', marginBottom: 10}}>
