@@ -3,8 +3,6 @@ import { Text, View, StyleSheet, TouchableOpacity, Alert } from 'react-native'
 import { TextInput } from 'react-native-gesture-handler';
 import {Picker} from '@react-native-picker/picker';
 
-
-
 const createAlert = () =>
     Alert.alert(
       "Thông báo",
@@ -24,10 +22,6 @@ const successAlert = () =>
       ],
       { cancelable: false }
     );
-    
-function change (value) {
-    role = value;
-}
 
 const AddStaff = ({navigation}) => {
     const [selectedValue, setSelectedValue] = useState("staff");
@@ -66,7 +60,10 @@ const AddStaff = ({navigation}) => {
                             selectedValue={selectedValue}
                             style={{height: 50, width: 140, marginLeft: 15}}
                             onValueChange={(itemValue, itemIndex) =>
-                                setSelectedValue(itemValue)
+                                {
+                                    setSelectedValue(itemValue);
+                                    console.log(itemValue);
+                                }
                             }>
                             <Picker.Item label="Quản lý" value="manager" />
                             <Picker.Item label="Nhân viên" value="staff" />
