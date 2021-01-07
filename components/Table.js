@@ -7,9 +7,10 @@ import { useNavigation } from '@react-navigation/native';
 import empty from '../image/foodMenu/empty-table.png';
 import serving from '../image/foodMenu/serving-table.png';
 import {insertReceipt} from '../redux/actions/receiptActions';
+import {fetchCurrentCustomer} from '../redux/actions/customerActions';
 import {fetchCurrentReceiptId} from '../redux/actions/receiptDetailActions'
 import {changeTableToOne} from '../redux/actions/tableActions';
-function Table({item, insertReceipt,fetchCurrentReceiptId, chooseATable, changeTableToOne, choosedTable}) {
+function Table({item, insertReceipt,fetchCurrentReceiptId, chooseATable, changeTableToOne, choosedTable, fetchCurrentCustomer, currentCustomerId}) {
     var ima = serving;
     const navigation = useNavigation();
     if(item.TB_STATUS){
@@ -18,7 +19,7 @@ function Table({item, insertReceipt,fetchCurrentReceiptId, chooseATable, changeT
     else{
         ima = empty;
        }
-
+    fetchCurrentCustomer();
 
     //var ima = item.TB_STATUS ? serving : empty
     return(
@@ -27,11 +28,11 @@ function Table({item, insertReceipt,fetchCurrentReceiptId, chooseATable, changeT
             disabled={item.TB_STATUS}
             onPress={ async () => {
                 navigation.navigate('Food Menu');
-                await chooseATable(item.TB_ID);
-                console.log(choosedTable);
-                await insertReceipt(item.TB_ID);
-                await fetchCurrentReceiptId();
+                //console.log(choosedTable);
+                await insertReceipt(item.TB_ID, currentCustomerId);
+                console.log(currentCustomerId);
                 await changeTableToOne(item.TB_ID)
+                
 
             }}>
             <View style={styles.viewStyle}>
@@ -50,6 +51,7 @@ function Table({item, insertReceipt,fetchCurrentReceiptId, chooseATable, changeT
 const mapStateToProps = (state) => {
     return{
         currentReceiptID: state.receiptDetailReducer.receiptDetailData.currentReceiptID,
+        currentCustomerId: state.customerReducer.customerData.currentCustomerId
     }
 }
 const styles = StyleSheet.create({
@@ -86,4 +88,4 @@ const styles = StyleSheet.create({
         fontWeight: '600'
     }
 })
-export default connect(mapStateToProps, {chooseATable, insertReceipt, fetchCurrentReceiptId, changeTableToOne}) (Table);
+export default connect(mapStateToProps, {chooseATable, insertReceipt, fetchCurrentReceiptId, changeTableToOne, fetchCurrentCustomer}) (Table);

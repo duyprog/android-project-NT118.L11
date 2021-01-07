@@ -74,17 +74,17 @@ export const insertTakeAwaySuccess = () =>({
 export const insertTakeAwayFailure = () =>({
     type: INSERT_TAKEAWAY_FAILURE
 });
-export const insertReceipt = (TABLEID) => {
+export const insertReceipt = (TABLEID, CUSTOMER_ID) => {
     return async dispatch =>{
         dispatch(insertReceiptRequest());
         try{
-            let response = await fetch('http://' + IP + `:3000/insert_new_receipt/2/1/${TABLEID}/1`, {
+            let response = await fetch('http://' + IP + `:3000/insert_new_receipt/1/${CUSTOMER_ID}/${TABLEID}/1`, {
                 method: 'POST',
                 headers: {
                     'Accept':'application/json', 
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({TABLEID})
+                body: JSON.stringify({TABLEID, CUSTOMER_ID})
             });
             let json = await response.json();
             dispatch(insertReceiptSuccess(json));
@@ -95,11 +95,11 @@ export const insertReceipt = (TABLEID) => {
     }
 }
 
-export const insertTakeAwayReceipt = (TABLEID) => {
+export const insertTakeAwayReceipt = (CUSTOMER_ID) => {
     return async dispatch =>{
-        dispatch(insertReceiptRequest());
+        dispatch(insertTakeAwayRequest());
         try{
-            let response = await fetch('http://' + IP + `:3000/insert_new_receipt/2/1/${TABLEID}/1`, {
+            let response = await fetch('http://' + IP + `:3000/insert_takeaway_receipt/2/${CUSTOMER_ID}`, {
                 method: 'POST',
                 headers: {
                     'Accept':'application/json', 
@@ -108,10 +108,10 @@ export const insertTakeAwayReceipt = (TABLEID) => {
                 body: JSON.stringify({TABLEID})
             });
             let json = await response.json();
-            dispatch(insertReceiptSuccess(json));
+            dispatch(insertTakeAwaySuccess(json));
         }
         catch(err) {
-            dispatch(insertReceiptFailure(err));
+            dispatch(insertTakeAwayFailure(err));
         }
     }
 }
