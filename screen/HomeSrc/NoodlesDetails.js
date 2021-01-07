@@ -17,7 +17,7 @@ export class NoodleDetails extends Component {
                 numColumns={2}
                 renderItem={({item}) =>
                 <View style={styles.wrapper}>
-                    <NoodleItems noodleItem={item}/>
+                    <NoodleItems item={item}/>
                 </View>}
                 keyExtractor={(item) => `${item.ITEM_ID}`}/>
         )

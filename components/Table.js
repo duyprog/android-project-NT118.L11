@@ -9,7 +9,7 @@ import serving from '../image/foodMenu/serving-table.png';
 import {insertReceipt} from '../redux/actions/receiptActions';
 import {fetchCurrentReceiptId} from '../redux/actions/receiptDetailActions'
 import {changeTableToOne} from '../redux/actions/tableActions';
-function Table({item, insertReceipt,fetchCurrentReceiptId, currentReceiptID, changeTableToOne}) {
+function Table({item, insertReceipt,fetchCurrentReceiptId, chooseATable, changeTableToOne, choosedTable}) {
     var ima = serving;
     const navigation = useNavigation();
     if(item.TB_STATUS){
@@ -27,8 +27,8 @@ function Table({item, insertReceipt,fetchCurrentReceiptId, currentReceiptID, cha
             disabled={item.TB_STATUS}
             onPress={ async () => {
                 navigation.navigate('Food Menu');
-                console.log(item.TB_ID);
-
+                await chooseATable(item.TB_ID);
+                console.log(choosedTable);
                 await insertReceipt(item.TB_ID);
                 await fetchCurrentReceiptId();
                 await changeTableToOne(item.TB_ID)

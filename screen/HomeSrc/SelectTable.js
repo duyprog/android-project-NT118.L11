@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { View, StyleSheet, FlatList, SafeAreaView } from 'react-native'
+import { View, StyleSheet, FlatList, SafeAreaView, RefreshControl } from 'react-native'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchTable, chooseATable } from '../../redux/actions/tableActions';
 import Table from '../../components/Table';
+
 class SelectTable extends Component {
     componentDidMount(){
         this.props.fetchTable();
@@ -11,6 +12,7 @@ class SelectTable extends Component {
     render(){
         return(
             <SafeAreaView>
+                <RefreshControl></RefreshControl>
                 <FlatList
                     data={this.props.table}
                     numColumns={3}
@@ -66,7 +68,7 @@ SelectTable.propTypes = {
     fetchTable: PropTypes.func.isRequired,
     chooseATable: PropTypes.func.isRequired, 
     table: PropTypes.array.isRequired,
-    choosedTable: PropTypes.string.isRequired,
+    choosedTable: PropTypes.number.isRequired,
 }
 
 const mapStateToProps = state => {

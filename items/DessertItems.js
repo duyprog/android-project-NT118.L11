@@ -6,7 +6,7 @@ import {insertNewDetail} from '../redux/actions/receiptDetailActions';
  function DessertItems({item, currentReceiptID, insertNewDetail}){
 
     const [modalVisible, setModalVisible] = useState(false);
-    var quantity = 0;
+    var quantity;
     const setValue = (value) =>{
         quantity = value;
     }
