@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, FlatList, Animated, TouchableOpacity, Image } from 'react-native'
-import CartL from '../../components/CartL';
+import CartT from '../../components/CartT';
 import {connect} from 'react-redux';
 import {fetchInCompleteReceipt} from '../../redux/actions/receiptActions';
 import PropTypes from 'prop-types'
@@ -15,7 +15,7 @@ class TakeAway extends Component {
                 data={this.props.incompleteReceipt}
                 renderItem={({item}) =>
                     <View>                  
-                        <CartL item={item} nav={'CartDetail'} ></CartL>
+                        <CartT item={item} nav={'CartDetail'} ></CartT>
                     </View>}
                 keyExtractor={(item) => `${item.RECEIPT_ID}`} >
             </FlatList>
