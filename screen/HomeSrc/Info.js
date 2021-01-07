@@ -3,7 +3,9 @@ import { Text, View, StyleSheet, TouchableOpacity, Alert } from 'react-native'
 import { TextInput } from 'react-native-gesture-handler';
 import { connect } from 'react-redux';
 import  PropTypes  from 'prop-types';
-import {insertNewCustomer} from '../../redux/actions/customerActions';
+import {fetchCurrentCustomer, insertNewCustomer} from '../../redux/actions/customerActions';
+import {insertTakeAwayReceipt} from '../../redux/actions/receiptActions';
+
 
 
 const createAlert = () =>
@@ -16,7 +18,7 @@ const createAlert = () =>
       { cancelable: false }
     );
 
-const Info = ({navigation, insertNewCustomer, isAtStore}) => {
+const Info = ({navigation, insertNewCustomer, isAtStore, insertTakeAwayReceipt, fetchCurrentCustomer, currentCustomerId}) => {
 
      var name;
      var phone;
@@ -76,14 +78,24 @@ const Info = ({navigation, insertNewCustomer, isAtStore}) => {
             <View style={styles.btnView}>
                 <TouchableOpacity
                     activeOpacity={0.5}
-                    onPress={() => {
+                    onPress={ async () => {
                         if(name == undefined || phone == undefined){
                             createAlert();
                         }
-                        else
-                            {isAtStore == true ? navigation.navigate("Select table") : navigation.navigate("Food Menu");}
-                        insertNewCustomer(name, phone);
-                    }}>
+                        else{
+                            if(isAtStore == true){
+                                navigation.navigate("Select table");
+                            }
+                            else{
+                                navigation.navigate('Food Menu');
+                                await insertNewCustomer(name, phone);
+                                
+
+                            }
+                            fetchCurrentCustomer();
+                        }
+                        // {isAtStore == true ? navigation.navigate("Select table") : navigation.navigate("Food Menu");}
+                     }}>
                     <View style={styles.payBtn}>
                         <Text style={styles.payText}> Xác nhận </Text>
                     </View>
@@ -99,10 +111,11 @@ Info.propTypes = {
 }
 const mapStateToProps = state => {
     return{ 
-        isAtStore : state.customerReducer.customerData.isAtStore
+        isAtStore : state.customerReducer.customerData.isAtStore, 
+        currentCustomerId: state.customerReducer.customerData.currentCustomerId
     }
 }
-export default connect(mapStateToProps, {insertNewCustomer}) (Info);
+export default connect(mapStateToProps, {insertNewCustomer, fetchCurrentCustomer}) (Info);
 const styles = StyleSheet.create({
     labelView:{
         borderBottomWidth: 1,

@@ -7,6 +7,9 @@ import {
     INSERT_CUSTOMER_FAILURE,
     CHOOSE_PICKUP,
     CHOOSE_AT_STORE,
+    FETCHING_CURRENT_CUSTOMER_R,
+    FETCHING_CURRENT_CUSTOMER_S,
+    FETCHING_CURRENT_CUSTOMER_F,
   } from '../actions/types';
   
   const initialState = {
@@ -14,6 +17,7 @@ import {
         refreshing: false,
         customer: [], 
         isAtStore: true,
+        currentCustomerId: ''
     }
   };
   
@@ -82,7 +86,35 @@ import {
                     refresing: false,
                     isAtStore: true,
                 }
-            }       
+            }      
+        case FETCHING_CURRENT_CUSTOMER_R:{
+          return {
+            ...state, 
+            customerData:{
+              ...state.customerData, 
+              refreshing: true,
+            }
+          }
+        } 
+        case FETCHING_CURRENT_CUSTOMER_S:{
+          return{
+            ...state, 
+            customerData:{
+              ...state.customerData,
+              refresing: false, 
+              currentCustomerId: action.payload
+            }
+          }
+        }
+        case FETCHING_CURRENT_CUSTOMER_F: {
+          return {
+            ...state, 
+            customerData:{
+              ...state.customerData, 
+              refreshing: false,
+            }
+          }
+        } 
       default:
         return state;
     }

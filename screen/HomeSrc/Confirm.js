@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import {fetchDetailById} from '../../redux/actions/receiptDetailActions';
 import {fetchTotalPriceById} from '../../redux/actions/receiptActions';
 
-var isAtStore = true
 
 const confirmAlert = () =>
     Alert.alert(
