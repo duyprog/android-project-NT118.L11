@@ -1,8 +1,36 @@
-import React, { Component } from 'react'
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
+import React, { Component, useState } from 'react'
+import { Text, View, StyleSheet, TouchableOpacity, Alert } from 'react-native'
 import { TextInput } from 'react-native-gesture-handler';
+import {Picker} from '@react-native-picker/picker';
+
+
+
+const createAlert = () =>
+    Alert.alert(
+      "Thông báo",
+      "Vui lòng nhập đầy đủ thông tin!",
+      [
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
+
+const successAlert = () =>
+    Alert.alert(
+      "Thông báo",
+      "Đã tạo nhân viên thành công!",
+      [
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
+    
+function change (value) {
+    role = value;
+}
 
 const AddStaff = ({navigation}) => {
+    const [selectedValue, setSelectedValue] = useState("staff");
     return (
         <View>
             <View style={styles.container}>
@@ -31,6 +59,18 @@ const AddStaff = ({navigation}) => {
                             keyboardType='phone-pad'
                             placeholder='Ngày sinh'
                             style={{borderBottomWidth: 1, fontSize: 18, borderBottomColor: '#d4d4d4'}} />
+                    </View>
+                    <View style={{flexDirection: 'row'}}>
+                        <Text style={styles.role}> Chức vụ:</Text>
+                        <Picker
+                            selectedValue={selectedValue}
+                            style={{height: 50, width: 140, marginLeft: 15}}
+                            onValueChange={(itemValue, itemIndex) =>
+                                setSelectedValue(itemValue)
+                            }>
+                            <Picker.Item label="Quản lý" value="manager" />
+                            <Picker.Item label="Nhân viên" value="staff" />
+                        </Picker>
                     </View>
                 </View>
             </View>
@@ -64,7 +104,8 @@ const AddStaff = ({navigation}) => {
                 <TouchableOpacity
                     activeOpacity={0.5}
                     onPress={() => {
-                        navigation.navigate('Staff')
+                        navigation.navigate('Staff');
+                        successAlert();
                     }}>
                     <View style={styles.payBtn}>
                         <Text style={styles.payText}> Xác nhận </Text>
@@ -76,6 +117,10 @@ const AddStaff = ({navigation}) => {
 }
 
 const styles = StyleSheet.create({
+    role:{
+        fontSize: 20,
+        marginTop: 10
+    },
     labelView:{
         borderBottomWidth: 1,
         borderBottomColor: "#d4d4d4",

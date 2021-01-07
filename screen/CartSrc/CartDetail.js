@@ -8,7 +8,6 @@ import {fetchTotalPriceById} from '../../redux/actions/receiptActions';
 import {updateDoneReceipt} from '../../redux/actions/receiptActions';
 import { ScrollView } from 'react-native-gesture-handler';
 
-
 function CartD( {item} ) {
     return(
         <View style={{alignSelf: 'center', marginBottom: 10}}>
@@ -19,7 +18,7 @@ function CartD( {item} ) {
                             resizeMode="cover" />
                 </View>
                 <View style={styles.cardInfo}>
-                    <Text style={styles.cardTitle}> {item.ITEM_NAME} x {item.QUANTITY} </Text>
+                    <Text style={styles.cardTitle}> {item.ITEM_NAME} x{item.QUANTITY} </Text>
                     <Text style={styles.cardDetails}> Đơn giá: {item.UNITPRICE} đ</Text>
                 </View>
             </View>
@@ -38,7 +37,7 @@ class CartDetail extends Component {
     render()
     {
         return(
-            <SafeAreaView>
+            <View>
                  {/* <View style={styles.container}>
                     <Text style={styles.label}> Thông tin bàn </Text>
                     <View style={styles.infoTable}>
@@ -48,21 +47,19 @@ class CartDetail extends Component {
                     </View>
                 </View>  */}
                 <View style={styles.container}>
-                    <Text style={styles.label}> Chi tiết đơn hàng </Text>
+                    <Text style={styles.label}> Danh sách món ăn </Text>
                     <View style={styles.labelView}></View>
-                </View> 
-                <FlatList 
-                    data={this.props.receiptDetail}
-                    renderItem={({item}) => 
-                        <View>
-                            <CartD item={item} />
-                        </View>}
-                    keyExtractor={(item) => `${item.ITEM_ID}`}
-                />
-                <View style={{borderTopWidth: 1, borderTopColor: '#c4c4c4', marginTop: 10}}>
-                    <Text style={{fontSize: 18, fontWeight: '700', margin: 5}}> Tổng cộng: {this.props.totalPrice} đ</Text>
+                    <FlatList 
+                        data={this.props.receiptDetail}
+                        renderItem={({item}) => 
+                            <View>
+                                <CartD item={item} />
+                            </View>}
+                    keyExtractor={(item) => `${item.ITEM_ID}`}/>
+                    <View style={styles.labelView}></View>
+                    <Text style={styles.totalPrice}> Tổng cộng: {this.props.totalPrice} đ</Text>
                 </View>
-            </SafeAreaView>
+            </View>
         )
     }
 }
@@ -84,6 +81,13 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {fetchDetailById, fetchTotalPriceById, updateDoneReceipt}) (CartDetail);
 
 const styles = StyleSheet.create({
+    totalPrice:{
+        fontSize: 20, 
+        fontWeight: '700', 
+        margin: 5, 
+        alignSelf: 'flex-end',
+        textTransform: 'uppercase'
+    },
     labelView:{
         borderBottomWidth: 1,
         borderBottomColor: "#d4d4d4",
@@ -125,9 +129,7 @@ const styles = StyleSheet.create({
         height: '100%',
         width: '100%',
         alignSelf: 'center',
-        borderRadius: 8,
-        borderBottomRightRadius: 0,
-        borderTopRightRadius: 0,
+        borderRadius: 8
     },
     cardInfo: {
         flex: 2,
@@ -138,13 +140,14 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     cardTitle: {
-        fontSize: 20,
-        color: '#444'
+        fontSize: 18,
+        color: '#444',
+        alignSelf: 'flex-end'
     },
     cardDetails: {
         fontSize: 18,
         color: '#444',
-        fontWeight: 'bold',
+        alignSelf: 'flex-end'
     }
 })
 

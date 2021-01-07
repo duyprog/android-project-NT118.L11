@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, TouchableOpacity, SafeAreaView, StyleSheet, Alert } from 'react-native'
+import { Text, View, TouchableOpacity, SafeAreaView, StyleSheet, Alert, ScrollView } from 'react-native'
 import CartDetail from './CartDetail'
 import {connect} from 'react-redux';
 import {updateDoneReceipt} from '../../redux/actions/receiptActions';
@@ -15,7 +15,7 @@ const createAlert = () =>
 
 function Payment({navigation, chooseReceipt, updateDoneReceipt}){
     return(
-        <SafeAreaView>
+        <ScrollView>
             <CartDetail></CartDetail>
             <View style={styles.btnView}>
                 <TouchableOpacity
@@ -42,7 +42,7 @@ function Payment({navigation, chooseReceipt, updateDoneReceipt}){
                     </View>
                 </TouchableOpacity>
             </View>
-        </SafeAreaView>
+        </ScrollView>
     )
 }
 
