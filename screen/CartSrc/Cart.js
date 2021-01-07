@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, Image } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
 import Serving from '../../image/cart/serving.png'
-import Served from '../../image/cart/order.png'
+import Served from '../../image/cart/clipboard.png'
 
 const Cart = ({ navigation }) => {
     return (
