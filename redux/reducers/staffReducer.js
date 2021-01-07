@@ -11,6 +11,9 @@ import {
   USER_LOGIN_SUCCESS,
   USER_LOGIN_REQUEST,
   USER_LOGIN_FAILURE,
+  FETCHING_STAFF_BYID_REQUEST,
+  FETCHING_STAFF_BYID_SUCCESS,
+  FETCHING_STAFF_BYID_FAILURE,
   SWIPE_TO_CHOOSE_DELETEID,
 } from '../actions/types';
 const initialState = {
@@ -93,7 +96,32 @@ const staffReducer = (state = initialState, action) => {
       };
     case SWIPE_TO_CHOOSE_DELETEID: {
       return {...state, staffData: {...state.staffData, refreshing: false}};
-    }
+    };
+    case FETCHING_STAFF_BYID_REQUEST:
+      return {
+        ...state,
+        staffData: {
+          ...state.staffData,
+          refreshing: true,
+        }
+      };
+      case FETCHING_STAFF_BYID_SUCCESS:
+      return {
+        ...state,
+        staffData: {
+          ...state.staffData,
+          refreshing: false,
+          staff: action.payload
+        }
+      };
+      case FETCHING_STAFF_BYID_FAILURE:
+      return {
+        ...state,
+        staffData: {
+          ...state.staffData,
+          refreshing: false,
+        }
+      };
     default:
       return state;
   }

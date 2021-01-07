@@ -2,11 +2,16 @@ import React, { Component } from 'react'
 import { Text, View, StyleSheet, Button, TouchableOpacity, SafeAreaView } from 'react-native'
 import { Avatar, Title, Caption} from 'react-native-paper'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux'; 
+import {fetchStaffByID} from '../../redux/actions/staffActions';
 
 import { AuthContext } from '../../App'
 
-const More = ({ navigation }) => {
+const More = ({navigation, fetchStaffByID, staff}) => {
     const { signOut } = React.useContext(AuthContext);
+    fetchStaffByID('1');
+    console.log(staff);
     return (
         <SafeAreaView>
             <View style={styles.infoCard}>
@@ -18,8 +23,8 @@ const More = ({ navigation }) => {
                         size= {80}
                     />
                     <View style={styles.nameView}>
-                        <Title> Hoang My Phi</Title>
-                        <Caption style={{marginLeft: 10, fontSize: 14}}> Owner & Founder </Caption>
+                        <Title> {staff.staffName} </Title>
+                        <Caption style={{marginLeft: 10, fontSize: 14}}> {staff.staffPosition} </Caption>
                     </View>
                 </View>
 
@@ -31,14 +36,14 @@ const More = ({ navigation }) => {
                                 name='calendar-range'
                                 color={'#636363'}
                                 size={28} />
-                            <Text style={styles.infoText}> 11-11-2020 </Text>
+                            <Text style={styles.infoText}> {staff.staffDOB} </Text>
                         </View>
                         <View style={{flexDirection: 'row', marginBottom: 10}}>
                             <Icon
                                 name='phone'
                                 color={'#636363'}
                                 size={28} />
-                            <Text style={styles.infoText}> 0909123456 </Text>
+                            <Text style={styles.infoText}> {staff.staffPhone} </Text>
                         </View>
                         <View style={{flexDirection: 'row', marginBottom: 10}}>
                             <Icon
@@ -108,6 +113,17 @@ const More = ({ navigation }) => {
         </SafeAreaView>
     )
 }
+
+More.propTypes = {
+    fetchStaffByID: PropTypes.func.isRequired,
+    staff: PropTypes.array.isRequired
+}
+const mapStateToProps = (state) => {
+    return{
+        staff: state.staffReducer.staffData.staff,
+    }
+}
+export default connect(mapStateToProps, {fetchStaffByID}) (More);
 
 const styles = StyleSheet.create({
     infoCard: {
@@ -183,5 +199,3 @@ const styles = StyleSheet.create({
     },
     
 })
-
-export default More

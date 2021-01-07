@@ -12,6 +12,9 @@ import {
   USER_LOGIN_FAILURE,
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
+  FETCHING_STAFF_BYID_REQUEST,
+  FETCHING_STAFF_BYID_SUCCESS,
+  FETCHING_STAFF_BYID_FAILURE,
 } from './types';
 
 import {IP} from '../../components/IP';
@@ -165,3 +168,30 @@ export const userLogin = (
     }
   };
 };
+
+export const fetchingStaffByIDRequest = () => ({type: FETCHING_STAFF_BYID_REQUEST});
+
+export const fetchingStaffByIDSuccess = (json) => ({
+  type: FETCHING_STAFF_BYID_SUCCESS,
+  payload: json,
+});
+
+export const fetchingStaffByIDFailure = (error) => ({
+  type: FETCHING_STAFF_BYID_FAILURE,
+  payload: error,
+});
+
+export const fetchStaffByID = (staffID) => {
+  return async dispatch => {
+      dispatch(fetchingStaffByIDRequest());
+      try{ 
+          let response = await fetch(`http://${IP}:3000/get_staff_by_id/${staffID}`);
+          let json = await response.json();
+          dispatch(fetchingStaffByIDSuccess(json));
+          // console.log(json);
+      }
+      catch(error){
+          dispatch(fetchingStaffByIDFailure(error));
+      }
+   }
+}
