@@ -19,7 +19,7 @@ const More = ({ navigation }) => {
                     />
                     <View style={styles.nameView}>
                         <Title> Hoang My Phi</Title>
-                        <Caption style={{marginLeft: 10}}> Owner & Founder </Caption>
+                        <Caption style={{marginLeft: 10, fontSize: 14}}> Owner & Founder </Caption>
                     </View>
                 </View>
 
@@ -66,7 +66,11 @@ const More = ({ navigation }) => {
                     </View>
                 </TouchableOpacity>
                 <View style={styles.labelView}></View>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    activeOpacity={0.5}
+                    onPress={() => {
+                        navigation.navigate('Sale')
+                    }}>
                     <View style={styles.btnCard}>
                         <Icon
                             name='chart-bar'
@@ -75,22 +79,23 @@ const More = ({ navigation }) => {
                         <Text style={styles.infoText}> Số liệu kinh doanh </Text>
                     </View>
                 </TouchableOpacity>
+                <View style={styles.labelView}></View>
+                <TouchableOpacity
+                    activeOpacity={0.5}
+                    onPress={() => {
+                        navigation.navigate('Info App')
+                    }}>
+                    <View style={styles.btnCard}>
+                        <Icon
+                            name='information'
+                            color={'#636363'}
+                            size={28} />
+                        <Text style={styles.infoText}> Thông tin ứng dụng </Text>
+                    </View>
+                </TouchableOpacity>
             </View>
 
-            <View style={styles.infoCard}>
-                <View style={styles.infoApp}>
-                    <Text style={styles.infoAppLabel}> Về đồ án </Text>
-                    <Text style={styles.infoAppText}> Ứng dụng quản lý kinh doanh nhà hàng </Text>
-                    <View style={styles.labelView}></View>
-                </View>
-                <Text style={styles.infoAppTextz}> Được hiện bởi: </Text>
-                <View style={styles.infoApp}>
-                    <Text style={styles.infoAppText}> 18520669 - Phạm Khắc Duy</Text>
-                    <Text style={styles.infoAppText}> 18521235 - Hoàng Văn Mỹ Phi</Text>
-                    <Text style={styles.infoAppText}> 18521500 - Tạ Nguyễn Chung Tín</Text>
-                </View>
-                
-            </View>
+            
             <View style={{alignItems: 'center', marginTop: 15}}>
                 <TouchableOpacity
                     activeOpacity={0.5}
@@ -105,6 +110,16 @@ const More = ({ navigation }) => {
 }
 
 const styles = StyleSheet.create({
+    infoCard: {
+        backgroundColor: '#fff',
+        padding: 5,
+        borderRadius: 10,
+        marginTop: 10,
+        elevation: 8,
+        width: "90%",
+        alignSelf: 'center',
+        marginBottom: 5,
+    },
     labelView:{
         borderBottomWidth: 1,
         borderBottomColor: "#d4d4d4",
@@ -166,37 +181,7 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 17
     },
-    infoApp: {
-        marginTop: 5,
-        alignItems: 'center'
-    },
-    infoAppText: {
-        fontSize: 18,
-        color: '#000',
-        marginBottom: 5
-    },
-    infoAppTextz: {
-        fontSize: 18,
-        color: '#000',
-        marginLeft: 20
-    },
-    infoAppLabel: {
-        textTransform: 'uppercase',
-        fontWeight: '700',
-        color: '#6a6b6a',
-        fontSize: 23,
-        marginTop: 5
-    },
-    infoCard: {
-        backgroundColor: '#fff',
-        padding: 5,
-        borderRadius: 10,
-        marginTop: 10,
-        elevation: 8,
-        width: "90%",
-        alignSelf: 'center',
-        marginBottom: 5,
-    }
+    
 })
 
 export default More

@@ -4,6 +4,9 @@ import { useNavigation } from '@react-navigation/native'
 import {connect} from 'react-redux'; 
 import PropTypes from 'prop-types'; 
 import {fetchDetailById} from '../../redux/actions/receiptDetailActions';
+import {fetchTotalPriceById} from '../../redux/actions/receiptActions';
+import {updateDoneReceipt} from '../../redux/actions/receiptActions';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 function CartD( {item} ) {
@@ -29,6 +32,7 @@ class CartDetail extends Component {
     // }
     componentDidMount(){
         this.props.fetchDetailById(this.props.chooseReceipt); 
+        this.props.fetchTotalPriceById(this.props.chooseReceipt);
         console.log(this.props.receiptDetail);
     }
     render()
@@ -56,7 +60,7 @@ class CartDetail extends Component {
                     keyExtractor={(item) => `${item.ITEM_ID}`}
                 />
                 <View style={{borderTopWidth: 1, borderTopColor: '#c4c4c4', marginTop: 10}}>
-                    <Text style={{fontSize: 18, fontWeight: '700', margin: 5}}> Tổng cộng: 1.380.000đ </Text>
+                    <Text style={{fontSize: 18, fontWeight: '700', margin: 5}}> Tổng cộng: {this.props.totalPrice} đ</Text>
                 </View>
             </SafeAreaView>
         )
@@ -65,16 +69,19 @@ class CartDetail extends Component {
 CartDetail.propsTypes = {
     fetchDetailById: PropTypes.func.isRequired,
     receiptDetail: PropTypes.array.isRequired, 
-    chooseReceipt: PropTypes.string.isRequired
+    chooseReceipt: PropTypes.string.isRequired,
+    fetchTotalPriceById: PropTypes.func.isRequired,
+    updateDoneReceipt: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => {
     return { 
         receiptDetail: state.receiptDetailReducer.receiptDetailData.receiptDetail,
-        chooseReceipt: state.receiptReducer.receiptData.chooseReceipt
+        chooseReceipt: state.receiptReducer.receiptData.chooseReceipt, 
+        totalPrice: state.receiptReducer.receiptData.totalPrice,
     }
 }
-export default connect(mapStateToProps, {fetchDetailById}) (CartDetail);
+export default connect(mapStateToProps, {fetchDetailById, fetchTotalPriceById, updateDoneReceipt}) (CartDetail);
 
 const styles = StyleSheet.create({
     labelView:{
@@ -94,9 +101,12 @@ const styles = StyleSheet.create({
     },
     container: {
         backgroundColor: '#fff',
-        borderBottomWidth: 1,
-        borderBottomColor: '#dddddd',
-        padding: 5
+        padding: 5,
+        borderRadius: 10,
+        marginTop: 10,
+        elevation: 8,
+        width: "90%",
+        alignSelf: 'center'
     },
     infoTable: {
         marginBottom: 5,

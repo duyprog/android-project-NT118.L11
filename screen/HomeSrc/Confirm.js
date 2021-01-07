@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Text, View, Image, FlatList, TouchableOpacity, StyleSheet , SafeAreaView, Alert } from 'react-native'
 import {connect} from 'react-redux';
 import {fetchDetailById} from '../../redux/actions/receiptDetailActions';
+import {fetchTotalPriceById} from '../../redux/actions/receiptActions';
 
 
 
@@ -33,8 +34,9 @@ function List({item}) {
     )
 }
 
-const Confirm = ({navigation, fetchDetailById, currentReceiptID, receiptDetail}) => {
+const Confirm = ({navigation, fetchDetailById, currentReceiptID, receiptDetail, fetchTotalPriceById, totalPrice}) => {
     fetchDetailById(currentReceiptID);
+    fetchTotalPriceById(currentReceiptID);
     return(
         <SafeAreaView>
             {/* <View style={styles.container}>
@@ -56,6 +58,7 @@ const Confirm = ({navigation, fetchDetailById, currentReceiptID, receiptDetail})
                             <List item={item} />
                         </View>}
                     keyExtractor={(item) => `${item.ITEM_ID}`}/>
+                <Text style={{fontSize: 18, fontWeight: '700', margin: 5}}> Tổng cộng: {totalPrice} đ</Text>
             </View>
             <View style={styles.btnView}>
                 <TouchableOpacity
@@ -155,26 +158,13 @@ const styles = StyleSheet.create({
         marginTop: 9,
         color: '#fff',
         fontSize: 17
-    },
-    centeredView: {
-        flex: 1,
-        justifyContent: "center",
-        backgroundColor: "#000000aa"
-    },
-    modalView: {
-        marginLeft: 20,
-        marginRight: 20,
-        backgroundColor: "white",
-        alignItems: 'center',
-        borderRadius: 10,
-        padding: 40,
-        shadowColor: "#000",
     }
 })
 const mapStateToProps = (state) => {
     return{
         currentReceiptID: state.receiptDetailReducer.receiptDetailData.currentReceiptID,
-        receiptDetail: state.receiptDetailReducer.receiptDetailData.receiptDetail 
+        receiptDetail: state.receiptDetailReducer.receiptDetailData.receiptDetail, 
+        totalPrice: state.receiptReducer.receiptData.totalPrice
     }
 }
-export default connect(mapStateToProps,{fetchDetailById}) (Confirm);
+export default connect(mapStateToProps,{fetchDetailById, fetchTotalPriceById}) (Confirm);
