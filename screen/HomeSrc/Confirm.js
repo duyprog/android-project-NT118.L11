@@ -1,42 +1,9 @@
 import React, { Component } from 'react'
 import { Text, View, Image, FlatList, TouchableOpacity, StyleSheet , SafeAreaView, Alert } from 'react-native'
+import {connect} from 'react-redux';
+import {fetchDetailById} from '../../redux/actions/receiptDetailActions';
 
 
-const order = [
-    {
-        id: 1,
-        foodName: 'Pizza',
-        price: 300000,
-        image: [
-            {
-                url: 'https://www.thucphamsachhd.com/uploads/files/2017/10/03/Steak-meat-34450442-1302-1020.jpg'
-            }
-        ],
-        sl: 3,
-        total: 900000
-    },
-    {
-        id: 2,
-        foodName: 'Beefsteak',
-        price: 240000,
-        image: [
-            {
-                url: 'https://img-global.cpcdn.com/recipes/39ca2c2a0e1fb011/751x532cq70/mi-y-s%E1%BB%91t-bo-bam-spaghetti-bolognese-recipe-main-photo.jpg'
-            }
-            
-        ],
-        sl: 2,
-        total: 480000
-    }
-]
-
-const details = 
-    {
-        id: 1,
-        name: 'Bàn 01',
-        time: '10:45 AM',
-        code: '0001'
-    }
 
 const createAlert = () =>
     Alert.alert(
@@ -50,49 +17,52 @@ const createAlert = () =>
 
 function List({item}) {
     return(
-        <View style={{alignSelf: 'center'}}>
+        <View style={{alignSelf: 'center', marginBottom: 10}}>
             <View style={styles.card}>
                 <View style={styles.cardImgWrapper}>
-                    <Image source={{uri: item.image[0].url}}
+                    <Image source={{uri: item.IMAGE_URL}}
                             style={styles.cardImg}
                             resizeMode="cover" />
                 </View>
                 <View style={styles.cardInfo}>
-                    <Text style={styles.cardTitle}> {item.foodName} x{item.sl} </Text>
-                    <Text style={styles.cardDetails}> {item.total} </Text>
+                    <Text style={styles.cardTitle}> {item.ITEM_NAME} x{item.QUANTITY} </Text>
+                    <Text style={styles.cardDetails}> {item.UNITPRICE} đ</Text>
                 </View>
             </View>
         </View>
     )
 }
 
-const Confirm = ({navigation}) => {
+const Confirm = ({navigation, fetchDetailById, currentReceiptID, receiptDetail}) => {
+    fetchDetailById(currentReceiptID);
     return(
         <SafeAreaView>
-            <View style={styles.container}>
+            {/* <View style={styles.container}>
                 <Text style={styles.label}> Thông tin bàn </Text>
+                <View style={styles.labelView}></View>
                 <View style={styles.infoTable}>
-                    <Text style={{fontSize: 17}}> Số bàn: {details.name} </Text>
-                    <Text style={{fontSize: 17}}> Thời gian: {details.time} </Text>
-                    <Text style={{fontSize: 17}}> Mã đơn hàng: {details.code} </Text>
+                    <Text style={{fontSize: 18}}> Số bàn: {details.name} </Text>
+                    <Text style={{fontSize: 18}}> Thời gian: {details.time} </Text>
+                    <Text style={{fontSize: 18}}> Mã đơn hàng: {details.code} </Text>
                 </View>
-            </View>
+            </View> */}
             <View style={styles.container}>
                 <Text style={styles.label}> Chi tiết đơn hàng </Text>
+                <View style={styles.labelView}></View>
+                <FlatList 
+                    data={receiptDetail}
+                    renderItem={({item}) => 
+                        <View>
+                            <List item={item} />
+                        </View>}
+                    keyExtractor={(item) => `${item.ITEM_ID}`}/>
             </View>
-            <FlatList 
-                data={order}
-                renderItem={({item}) => 
-                    <View>
-                        <List item={item} />
-                    </View>}
-                keyExtractor={(item) => `${item.id}`} />
             <View style={styles.btnView}>
                 <TouchableOpacity
                     activeOpacity={0.5}
                     onPress={() => {
+                        createAlert();
                         navigation.navigate("Home");
-                        createAlert()
                     }}>
                     <View style={styles.payBtn}>
                         <Text style={styles.payText}> Xác nhận </Text>
@@ -104,6 +74,13 @@ const Confirm = ({navigation}) => {
 }
 
 const styles = StyleSheet.create({
+    labelView:{
+        borderBottomWidth: 1,
+        borderBottomColor: "#d4d4d4",
+        width: "90%",
+        alignSelf: 'center',
+        marginBottom: 5
+    },
     label: {
         textTransform: 'uppercase',
         fontWeight: '700',
@@ -114,9 +91,12 @@ const styles = StyleSheet.create({
     },
     container: {
         backgroundColor: '#fff',
-        borderBottomWidth: 1,
-        borderBottomColor: '#dddddd',
-        padding: 5
+        padding: 5,
+        borderRadius: 10,
+        marginTop: 10,
+        elevation: 8,
+        width: "90%",
+        alignSelf: 'center'
     },
     infoTable: {
         marginBottom: 5,
@@ -126,7 +106,7 @@ const styles = StyleSheet.create({
         height: 80,
         width: '90%',
         flexDirection: 'row',
-        marginTop: 10
+        marginTop: 5
     },
     cardImgWrapper: {
         flex: 1,
@@ -142,15 +122,13 @@ const styles = StyleSheet.create({
     cardInfo: {
         flex: 2,
         padding: 5,
-        borderColor: '#ccc',
-        borderWidth: 1,
         borderLeftWidth: 0,
         borderBottomRightRadius: 8,
         borderTopRightRadius: 8,
         backgroundColor: '#fff',
     },
     cardTitle: {
-        fontSize: 17,
+        fontSize: 20,
         color: '#444'
     },
     cardDetails: {
@@ -159,42 +137,24 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     btnView: {
-        alignItems: 'center', 
-        marginTop: 5
+        alignSelf: 'center', 
+        marginTop: 10,
+        width: "90%"
     },
     payBtn: {
         backgroundColor: '#de5543',
         borderRadius: 20,
-        height: 40,
-        width: 130,
+        height: 45,
         alignItems: 'center',
-        elevation: 4,
+        elevation: 8,
         marginTop: 5
     },
     payText: {
-        textTransform: 'uppercase',
         fontWeight: '700',
         alignSelf: 'center',
-        marginTop: 8,
+        marginTop: 9,
         color: '#fff',
         fontSize: 17
-    },
-    compBtn: {
-        backgroundColor: '#de5543',
-        borderRadius: 20,
-        height: 35,
-        width: 100,
-        alignItems: 'center',
-        elevation: 4,
-        marginTop: 15
-    },
-    compText: {
-        textTransform: 'uppercase',
-        fontWeight: '700',
-        alignSelf: 'center',
-        marginTop: 8,
-        color: '#fff',
-        fontSize: 14
     },
     centeredView: {
         flex: 1,
@@ -211,5 +171,10 @@ const styles = StyleSheet.create({
         shadowColor: "#000",
     }
 })
-
-export default Confirm
+const mapStateToProps = (state) => {
+    return{
+        currentReceiptID: state.receiptDetailReducer.receiptDetailData.currentReceiptID,
+        receiptDetail: state.receiptDetailReducer.receiptDetailData.receiptDetail 
+    }
+}
+export default connect(mapStateToProps,{fetchDetailById}) (Confirm);

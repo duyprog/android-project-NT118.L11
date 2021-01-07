@@ -1,20 +1,46 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 import { TextInput } from 'react-native-gesture-handler';
+import { connect } from 'react-redux';
+import  PropTypes  from 'prop-types';
+import {insertNewCustomer} from '../../redux/actions/customerActions';
 
 
-const UpdateInfo = ({navigation}) => {
+const Info = ({navigation, insertNewCustomer, isAtStore}) => {
+
+     var name;
+     var phone;
+
+    const setName = (value) => {
+        name = value; 
+    }
+
+    const setPhone = (value) => {
+        phone = value;
+    }
+    
     return (
         <View>
             <View style={styles.container}>
-                <Text style={styles.label}> Thông tin nhân viên </Text>
+                <Text style={styles.label}> Thông tin khách hàng </Text>
                 <View style={styles.labelView}></View>
                 <View style={styles.infoTable}>
                     <View style={{flexDirection: 'row'}}>
                         <TextInput
                             autoCapitalize='words'
                             autoCompleteType='name'
-                            placeholder='Họ và tên'
+                            placeholder='Bạn tên gì nè ?'
+                            style={{borderBottomWidth: 1, fontSize: 18, borderBottomColor: '#d4d4d4'}}
+                            onChangeText= { value => {
+                                setName(value);
+                            } } />
+                    </View>
+                    <View style={{flexDirection: 'row'}}>
+                        <TextInput
+                            autoCapitalize='words'
+                            autoCompleteType='email'
+                            keyboardType='email-address'
+                            placeholder='Thư điện tử của bạn là gì?'
                             style={{borderBottomWidth: 1, fontSize: 18, borderBottomColor: '#d4d4d4'}} />
                     </View>
                     <View style={{flexDirection: 'row'}}>
@@ -22,15 +48,17 @@ const UpdateInfo = ({navigation}) => {
                             autoCapitalize='words'
                             autoCompleteType='cc-number'
                             keyboardType='phone-pad'
-                            placeholder='Số điện thoại'
+                            placeholder='Số điện thoại bạn bao nhiêu nè?'
+                            onChangeText = {value => {
+                                setPhone(value)}
+                            }
                             style={{borderBottomWidth: 1, fontSize: 18, borderBottomColor: '#d4d4d4'}} />
                     </View>
                     <View style={{flexDirection: 'row'}}>
                         <TextInput
                             autoCapitalize='words'
-                            autoCompleteType='off'
-                            keyboardType='phone-pad'
-                            placeholder='Ngày sinh'
+                            autoCompleteType='name'
+                            placeholder='Hôm nay bạn đi cùng ai?'
                             style={{borderBottomWidth: 1, fontSize: 18, borderBottomColor: '#d4d4d4'}} />
                     </View>
                 </View>
@@ -39,7 +67,8 @@ const UpdateInfo = ({navigation}) => {
                 <TouchableOpacity
                     activeOpacity={0.5}
                     onPress={() => {
-                        navigation.navigate('More')
+                        isAtStore == true ? navigation.navigate("Select table") : navigation.navigate("Food Menu");
+                        insertNewCustomer(name, phone);
                     }}>
                     <View style={styles.payBtn}>
                         <Text style={styles.payText}> Xác nhận </Text>
@@ -50,6 +79,16 @@ const UpdateInfo = ({navigation}) => {
     )
 }
 
+Info.propTypes = {
+    insertNewCustomer: PropTypes.func.isRequired,
+    isAtStore: PropTypes.bool.isRequired
+}
+const mapStateToProps = state => {
+    return{ 
+        isAtStore : state.customerReducer.customerData.isAtStore
+    }
+}
+export default connect(mapStateToProps, {insertNewCustomer}) (Info);
 const styles = StyleSheet.create({
     labelView:{
         borderBottomWidth: 1,
@@ -104,4 +143,3 @@ const styles = StyleSheet.create({
     }
 })
 
-export default UpdateInfo

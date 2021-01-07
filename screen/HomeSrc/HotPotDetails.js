@@ -15,7 +15,7 @@ class HotPotDetails extends Component {
                 data={this.props.hotpotItems}
                 renderItem={({item}) =>
                 <View style={styles.wrapper}>
-                    <HotpotItems hotpotItem={item}/>
+                    <HotpotItems item={item}/>
                 </View>}
                 keyExtractor={(item) => `${item.ITEM_ID}`}/>
         )

@@ -9,50 +9,38 @@ const More = ({ navigation }) => {
     const { signOut } = React.useContext(AuthContext);
     return (
         <SafeAreaView>
-            <View style={{backgroundColor: '#fff'}}>
+            <View style={styles.infoCard}>
                 <View style={styles.avatarName}>
                     <Avatar.Image 
                         source={{
-                            uri: 'https://i.kym-cdn.com/photos/images/newsfeed/001/658/936/411.jpg'
+                            uri: 'https://s.memehay.com/files/posts/20200914/chu-cho-cheems-khoc-va-chap-tay-lay-6b6d3b4400534233c3356b23fd08fb99.jpg'
                         }}
                         size= {80}
                     />
                     <View style={styles.nameView}>
                         <Title> Hoang My Phi</Title>
-                        <Caption> Owner & Founder </Caption>
-                    </View>
-                    <View >
-                        <TouchableOpacity
-                            activeOpacity={0.5}
-                            onPress={() => {
-                                navigation.navigate('Update Info')
-                            }}>
-                            <View style={styles.updateBtn}>
-                                <Text style={styles.updateText}> Cập nhật </Text>
-                            </View>
-                        </TouchableOpacity>
+                        <Caption style={{marginLeft: 10}}> Owner & Founder </Caption>
                     </View>
                 </View>
 
                 <View style={styles.infoBoxWapper}>
-                    <View style={{marginLeft: 30}}>
-                        <View style={{flexDirection: 'row'}}>
-                            <View style={{flexDirection: 'row'}}>
-                                <Icon
-                                    name='calendar-range'
-                                    color={'#636363'}
-                                    size={28} />
-                                <Text style={styles.infoText}> 11-11-2020 </Text>
-                            </View>
-                            <View style={{flexDirection: 'row', marginLeft: 80}}>
+                    <View style={styles.labelView}></View>
+                    <View style={{marginTop: 10, marginLeft: 20}}>
+                        <View style={{flexDirection: 'row', marginBottom: 10}}>
+                            <Icon
+                                name='calendar-range'
+                                color={'#636363'}
+                                size={28} />
+                            <Text style={styles.infoText}> 11-11-2020 </Text>
+                        </View>
+                        <View style={{flexDirection: 'row', marginBottom: 10}}>
                             <Icon
                                 name='phone'
                                 color={'#636363'}
                                 size={28} />
                             <Text style={styles.infoText}> 0909123456 </Text>
                         </View>
-                        </View>
-                        <View style={{flexDirection: 'row', marginTop: 10}}>
+                        <View style={{flexDirection: 'row', marginBottom: 10}}>
                             <Icon
                                 name='email'
                                 color={'#636363'}
@@ -63,17 +51,45 @@ const More = ({ navigation }) => {
                 </View>
             </View>
 
-            <View>
-                <View>
-                    
-                </View>
+            <View style={styles.infoCard}>
+                <TouchableOpacity
+                    activeOpacity={0.5}
+                    onPress={() => {
+                        navigation.navigate('Update Info')
+                    }}>
+                    <View style={styles.btnCard}>
+                        <Icon
+                            name='account-edit'
+                            color={'#636363'}
+                            size={28} />
+                        <Text style={styles.infoText}> Cập nhật thông tin </Text>
+                    </View>
+                </TouchableOpacity>
+                <View style={styles.labelView}></View>
+                <TouchableOpacity>
+                    <View style={styles.btnCard}>
+                        <Icon
+                            name='chart-bar'
+                            color={'#636363'}
+                            size={28} />
+                        <Text style={styles.infoText}> Số liệu kinh doanh </Text>
+                    </View>
+                </TouchableOpacity>
             </View>
 
-            <View style={{backgroundColor: '#fff'}}>
+            <View style={styles.infoCard}>
                 <View style={styles.infoApp}>
-                    <Text style={styles.infoAppLabel}> Về ứng dụng </Text>
-                    <Text style={styles.infoAppText}> Đồ án: ứng dụng quản lý kinh doanh nhà hàng </Text>
+                    <Text style={styles.infoAppLabel}> Về đồ án </Text>
+                    <Text style={styles.infoAppText}> Ứng dụng quản lý kinh doanh nhà hàng </Text>
+                    <View style={styles.labelView}></View>
                 </View>
+                <Text style={styles.infoAppTextz}> Được hiện bởi: </Text>
+                <View style={styles.infoApp}>
+                    <Text style={styles.infoAppText}> 18520669 - Phạm Khắc Duy</Text>
+                    <Text style={styles.infoAppText}> 18521235 - Hoàng Văn Mỹ Phi</Text>
+                    <Text style={styles.infoAppText}> 18521500 - Tạ Nguyễn Chung Tín</Text>
+                </View>
+                
             </View>
             <View style={{alignItems: 'center', marginTop: 15}}>
                 <TouchableOpacity
@@ -89,9 +105,22 @@ const More = ({ navigation }) => {
 }
 
 const styles = StyleSheet.create({
+    labelView:{
+        borderBottomWidth: 1,
+        borderBottomColor: "#d4d4d4",
+        width: "90%",
+        alignSelf: 'center',
+        marginBottom: 5
+    },
+    btnCard:{
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginLeft: 15,
+        marginBottom: 10
+    },
     avatarName: {
-        marginTop: 20,
-        marginLeft: 25,
+        marginTop: 10,
+        marginLeft: 20,
         flexDirection: 'row', 
         alignItems: 'center'
     },
@@ -115,29 +144,22 @@ const styles = StyleSheet.create({
         color: '#fff'
     },
     infoBoxWapper: {
-        borderBottomColor: '#dddddd',
-        borderBottomWidth: 1,
-        borderTopColor: '#dddddd',
-        borderTopWidth: 1,
-        height: 100,
-        marginTop: 20,
-        flexDirection: 'row',
-        alignItems: 'center'
+        marginTop: 10
     },
     infoText: {
         color: '#636363',
-        fontSize: 17
+        fontSize: 17,
+        marginLeft: 10
     },
     logoutBtn: {
         backgroundColor: '#de5543',
         borderRadius: 20,
         height: 40,
-        width: 130,
+        width: 370,
         alignItems: 'center',
-        elevation: 4
+        elevation: 8
     },
     logoutText: {
-        textTransform: 'uppercase',
         fontWeight: '700',
         alignSelf: 'center',
         marginTop: 8,
@@ -145,23 +167,35 @@ const styles = StyleSheet.create({
         fontSize: 17
     },
     infoApp: {
-        borderBottomColor: '#dddddd',
-        borderBottomWidth: 1,
-        height: 100,
-        marginTop: 10,
+        marginTop: 5,
         alignItems: 'center'
     },
     infoAppText: {
         fontSize: 18,
         color: '#000',
-        marginLeft: 10,
-        marginRight: 10
+        marginBottom: 5
+    },
+    infoAppTextz: {
+        fontSize: 18,
+        color: '#000',
+        marginLeft: 20
     },
     infoAppLabel: {
-        fontSize: 20, 
-        color: '#000',
+        textTransform: 'uppercase',
         fontWeight: '700',
-        textTransform: 'uppercase'
+        color: '#6a6b6a',
+        fontSize: 23,
+        marginTop: 5
+    },
+    infoCard: {
+        backgroundColor: '#fff',
+        padding: 5,
+        borderRadius: 10,
+        marginTop: 10,
+        elevation: 8,
+        width: "90%",
+        alignSelf: 'center',
+        marginBottom: 5,
     }
 })
 

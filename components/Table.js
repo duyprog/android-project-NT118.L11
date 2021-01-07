@@ -6,8 +6,9 @@ import PropTypes from 'prop-types';
 import { useNavigation } from '@react-navigation/native';
 import empty from '../image/foodMenu/empty-table.png';
 import serving from '../image/foodMenu/serving-table.png';
-
-function Table({item, chooseATable}) {
+import {insertReceipt} from '../redux/actions/receiptActions';
+import {fetchCurrentReceiptId} from '../redux/actions/receiptDetailActions'
+function Table({item, insertReceipt,fetchCurrentReceiptId, currentReceiptID}) {
     var ima = serving;
     const navigation = useNavigation();
     if(item.TB_STATUS){
@@ -16,14 +17,20 @@ function Table({item, chooseATable}) {
     else{
         ima = empty;
        }
+
+
     //var ima = item.TB_STATUS ? serving : empty
     return(
         <TouchableOpacity
             activeOpacity={0.5}
             disabled={item.TB_STATUS}
-            onPress={() => {
+            onPress={ async () => {
                 navigation.navigate('Food Menu');
-                chooseATable(item.TB_ID)
+                console.log(item.TB_ID);
+
+                await insertReceipt(item.TB_ID);
+                await fetchCurrentReceiptId();
+
             }}>
             <View style={styles.viewStyle}>
                 <View>
@@ -40,6 +47,11 @@ function Table({item, chooseATable}) {
 }
 Table.propTypes = { 
     chooseATable: PropTypes.func.isRequired
+}
+const mapStateToProps = (state) => {
+    return{
+        currentReceiptID: state.receiptDetailReducer.receiptDetailData.currentReceiptID
+    }
 }
 const styles = StyleSheet.create({
     wrapper: {
@@ -75,4 +87,4 @@ const styles = StyleSheet.create({
         fontWeight: '600'
     }
 })
-export default connect(null, {chooseATable}) (Table);
+export default connect(null, {chooseATable, insertReceipt, fetchCurrentReceiptId}) (Table);

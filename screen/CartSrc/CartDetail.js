@@ -6,10 +6,9 @@ import PropTypes from 'prop-types';
 import {fetchDetailById} from '../../redux/actions/receiptDetailActions';
 
 
-
 function CartD( {item} ) {
     return(
-        <View style={{alignSelf: 'center'}}>
+        <View style={{alignSelf: 'center', marginBottom: 10}}>
             <View style={styles.card}>
                 <View style={styles.cardImgWrapper}>
                     <Image source={{uri: item.IMAGE_URL}}
@@ -18,7 +17,7 @@ function CartD( {item} ) {
                 </View>
                 <View style={styles.cardInfo}>
                     <Text style={styles.cardTitle}> {item.ITEM_NAME} x {item.QUANTITY} </Text>
-                    <Text style={styles.cardDetails}> {item.UNITPRICE} đ</Text>
+                    <Text style={styles.cardDetails}> Đơn giá: {item.UNITPRICE} đ</Text>
                 </View>
             </View>
         </View>
@@ -46,7 +45,8 @@ class CartDetail extends Component {
                 </View>  */}
                 <View style={styles.container}>
                     <Text style={styles.label}> Chi tiết đơn hàng </Text>
-                </View>
+                    <View style={styles.labelView}></View>
+                </View> 
                 <FlatList 
                     data={this.props.receiptDetail}
                     renderItem={({item}) => 
@@ -57,15 +57,6 @@ class CartDetail extends Component {
                 />
                 <View style={{borderTopWidth: 1, borderTopColor: '#c4c4c4', marginTop: 10}}>
                     <Text style={{fontSize: 18, fontWeight: '700', margin: 5}}> Tổng cộng: 1.380.000đ </Text>
-                </View>
-                <View style={styles.btnView}>
-                    <TouchableOpacity
-                        activeOpacity={0.5}
-                        >
-                        <View style={styles.payBtn}>
-                            <Text style={styles.payText}> Thanh toán </Text>
-                        </View>
-                    </TouchableOpacity>
                 </View>
             </SafeAreaView>
         )
@@ -86,6 +77,13 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {fetchDetailById}) (CartDetail);
 
 const styles = StyleSheet.create({
+    labelView:{
+        borderBottomWidth: 1,
+        borderBottomColor: "#d4d4d4",
+        width: "90%",
+        alignSelf: 'center',
+        marginBottom: 5
+    },
     label: {
         textTransform: 'uppercase',
         fontWeight: '700',
@@ -104,28 +102,11 @@ const styles = StyleSheet.create({
         marginBottom: 5,
         marginLeft: 15
     },
-    payBtn: {
-        backgroundColor: '#de5543',
-        borderRadius: 20,
-        height: 40,
-        width: 130,
-        alignItems: 'center',
-        elevation: 4,
-        marginTop: 5
-    },
-    payText: {
-        textTransform: 'uppercase',
-        fontWeight: '700',
-        alignSelf: 'center',
-        marginTop: 8,
-        color: '#fff',
-        fontSize: 17
-    },
     card: {
         height: 80,
         width: '90%',
         flexDirection: 'row',
-        marginTop: 10
+        marginTop: 5
     },
     cardImgWrapper: {
         flex: 1,
@@ -141,25 +122,19 @@ const styles = StyleSheet.create({
     cardInfo: {
         flex: 2,
         padding: 5,
-        borderColor: '#ccc',
-        borderWidth: 1,
         borderLeftWidth: 0,
         borderBottomRightRadius: 8,
         borderTopRightRadius: 8,
         backgroundColor: '#fff',
     },
     cardTitle: {
-        fontSize: 17,
+        fontSize: 20,
         color: '#444'
     },
     cardDetails: {
         fontSize: 18,
         color: '#444',
         fontWeight: 'bold',
-    },
-    btnView: {
-        alignItems: 'center', 
-        marginTop: 5
     }
 })
 
