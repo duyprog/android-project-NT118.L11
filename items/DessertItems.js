@@ -3,7 +3,10 @@ import { Text, View, Image, TouchableOpacity, StyleSheet, Modal } from 'react-na
 import NumericInput from 'react-native-numeric-input'
 import {connect} from 'react-redux';
 import {insertNewDetail} from '../redux/actions/receiptDetailActions';
+<<<<<<< HEAD
 import PropTypes from 'prop-types';
+=======
+>>>>>>> a9bf313c3f607b1c47cfe662dc4d8cfe7cb89321
  function DessertItems({item, currentReceiptID, insertNewDetail}){
 
     const [modalVisible, setModalVisible] = useState(false);
@@ -56,9 +59,7 @@ import PropTypes from 'prop-types';
         </TouchableOpacity>
     );
 }
-DessertItems.propTypes = {
-    chooseItems: PropTypes.func.isRequired, 
-}
+
 const styles = StyleSheet.create({
     cartText: {
         textTransform: 'uppercase',

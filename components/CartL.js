@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, Image, FlatList, SafeAreaView, TouchableOpacity } from 'react-native'
 import {connect} from 'react-redux'
+import {getTableIdByRId} from '../redux/actions/tableActions';
 import {chooseReceiptToSee} from '../redux/actions/receiptActions'
 import PropTypes from 'prop-types';
 import { useNavigation } from '@react-navigation/native';
 import Table from '../image/cart/table-cart.png'
-function CartL ({item, chooseReceiptToSee, nav}) {
+function CartL ({item, chooseReceiptToSee,getTableIdByRId, nav}) {
     const navigation = useNavigation()
     return(
         <TouchableOpacity
@@ -14,6 +15,7 @@ function CartL ({item, chooseReceiptToSee, nav}) {
             {
                  navigation.navigate(nav);
                  chooseReceiptToSee(item.RECEIPT_ID);
+                 getTableIdByRId(item.RECEIPT_ID);
              }}>
             <View style={styles.view}>
                 <Image  source={Table}
@@ -60,4 +62,4 @@ const styles = StyleSheet.create({
         marginLeft: 12
     }
 })
-export default connect(null, {chooseReceiptToSee})(CartL);
+export default connect(null, {chooseReceiptToSee, getTableIdByRId})(CartL);

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #Wed Jan 06 20:12:19 ICT 2021
 base.2=D\:\\Data\\Study\\5th Semester\\Mobile Development\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
 base.1=D\:\\1_HocTap\\HK5\\App Development on Mobile Device\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes2.dex
@@ -11,19 +12,20 @@ base.20=D\:\\1_HocTap\\HK5\\App Development on Mobile Device\\android-project-NT
 path.9=classes_5.dex
 path.8=classes_4.dex
 path.7=classes_3.dex
+=======
+#Wed Jan 06 16:32:23 ICT 2021
+path.1=classes.dex
+path.0=classes.dex
+>>>>>>> a9bf313c3f607b1c47cfe662dc4d8cfe7cb89321
 renamed.9=classes10.dex
-path.6=classes_2.dex
 renamed.8=classes9.dex
-path.5=classes_1.dex
 renamed.7=classes8.dex
-path.4=classes_0.dex
 renamed.6=classes7.dex
-path.3=classes.dex
 renamed.5=classes6.dex
-path.2=classes.dex
 renamed.4=classes5.dex
 renamed.19=classes20.dex
 renamed.3=classes4.dex
+<<<<<<< HEAD
 path.1=classes2.dex
 renamed.18=classes19.dex
 renamed.2=classes3.dex
@@ -65,3 +67,26 @@ base.6=D\:\\Data\\Study\\5th Semester\\Mobile Development\\android-project-NT118
 base.5=D\:\\Data\\Study\\5th Semester\\Mobile Development\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\out\\classes_1.dex
 base.4=D\:\\Data\\Study\\5th Semester\\Mobile Development\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\out\\classes_0.dex
 base.3=D\:\\Data\\Study\\5th Semester\\Mobile Development\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
+=======
+renamed.2=classes3.dex
+base.9=D\:\\Data\\Study\\5th Semester\\Mobile Development\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\out\\classes_7.dex
+renamed.1=classes2.dex
+base.8=D\:\\Data\\Study\\5th Semester\\Mobile Development\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\out\\classes_6.dex
+renamed.0=classes.dex
+base.7=D\:\\Data\\Study\\5th Semester\\Mobile Development\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\out\\classes_5.dex
+base.6=D\:\\Data\\Study\\5th Semester\\Mobile Development\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\out\\classes_4.dex
+base.5=D\:\\Data\\Study\\5th Semester\\Mobile Development\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\out\\classes_3.dex
+base.4=D\:\\Data\\Study\\5th Semester\\Mobile Development\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\out\\classes_2.dex
+base.3=D\:\\Data\\Study\\5th Semester\\Mobile Development\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\out\\classes_1.dex
+base.2=D\:\\Data\\Study\\5th Semester\\Mobile Development\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\out\\classes_0.dex
+base.1=D\:\\Data\\Study\\5th Semester\\Mobile Development\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
+base.0=D\:\\Data\\Study\\5th Semester\\Mobile Development\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
+path.9=classes_7.dex
+path.8=classes_6.dex
+path.7=classes_5.dex
+path.6=classes_4.dex
+path.5=classes_3.dex
+path.4=classes_2.dex
+path.3=classes_1.dex
+path.2=classes_0.dex
+>>>>>>> a9bf313c3f607b1c47cfe662dc4d8cfe7cb89321
