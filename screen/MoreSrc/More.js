@@ -60,7 +60,8 @@ const More = ({navigation, fetchStaffByID, staff}) => {
                     activeOpacity={0.5}
                     onPress={() => {
                         navigation.navigate('Update Info')
-                    }}>
+
+w                    }}>
                     <View style={styles.btnCard}>
                         <Icon
                             name='account-edit'

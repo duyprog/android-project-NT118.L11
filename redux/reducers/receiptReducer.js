@@ -1,11 +1,19 @@
+<<<<<<< HEAD
 import {FETCHING_RECEIPT_REQUEST, FETCHING_RECEIPT_FAILURE, FETCHING_RECEIPT_COMPLETE_SUCCESS, FETCHING_RECEIPT_INCOMPLETE_SUCCESS, CHOOSE_RECEIPT_TO_SEE, FETCHING_TOTAL_REQUEST, FETCHING_TOTAL_SUCCESS} from '../actions/types';
+=======
+import {FETCHING_RECEIPT_REQUEST, FETCHING_RECEIPT_FAILURE, FETCHING_RECEIPT_COMPLETE_SUCCESS, FETCHING_RECEIPT_INCOMPLETE_SUCCESS, CHOOSE_RECEIPT_TO_SEE} from '../actions/types';
+>>>>>>> af873c43444cc43d6c39e617380084db842988f0
 const intitialState = { 
     receiptData: {
         refreshing: false, 
         completeReceipt: [], 
         incompleteReceipt: [], 
+<<<<<<< HEAD
         chooseReceipt:'', 
         totalPrice: []
+=======
+        chooseReceipt:''
+>>>>>>> af873c43444cc43d6c39e617380084db842988f0
     }
 }
 
@@ -54,6 +62,7 @@ const receiptReducer = (state = intitialState, action) =>{
                     chooseReceipt: action.payload
                 }
             }
+<<<<<<< HEAD
         case FETCHING_TOTAL_REQUEST: 
             return{
                 ...state, 
@@ -71,6 +80,8 @@ const receiptReducer = (state = intitialState, action) =>{
                     totalPrice: action.payload
                 }
             }
+=======
+>>>>>>> af873c43444cc43d6c39e617380084db842988f0
         default: 
             return state;
     }

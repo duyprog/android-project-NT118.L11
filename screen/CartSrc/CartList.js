@@ -46,7 +46,11 @@ class CartList extends Component {
             data={this.props.completeReceipt}
             renderItem={({item}) =>
                 <View>
+<<<<<<< HEAD
                      <CartL item={item} nav={'Payment'}></CartL>
+=======
+                     <CartL item={item} nav={'Cart Detail'}></CartL>
+>>>>>>> af873c43444cc43d6c39e617380084db842988f0
                 </View>}
             keyExtractor={(item) => `${item.RECEIPT_ID}`} >
         </FlatList>

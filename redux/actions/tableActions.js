@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 import {CHOOSE_A_TABLE, FETCHING_TABLE_REQUEST, FETCHING_TABLE_SUCCESS, FETCHING_TABLE_FAILURE
     ,CHANGE_TB_TO_ONE, CHANGE_TB_TO_ZERO, FETCHING_TBID_BY_R_REQUEST, FETCHING_TBID_BY_R_SUCCESS, FETCHING_TBID_BY_R_FAILURE
 } from './types';
+=======
+import {CHOOSE_A_TABLE, FETCHING_TABLE_REQUEST, FETCHING_TABLE_SUCCESS, FETCHING_TABLE_FAILURE} from './types';
+>>>>>>> af873c43444cc43d6c39e617380084db842988f0
 import { IP } from '../../components/IP';
 
 
@@ -21,6 +25,7 @@ export const fetchingTableFailure = (error) => ({
 export const choosingTable = (tableID) =>({
     type: CHOOSE_A_TABLE,
     payload: tableID
+<<<<<<< HEAD
 });
 export const fetchingTableIDbyRIDRequest = () =>({
     type: FETCHING_TBID_BY_R_REQUEST
@@ -84,6 +89,10 @@ export const changeTableToZero = (tableID) => {
         }
     }
 }
+=======
+})
+
+>>>>>>> af873c43444cc43d6c39e617380084db842988f0
 export const fetchTable = () => {
     return async dispatch => {
        dispatch(fetchingTableRequest());
@@ -100,7 +109,12 @@ export const fetchTable = () => {
 
 
 export const chooseATable = (tableID) => {
+<<<<<<< HEAD
     return dispatch => {
          dispatch(choosingTable(tableID));
+=======
+    return async dispatch => {
+        dispatch(choosingTable(tableID));
+>>>>>>> af873c43444cc43d6c39e617380084db842988f0
     }
 }

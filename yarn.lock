@@ -5683,7 +5683,15 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
+<<<<<<< HEAD
 prop-types@^15.5.10, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+=======
+<<<<<<< HEAD
+prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+=======
+prop-types@^15.5.10, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+>>>>>>> main
+>>>>>>> af873c43444cc43d6c39e617380084db842988f0
   version "15.7.2"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.7.2.tgz"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -5806,7 +5814,15 @@ react-native-modal@^11.5.6:
 
 react-native-numeric-input@^1.8.3:
   version "1.8.3"
+<<<<<<< HEAD
   resolved "https://registry.yarnpkg.com/react-native-numeric-input/-/react-native-numeric-input-1.8.3.tgz#e869aa1b60d0c38b92e84e44bb28944f48b4ccd3"
+=======
+<<<<<<< HEAD
+  resolved "https://registry.npmjs.org/react-native-numeric-input/-/react-native-numeric-input-1.8.3.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/react-native-numeric-input/-/react-native-numeric-input-1.8.3.tgz#e869aa1b60d0c38b92e84e44bb28944f48b4ccd3"
+>>>>>>> main
+>>>>>>> af873c43444cc43d6c39e617380084db842988f0
   integrity sha512-8MeAgbM4+doAkwjPg7iEA604z4d7krJz9r0755YThldCdIvwWZh5VbtRDHxbkMVQ2Ix5xRujFSn7uQWMtln8RA==
   dependencies:
     prop-types "^15.6.1"
@@ -5821,6 +5837,7 @@ react-native-paper@^4.3.0:
     color "^3.1.2"
     react-native-safe-area-view "^0.14.9"
 
+<<<<<<< HEAD
 react-native-picker-select@^8.0.4:
   version "8.0.4"
   resolved "https://registry.yarnpkg.com/react-native-picker-select/-/react-native-picker-select-8.0.4.tgz#3f7f1f42df69b06e7d2c10338288332a6c40fd10"
@@ -5829,6 +5846,8 @@ react-native-picker-select@^8.0.4:
     "@react-native-picker/picker" "^1.8.3"
     lodash.isequal "^4.5.0"
 
+=======
+>>>>>>> af873c43444cc43d6c39e617380084db842988f0
 react-native-picker@^4.3.7:
   version "4.3.7"
   resolved "https://registry.npmjs.org/react-native-picker/-/react-native-picker-4.3.7.tgz"
@@ -5836,6 +5855,18 @@ react-native-picker@^4.3.7:
 
 react-native-pixel-perfect@^1.0.1:
   version "1.0.2"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  resolved "https://registry.npmjs.org/react-native-pixel-perfect/-/react-native-pixel-perfect-1.0.2.tgz"
+  integrity sha512-0IvYCNkxuQbQC9q4tI+C3i6o38nbx916p7gBRBWuPxDhKBCuTkVV3VukcfW6vtjRlwQm6kwQcF9OtI+yUBt+YA==
+
+react-native-popup-menu@^0.15.9:
+  version "0.15.9"
+  resolved "https://registry.npmjs.org/react-native-popup-menu/-/react-native-popup-menu-0.15.9.tgz"
+  integrity sha512-PO99dptMocEfUSS3SM7gY6UqophaBxizKjnZ7FcEwa+H4ONVxTk310/JCXJ9vdNunomgpxHluKRXnApfm9Md1w==
+=======
+>>>>>>> af873c43444cc43d6c39e617380084db842988f0
   resolved "https://registry.yarnpkg.com/react-native-pixel-perfect/-/react-native-pixel-perfect-1.0.2.tgz#8e6dc97e377caa4bd07f9e584ba438d53c0e25e8"
   integrity sha512-0IvYCNkxuQbQC9q4tI+C3i6o38nbx916p7gBRBWuPxDhKBCuTkVV3VukcfW6vtjRlwQm6kwQcF9OtI+yUBt+YA==
 
@@ -5843,6 +5874,10 @@ react-native-popup-menu@^0.15.9:
   version "0.15.10"
   resolved "https://registry.yarnpkg.com/react-native-popup-menu/-/react-native-popup-menu-0.15.10.tgz#49f2a67c8d1ea329f44e56288eca4a5c04835828"
   integrity sha512-w7MaicsfpclK7g/omjMchNaXwhMi0apt/DC734AbHuJTWCfv5mF3JgL1UzRW19ncFMBRfQeYapPy/zUyJCGgEQ==
+<<<<<<< HEAD
+=======
+>>>>>>> main
+>>>>>>> af873c43444cc43d6c39e617380084db842988f0
 
 react-native-safe-area-context@^3.1.8:
   version "3.1.8"
@@ -5938,7 +5973,15 @@ react-navigation@^4.4.3:
 
 react-redux@^7.2.2:
   version "7.2.2"
+<<<<<<< HEAD
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.2.2.tgz#03862e803a30b6b9ef8582dadcc810947f74b736"
+=======
+<<<<<<< HEAD
+  resolved "https://registry.npmjs.org/react-redux/-/react-redux-7.2.2.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.2.2.tgz#03862e803a30b6b9ef8582dadcc810947f74b736"
+>>>>>>> main
+>>>>>>> af873c43444cc43d6c39e617380084db842988f0
   integrity sha512-8+CQ1EvIVFkYL/vu6Olo7JFLWop1qRUeb46sGtIMDCSpgwPQq8fPLpirIB0iTqFe9XYEFPHssdX8/UwN6pAkEA==
   dependencies:
     "@babel/runtime" "^7.12.1"
@@ -6010,12 +6053,28 @@ realpath-native@^2.0.0:
 
 redux-thunk@^2.3.0:
   version "2.3.0"
+<<<<<<< HEAD
   resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
+=======
+<<<<<<< HEAD
+  resolved "https://registry.npmjs.org/redux-thunk/-/redux-thunk-2.3.0.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
+>>>>>>> main
+>>>>>>> af873c43444cc43d6c39e617380084db842988f0
   integrity sha512-km6dclyFnmcvxhAcrQV2AkZmPQjzPDjgVlQtR0EQjxZPyJ0BnMf3in1ryuR8A2qU0HldVRfxYXbFSKlI3N7Slw==
 
 redux@^4.0.5:
   version "4.0.5"
+<<<<<<< HEAD
   resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.5.tgz#4db5de5816e17891de8a80c424232d06f051d93f"
+=======
+<<<<<<< HEAD
+  resolved "https://registry.npmjs.org/redux/-/redux-4.0.5.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.5.tgz#4db5de5816e17891de8a80c424232d06f051d93f"
+>>>>>>> main
+>>>>>>> af873c43444cc43d6c39e617380084db842988f0
   integrity sha512-VSz1uMAH24DM6MF72vcojpYPtrTUu3ByVWfPL1nPfVRb5mZVTve5GnNCUV53QM/BZ66xfWrm0CTWoM+Xlz8V1w==
   dependencies:
     loose-envify "^1.4.0"
@@ -6826,7 +6885,15 @@ symbol-observable@1.0.1:
 
 symbol-observable@^1.2.0:
   version "1.2.0"
+<<<<<<< HEAD
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
+=======
+<<<<<<< HEAD
+  resolved "https://registry.npmjs.org/symbol-observable/-/symbol-observable-1.2.0.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
+>>>>>>> main
+>>>>>>> af873c43444cc43d6c39e617380084db842988f0
   integrity sha512-e900nM8RRtGhlV36KGEU9k65K3mPb1WV70OdjfxlG2EAuM1noi/E/BaW/uMhL7bPEssK8QV57vN3esixjUvcXQ==
 
 symbol-tree@^3.2.2:

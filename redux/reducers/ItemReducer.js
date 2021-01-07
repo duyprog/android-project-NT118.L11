@@ -1,6 +1,10 @@
 import {  FETCHING_ITEM_REQUEST, FETCHING_ITEM_FAILURE, FETCHING_FOOD_SUCCESS,
     FETCHING_DESSERT_SUCCESS, FETCHING_DRINK_SUCCESS, FETCHING_FRIED_SUCCESS,
+<<<<<<< HEAD
     FETCHING_HOTPOT_SUCCESS, FETCHING_NOODLE_SUCCESS, CHOOSE_ITEM} from '../actions/types';
+=======
+    FETCHING_HOTPOT_SUCCESS, FETCHING_NOODLE_SUCCESS} from '../actions/types';
+>>>>>>> af873c43444cc43d6c39e617380084db842988f0
 
 const initialState = { 
     itemData: { 
@@ -11,7 +15,10 @@ const initialState = {
         foodItems: [],
         noodleItems: [],
         friedItems: [],
+<<<<<<< HEAD
         choItem: []
+=======
+>>>>>>> af873c43444cc43d6c39e617380084db842988f0
     }
 }
 
@@ -88,6 +95,7 @@ const itemReducer = (state=initialState, action) =>{
                     refreshing: false, 
                 }
             }
+<<<<<<< HEAD
         case CHOOSE_ITEM:
             return{
                 ...state, 
@@ -97,6 +105,8 @@ const itemReducer = (state=initialState, action) =>{
                     choItem: action.payload
                 } 
             }
+=======
+>>>>>>> af873c43444cc43d6c39e617380084db842988f0
         default: 
                 return state;
     }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #Thu Jan 07 13:23:45 ICT 2021
 base.2=D\:\\1_HocTap\\HK5\\App Development on Mobile Device\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\out\\classes_0.dex
 base.1=D\:\\1_HocTap\\HK5\\App Development on Mobile Device\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
@@ -35,3 +36,16 @@ base.6=D\:\\1_HocTap\\HK5\\App Development on Mobile Device\\android-project-NT1
 base.5=D\:\\1_HocTap\\HK5\\App Development on Mobile Device\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\out\\classes_3.dex
 base.4=D\:\\1_HocTap\\HK5\\App Development on Mobile Device\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\out\\classes_2.dex
 base.3=D\:\\1_HocTap\\HK5\\App Development on Mobile Device\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\out\\classes_1.dex
+=======
+<<<<<<< HEAD
+#Wed Dec 30 15:23:46 ICT 2020
+=======
+#Mon Jan 04 20:13:22 ICT 2021
+>>>>>>> main
+base.0=D\:\\1_HocTap\\HK5\\App Development on Mobile Device\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+path.1=classes2.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=D\:\\1_HocTap\\HK5\\App Development on Mobile Device\\android-project-NT118.L11\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes2.dex
+>>>>>>> af873c43444cc43d6c39e617380084db842988f0

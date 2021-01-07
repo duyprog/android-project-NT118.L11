@@ -118,7 +118,6 @@ const App = () => {
       dispatch({ type: 'LOGOUT' });
     },
     signUp: () => {
-
     },
     toggleTheme: () => {
       setIsDarkTheme( isDarkTheme => !isDarkTheme );
@@ -127,7 +126,6 @@ const App = () => {
 
   useEffect(() => {
     setTimeout(async() => {
-
       let userToken;
       userToken = null;
       try {
