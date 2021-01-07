@@ -15,11 +15,7 @@ class HotPotDetails extends Component {
                 data={this.props.hotpotItems}
                 renderItem={({item}) =>
                 <View style={styles.wrapper}>
-<<<<<<< HEAD
                     <HotpotItems item={item}/>
-=======
-                    <HotpotItems hotpotItem={item}/>
->>>>>>> af873c43444cc43d6c39e617380084db842988f0
                 </View>}
                 keyExtractor={(item) => `${item.ITEM_ID}`}/>
         )

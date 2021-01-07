@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-<<<<<<< HEAD
 import { Text, View, TouchableOpacity, SafeAreaView, StyleSheet, Alert } from 'react-native'
 import CartDetail from './CartDetail'
 import {connect} from 'react-redux';
@@ -79,16 +78,3 @@ const mapStateToProps = state => {
     }
 }
 export default connect(mapStateToProps, {updateDoneReceipt, changeTableToZero, getTableIdByRId}) (Payment);
-=======
-import { Text, View } from 'react-native'
-
-export default class Payment extends Component {
-    render() {
-        return (
-            <View>
-                <Text> textInComponent </Text>
-            </View>
-        )
-    }
-}
->>>>>>> af873c43444cc43d6c39e617380084db842988f0
