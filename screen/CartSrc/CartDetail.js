@@ -38,7 +38,7 @@ class CartDetail extends Component {
     render()
     {
         return(
-            <SafeAreaView>
+            <SafeAreaView style={{flex: 1}}>
                  {/* <View style={styles.container}>
                     <Text style={styles.label}> Thông tin bàn </Text>
                     <View style={styles.infoTable}>

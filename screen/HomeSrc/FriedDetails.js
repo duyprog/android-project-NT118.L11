@@ -16,7 +16,7 @@ class FriedDetails extends Component {
                 numColumns={2}
                 renderItem={({item}) =>
                 <View style={styles.wrapper}>
-                    <FriedItems friedItem={item}/>
+                    <FriedItems item={item}/>
                 </View>}
                 keyExtractor={(item) => `${item.ITEM_ID}`}/>
         )
