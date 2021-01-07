@@ -5,13 +5,12 @@ import {connect} from 'react-redux';
 import {insertNewDetail} from '../redux/actions/receiptDetailActions';
 import PropTypes from 'prop-types';
 
-export default function NoodleItems(item, currentReceiptID, insertNewDetail){
+function NoodleItems({item, currentReceiptID, insertNewDetail}){
     const [modalVisible, setModalVisible] = useState(false);
     var quantity = 0;
     const setValue = (value) =>{
         quantity = value;
     }
-
     return(
         <TouchableOpacity
             activeOpacity={0.5}
@@ -34,6 +33,7 @@ export default function NoodleItems(item, currentReceiptID, insertNewDetail){
                             <TouchableOpacity
                                 onPress={() => {
                                     setModalVisible(!modalVisible);
+                                    insertNewDetail(currentReceiptID, item.ITEM_ID, quantity);
                                 }}>
                                 <Text style={styles.compText}>Hoàn tất</Text>
                             </TouchableOpacity>
@@ -52,6 +52,9 @@ export default function NoodleItems(item, currentReceiptID, insertNewDetail){
             </View>
         </TouchableOpacity>
     );
+}
+NoodleItems.propTypes = {
+    chooseItems: PropTypes.func.isRequired,
 }
 
 const styles = StyleSheet.create({
@@ -123,4 +126,10 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 14
     }
-})
+});
+const mapStateToProps = state => {
+    return {
+        currentReceiptID: state.receiptDetailReducer.receiptDetailData.currentReceiptID
+    }
+}
+export default connect(mapStateToProps, {insertNewDetail})(NoodleItems);

@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {insertNewDetail} from '../redux/actions/receiptDetailActions';
 import PropTypes from 'prop-types';
 
-function HotpotItems(item, currentReceiptID, insertNewDetail){
+function HotpotItems({item, currentReceiptID, insertNewDetail}){
 
     const [modalVisible, setModalVisible] = useState(false);
     var quantity = 0;

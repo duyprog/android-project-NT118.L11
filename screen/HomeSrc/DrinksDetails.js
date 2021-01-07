@@ -7,7 +7,6 @@ import DrinkItems from '../../items/DrinkItems'
 class DrinkDetails extends Component {
     componentDidMount(){
         this.props.fetchDrink();
-        console.log(this.props.drinkItems);
     }
     render() {
         return (

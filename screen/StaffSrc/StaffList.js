@@ -10,7 +10,6 @@ import {
 class StaffList extends Component {
     componentDidMount(){
        this.props.fetchStaff();
-       console.log(this.props.staff);
     }
     render() {
         return (
