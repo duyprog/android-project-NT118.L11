@@ -1,10 +1,16 @@
 import React, { Component, useState } from 'react'
 import { Text, View, Image, TouchableOpacity, StyleSheet, Modal } from 'react-native'
 import NumericInput from 'react-native-numeric-input'
-export default function DrinkItems(props){
+import {connect} from 'react-redux';
+import {insertNewDetail} from '../redux/actions/receiptDetailActions';
+function DrinkItems({item, currentReceiptID, insertNewDetail}){
 
-    const{drinkItem} = props;
     const [modalVisible, setModalVisible] = useState(false);
+    var quantity = 0;
+    const setValue = (value) =>{
+        quantity = value;
+    }
+    
     return(
         <TouchableOpacity
             activeOpacity={0.5}
@@ -22,11 +28,13 @@ export default function DrinkItems(props){
                             minValue={0}
                             rounded={true}
                             totalHeight={40}
-                            onChange={value => console.log(value)} />
+                            onChange={value => setValue(value)}
+                            />
                         <View style={styles.compBtn}>
                             <TouchableOpacity
                                 onPress={() => {
                                     setModalVisible(!modalVisible);
+                                    insertNewDetail(currentReceiptID, item.ITEM_ID, quantity)
                                 }}>
                                 <Text style={styles.compText}>Hoàn tất</Text>
                             </TouchableOpacity>
@@ -35,18 +43,23 @@ export default function DrinkItems(props){
                 </View>
             </Modal>
             <View style={styles.container}>
-                <Image style={styles.img} source={{uri: drinkItem.IMAGE_URL}}/>
+                <Image style={styles.img} source={{uri: item.IMAGE_URL}}/>
                 <View style={styles.info}>
-                    <Text style={styles.name}>{drinkItem.ITEM_NAME}</Text>
+                    <Text style={styles.name}>{item.ITEM_NAME}</Text>
                     <View style={styles.priceRow}>
-                        <Text style={styles.price}>{drinkItem.UNITPRICE}đ</Text>
+                        <Text style={styles.price}>{item.UNITPRICE}đ</Text>
                     </View>
                 </View>
             </View>
         </TouchableOpacity>
     );
 }
-
+const mapStateToProps = state => {
+    return{
+        currentReceiptID: state.receiptDetailReducer.receiptDetailData.currentReceiptID
+    }
+}
+export default connect(mapStateToProps, {insertNewDetail})(DrinkItems);
 const styles = StyleSheet.create({
     cartText: {
         textTransform: 'uppercase',

@@ -1,11 +1,10 @@
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity} from 'react-native'
 import CategoryListItems from '../../components/CategoryListItems'
-import { ScrollView } from 'react-native-gesture-handler';
-
-import {useStore} from 'react-redux';
-const Categories = ({navigation}) => {
-    const store = useStore();
+import {connect} from 'react-redux'; 
+import {updateTotalPrice} from '../../redux/actions/receiptActions';
+import {fetchTotalPriceById} from '../../redux/actions/receiptActions';
+const Categories = ({navigation, updateTotalPrice, fetchTotalPriceById, currentReceiptID}) => {
     return (
         <View>
             <View style={styles.mainView}>
@@ -14,7 +13,6 @@ const Categories = ({navigation}) => {
                         activeOpacity={0.5}
                         onPress={()=>{
                             navigation.navigate('Fast Foods Details');
-                            console.log(store.getState());
                         }}>
                         <CategoryListItems 
                             title={"Fastfood"} 
@@ -79,6 +77,8 @@ const Categories = ({navigation}) => {
                         activeOpacity={0.5}
                         onPress={() =>{
                             navigation.navigate('Confirm');
+                            updateTotalPrice();
+                            fetchTotalPriceById(currentReceiptID);
                         }}>
                         <View style={styles.orderBtn}>
                             <Text style={styles.orderText}> Kiểm tra </Text>
@@ -123,5 +123,10 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 17
     },
-})
-export default Categories
+});
+const mapStateToProps = (state) => {
+    return {
+        currentReceiptID: state.receiptDetailReducer.receiptDetailData.currentReceiptID,
+    }
+}
+export default connect(mapStateToProps, {updateTotalPrice, fetchTotalPriceById}) (Categories)
