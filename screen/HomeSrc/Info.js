@@ -1,10 +1,20 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
+import { Text, View, StyleSheet, TouchableOpacity, Alert } from 'react-native'
 import { TextInput } from 'react-native-gesture-handler';
 import { connect } from 'react-redux';
 import  PropTypes  from 'prop-types';
 import {insertNewCustomer} from '../../redux/actions/customerActions';
 
+
+const createAlert = () =>
+    Alert.alert(
+      "Thông báo",
+      "Vui lòng nhập đủ tên và số điện thoại!",
+      [
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
 
 const Info = ({navigation, insertNewCustomer, isAtStore}) => {
 
@@ -67,7 +77,11 @@ const Info = ({navigation, insertNewCustomer, isAtStore}) => {
                 <TouchableOpacity
                     activeOpacity={0.5}
                     onPress={() => {
-                        isAtStore == true ? navigation.navigate("Select table") : navigation.navigate("Food Menu");
+                        if(name == undefined || phone == undefined){
+                            createAlert();
+                        }
+                        else
+                            {isAtStore == true ? navigation.navigate("Select table") : navigation.navigate("Food Menu");}
                         insertNewCustomer(name, phone);
                     }}>
                     <View style={styles.payBtn}>
