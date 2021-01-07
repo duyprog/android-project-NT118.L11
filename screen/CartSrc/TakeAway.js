@@ -1,21 +1,16 @@
 import React, { Component } from 'react'
-import {Text, View, StyleSheet, FlatList, Animated, TouchableOpacity, Image } from 'react-native'
-import Swipable from 'react-native-gesture-handler/Swipeable'
-import { useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { Text, View, StyleSheet, FlatList, Animated, TouchableOpacity, Image } from 'react-native'
+import CartL from '../../components/CartL';
 import {connect} from 'react-redux';
 import {fetchInCompleteReceipt} from '../../redux/actions/receiptActions';
 import PropTypes from 'prop-types'
-import Table from '../../image/cart/table-cart.png'
-import CartL from '../../components/CartL';
 
-class CartHistory extends Component {
+class TakeAway extends Component {
     componentDidMount(){
         this.props.fetchInCompleteReceipt();
     }
-  render()
-    {
-        return(
+    render() {
+        return (
             <FlatList
                 data={this.props.incompleteReceipt}
                 renderItem={({item}) =>
@@ -28,7 +23,7 @@ class CartHistory extends Component {
     }
 }
 
-CartHistory.propsTypes = {
+TakeAway.propsTypes = {
     fetchInCompleteReceipt: PropTypes.func.isRequired,
     incompleteReceipt: PropTypes.array.isRequired
 }
@@ -39,4 +34,4 @@ const mapStateToProps = state =>{
     }
 }
 
-export default connect(mapStateToProps, {fetchInCompleteReceipt}) (CartHistory);
+export default connect(mapStateToProps, {fetchInCompleteReceipt}) (TakeAway);

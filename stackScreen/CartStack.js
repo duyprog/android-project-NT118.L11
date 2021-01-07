@@ -6,6 +6,7 @@ import CartList from '../screen/CartSrc/CartList'
 import CartHistory from '../screen/CartSrc/CartHistory'
 import CartDetail from '../screen/CartSrc/CartDetail'
 import Payment from '../screen/CartSrc/Payment'
+import TakeAway from '../screen/CartSrc/TakeAway'
 
 const CartStack = createStackNavigator()
 
@@ -37,6 +38,11 @@ function CartStackScreen() {
             name="CartDetail"
             component={CartDetail}
             options={{title: 'Chi tiết đơn hàng'                
+                    }}/>
+        <CartStack.Screen
+            name="Take Away"
+            component={TakeAway}
+            options={{title: 'Đơn hàng mang đi'                
                     }}/>
       </CartStack.Navigator>
     )

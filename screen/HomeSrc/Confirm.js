@@ -4,7 +4,17 @@ import {connect} from 'react-redux';
 import {fetchDetailById} from '../../redux/actions/receiptDetailActions';
 import {fetchTotalPriceById} from '../../redux/actions/receiptActions';
 
+var isAtStore = true
 
+const confirmAlert = () =>
+    Alert.alert(
+      "Thông báo",
+      "Đã thanh toán đơn hàng thành công!",
+      [
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
 
 const createAlert = () =>
     Alert.alert(
@@ -15,6 +25,7 @@ const createAlert = () =>
       ],
       { cancelable: false }
     );
+
 
 function List({item}) {
     return(
@@ -65,7 +76,7 @@ const Confirm = ({navigation, fetchDetailById, currentReceiptID, receiptDetail, 
                 <TouchableOpacity
                     activeOpacity={0.5}
                     onPress={() => {
-                        createAlert();
+                        isAtStore == true ? createAlert() : confirmAlert();
                         navigation.navigate("Home");
                     }}>
                     <View style={styles.payBtn}>
