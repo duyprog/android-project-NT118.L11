@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import { CHOOSE_A_STAFF, FETCHING_STAFF_REQUEST, FETCHING_STAFF_SUCCESS, FETCHING_STAFF_FAILURE,
-        DELETE_STAFF_REQUEST, DELETE_STAFF_SUCCESS, DELETE_STAFF_FAILURE,SWIPE_TO_CHOOSE_DELETEID, LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE}
-from './types';
-
-import { authHeader } from '../../components/auth-header';
-
-import { IP } from '../../components/IP';
-
-=======
 import {
   FETCHING_STAFF_REQUEST,
   FETCHING_STAFF_SUCCESS,
@@ -19,10 +9,12 @@ import {
   INSERT_STAFF_REQUEST,
   INSERT_STAFF_SUCCESS,
   INSERT_STAFF_FAILURE,
+  USER_LOGIN_FAILURE,
+  USER_LOGIN_REQUEST,
+  USER_LOGIN_SUCCESS,
 } from './types';
 
 import {IP} from '../../components/IP';
->>>>>>> main
 
 // Fetch Staff
 export const fetchingStaffRequest = () => ({type: FETCHING_STAFF_REQUEST});
@@ -38,21 +30,6 @@ export const fetchingStaffFailure = (error) => ({
 });
 
 export const fetchStaff = () => {
-<<<<<<< HEAD
-    return async dispatch =>{
-        dispatch(fetchingStaffRequest());
-        try{
-            let response = await fetch('http://'+ IP +':4000/users') + {
-                method: 'GET',
-                headers: authHeader()
-            };
-            let json = await response.json();
-            dispatch(fetchingStaffSuccess(json));
-        }
-        catch(error){
-            dispatch(fetchingStaffFailure(error));
-        }
-=======
   return async (dispatch) => {
     dispatch(fetchingStaffRequest());
     try {
@@ -61,7 +38,6 @@ export const fetchStaff = () => {
       dispatch(fetchingStaffSuccess(json));
     } catch (error) {
       dispatch(fetchingStaffFailure(error));
->>>>>>> main
     }
   };
 };
@@ -85,22 +61,6 @@ export const swipeToChooseDeleteId = (id) => ({
 });
 
 export const deleteStaff = (id) => {
-<<<<<<< HEAD
-    return async dispatch =>{
-        dispatch(deleteStaffRequest());
-        try{
-            let response = await fetch('http://'+ IP +':4000/api/staffs/deleteStaff/' + id,{
-                method: 'DELETE',
-                body: JSON.stringify(id)
-            });
-            let json = await response.json();
-            console.log(json)
-            dispatch(deleteStaffSuccess(json));
-        }
-        catch(error){
-            dispatch(deleteStaffFailure(error));
-        }
-=======
   return async (dispatch) => {
     dispatch(deleteStaffRequest());
     try {
@@ -113,47 +73,12 @@ export const deleteStaff = (id) => {
       dispatch(deleteStaffSuccess(json));
     } catch (error) {
       dispatch(deleteStaffFailure(error));
->>>>>>> main
     }
   };
 };
 
 // Add Staff
 
-<<<<<<< HEAD
-export const LoginRequest = () =>({type: LOGIN_REQUEST});
-
-export const LoginSuccess = (json) => 
-({
-    type: LOGIN_SUCCESS,
-    payload: json
-});
-
-export const LoginFailure = (error) =>({
-    type: LOGIN_FAILURE,
-    payload: error
-});
-
-export const userLogin = (staffusername, password) => {
-    return async dispatch =>{
-        dispatch(LoginRequest());
-        try{
-            const requestOptions = {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ staffusername, password })
-            };
-            let response = await fetch('https://'+ IP +':4000/users/authenticate', requestOptions)
-            let json = await response.json();
-            dispatch(LoginSuccess(json));
-            console.log(json);
-        }
-        catch(error){
-            dispatch(LoginFailure(error));
-        }
-    }
-}
-=======
 export const insertStaffRequest = () => ({
   type: INSERT_STAFF_REQUEST,
 });
@@ -202,4 +127,41 @@ export const insertNewStaff = (
     }
   };
 };
->>>>>>> main
+
+export const userLoginRequest = () => ({
+  type: USER_LOGIN_REQUEST,
+});
+
+export const userLoginSuccess = () => ({
+  type: USER_LOGIN_SUCCESS,
+  payload,
+});
+export const userLoginFailure = () => ({
+  type: USER_LOGIN_FAILURE,
+});
+
+export const userLogin = (
+  staffusername, password=d
+) => {
+  return async (dispatch) => {
+    dispatch(userLoginRequest());
+    try {
+      let response = await fetch(
+        `http://${IP}:4000/users/authenticate`,
+        {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ staffusername, password }
+          ),
+        },
+      );
+      let json = await response.json();
+      dispatch(userLoginSuccess(json));
+    } catch (error) {
+      dispatch(userLoginFailure(error));
+    }
+  };
+};

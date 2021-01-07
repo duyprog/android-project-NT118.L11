@@ -12,19 +12,13 @@ import {
 import * as Animatable from 'react-native-animatable';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
-import {connect} from 'react-redux';
-
-import { userLogin } from '../redux/actions/staffActions';
-
-import PropTypes from 'prop-types';
-
 import { useTheme } from 'react-native-paper';
 
 import { AuthContext } from '../App';
 
 import Users from '../model/users';
 
-const SignInScreen = ({navigation}) => {
+const SignInScreen = (navigation) => {
 
     const [data, setData] = React.useState({
         check_textInputChange: false,
@@ -32,7 +26,7 @@ const SignInScreen = ({navigation}) => {
         isValidUser: true,
         isValidPassword: true,
         username: '',
-        password: ''
+        passsword: ''
     });
 
     const { colors } = useTheme();
@@ -94,12 +88,11 @@ const SignInScreen = ({navigation}) => {
         }
     }
 
-    const loginHandle = (userName, password) => {
+    const loginHandle = (username, password) => {
 
-        const foundUser = () => {
-            this.props.userLogin(data.username, data.password);
-            console.log(this.props.userLogin);
-        }
+        const foundUser = Users.filter( item => {
+            return username == item.username && password == item.password;
+        } );
 
         if ( data.username.length == 0 || data.password.length == 0 ) {
             Alert.alert('Wrong Input!', 'Username or password field cannot be empty.', [
@@ -223,7 +216,7 @@ const SignInScreen = ({navigation}) => {
                         marginTop: 15
                     }]}
                     onPress={() => {
-                        loginHandle(data.username, data.password)
+                        loginHandle(data.username, data.password);
                     }}
                 >
                     <Text style={[styles.textSign, {
@@ -236,17 +229,7 @@ const SignInScreen = ({navigation}) => {
     );
 };
 
-SignInScreen.propTypes = {
-    userLogin: PropTypes.func.isRequired
-}
-
-const mapStateToProps = state =>{
-    return{
-        userLogin: state.staffReducer.staffData.staff
-    };
-}
-
-export default connect(mapStateToProps, {userLogin}) (SignInScreen);
+export default SignInScreen;
 
 const styles = StyleSheet.create({
     container: {

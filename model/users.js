@@ -1,3 +1,28 @@
+// import React, { Component } from 'react';
+// import { fetchStaff } from '../redux/actions/staffActions';
+// import { connect } from 'react-redux';
+// import PropTypes from 'prop-types';
+// class Users extends Component {
+//     componentDidMount(){
+//     this.props.fetchStaff();
+//     console.log(this.props.staff);
+//     }
+// }
+
+// Users.propTypes = {
+//     fetchStaff: PropTypes.func.isRequired,
+//     staff: PropTypes.array.isRequired,
+//     token: PropTypes.string.isRequired,
+// }
+
+// const mapStateToProps = state =>{
+//     return{
+//         staff: state.staffReducer.staffData.staff,
+//         userToken: state.staffReducer.staffData.userToken
+//     };
+// }
+// export default connect(mapStateToProps, {fetchStaff}) (Users);
+
 export default Users = [
     {
         id: 1, 
@@ -21,3 +46,4 @@ export default Users = [
         userToken: 'testtoken'
     },
 ];
+

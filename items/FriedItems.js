@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import {insertNewDetail} from '../redux/actions/receiptDetailActions';
 import PropTypes from 'prop-types';
 
-function FriedItems(item, currentReceiptID, insertNewDetail){
+function FriedItems({item, currentReceiptID, insertNewDetail}){
 
     const [modalVisible, setModalVisible] = useState(false);
     var quantity = 0;
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
 })
 const mapStateToProps = state => {
     return {
-        currentReceiptID: state.receiptDetailReducer.receipDetailData.currentReceiptID
+        currentReceiptID: state.receiptDetailReducer.receiptDetailData.currentReceiptID
     }
 }
 export default connect(mapStateToProps, {insertNewDetail})(FriedItems);
