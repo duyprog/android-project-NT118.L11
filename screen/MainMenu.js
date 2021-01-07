@@ -8,7 +8,6 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {customerChooseAtStore, customerChoosePickup} from '../redux/actions/customerActions';
 const MainMenu = ({ navigation, customerChooseAtStore, customerChoosePickup }) => {
-    const [modalVisible, setModalVisible] = useState(false);
     return (
         <ScrollView>
             <View style={styles.sliderContainer}>

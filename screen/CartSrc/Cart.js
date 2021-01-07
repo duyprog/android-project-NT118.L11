@@ -4,7 +4,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 
 import Serving from '../../image/cart/serving.png'
 import Served from '../../image/cart/clipboard.png'
-
+import TakeAway from '../../image/cart/food-package.png'
 const Cart = ({ navigation }) => {
     return (
         <View>
@@ -23,7 +23,7 @@ const Cart = ({ navigation }) => {
             </View>
 
             <View>
-            <TouchableOpacity
+                <TouchableOpacity
                     activeOpacity={0.5}
                     onPress={() => {
                         navigation.navigate('Cart History')
@@ -32,6 +32,20 @@ const Cart = ({ navigation }) => {
                         <Image source={ Served }
                                style={styles.imageView} />
                         <Text style={styles.text}> Đã hoàn thành </Text>
+                    </View>
+                </TouchableOpacity>
+            </View>
+
+            <View>
+                <TouchableOpacity
+                    activeOpacity={0.5}
+                    onPress={() => {
+                        navigation.navigate('Take Away')
+                    }}>
+                    <View  style={styles.viewStyle}>
+                        <Image source={ TakeAway }
+                               style={styles.imageView} />
+                        <Text style={styles.text}> Mang đi </Text>
                     </View>
                 </TouchableOpacity>
             </View>

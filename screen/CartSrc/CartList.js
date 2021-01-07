@@ -6,35 +6,6 @@ import {connect} from 'react-redux';
 import {fetchCompleteReceipt, chooseReceiptToSee} from '../../redux/actions/receiptActions'
 import Table from '../../image/cart/table-cart.png'
 import CartL from '../../components/CartL';
-
-// const cartList = [
-//     {
-//         id: 1,
-//         numberTable: 'Bàn 01',
-//         time: '10:45 AM',
-//         code: '0001'
-//     },
-//     {
-//         id: 2,
-//         numberTable: 'Bàn 06',
-//         time: '10:53 AM',
-//         code: '0002'
-//     },
-//     {
-//         id: 3,
-//         numberTable: 'Bàn 18',
-//         time: '11:09 AM',
-//         code: '0003'
-//     },
-//     {
-//         id: 4,
-//         numberTable: 'Bàn 03',
-//         time: '11:21 AM',
-//         code: '0004'
-//     }
-// ]
-
-
 class CartList extends Component {
     componentDidMount(){
         this.props.fetchCompleteReceipt();
