@@ -158,20 +158,6 @@ const styles = StyleSheet.create({
         marginTop: 9,
         color: '#fff',
         fontSize: 17
-    },
-    centeredView: {
-        flex: 1,
-        justifyContent: "center",
-        backgroundColor: "#000000aa"
-    },
-    modalView: {
-        marginLeft: 20,
-        marginRight: 20,
-        backgroundColor: "white",
-        alignItems: 'center',
-        borderRadius: 10,
-        padding: 40,
-        shadowColor: "#000",
     }
 })
 const mapStateToProps = (state) => {
