@@ -3,7 +3,7 @@ import { Text, View, TouchableOpacity, SafeAreaView, StyleSheet, Alert } from 'r
 import CartDetail from './CartDetail'
 import {connect} from 'react-redux';
 import {updateDoneReceipt } from '../../redux/actions/receiptActions';
-import {changeTableToZero} from '../../redux/actions/tableActions';
+import {changeTableToZero, getTableIdByRId} from '../../redux/actions/tableActions';
 const createAlert = () =>
     Alert.alert(
       "Xác nhận",
@@ -14,7 +14,7 @@ const createAlert = () =>
       { cancelable: false }
     );
 
-function Payment({navigation, chooseReceipt, updateDoneReceipt, changeTableToZero}){
+function Payment({navigation, chooseReceipt, updateDoneReceipt, changeTableToZero, choosedTable}){
     return(
         <SafeAreaView>
             <CartDetail></CartDetail>
@@ -30,7 +30,7 @@ function Payment({navigation, chooseReceipt, updateDoneReceipt, changeTableToZer
                                 onPress: () =>{ 
                                 navigation.navigate("Cart");
                                 updateDoneReceipt(chooseReceipt);
-                                changeTableToZero();
+                                changeTableToZero(choosedTable);
                                 },
                                 style: "default" },
                               { text: "Cancel",
@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => {
     return { 
         chooseReceipt: state.receiptReducer.receiptData.chooseReceipt, 
+        choosedTable: state.tableReducer.tableData.choosedTable
     }
 }
-export default connect(mapStateToProps, {updateDoneReceipt, changeTableToZero}) (Payment);
+export default connect(mapStateToProps, {updateDoneReceipt, changeTableToZero, getTableIdByRId}) (Payment);
