@@ -5,7 +5,6 @@ const initialState = {
         table: [],
         tbRefreshing: false,
         errMsg: '', 
-        choosedTable: ''
     }    
 };
 
@@ -17,8 +16,7 @@ const tableReducer = (state=initialState, action) =>{
             return{...state, tableData: {...state.tableData, tbRefreshing: false}};
         case FETCHING_TABLE_SUCCESS:
             return{...state, tableData: {...state.tableData, tbRefreshing: false, table: action.payload}};
-        case CHOOSE_A_TABLE:
-            return {...state, tableData: {...state.tableData, choosedTable: action.payload}};
+        
         default: 
             return state;
     }

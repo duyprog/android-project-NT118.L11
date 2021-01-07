@@ -40,7 +40,7 @@ class CartHistory extends Component {
                 data={this.props.incompleteReceipt}
                 renderItem={({item}) =>
                     <View>                  
-                        <CartL item={item} nav={'Cart Detail'} ></CartL>
+                        <CartL item={item} nav={'CartDetail'} ></CartL>
                     </View>}
                 keyExtractor={(item) => `${item.RECEIPT_ID}`} >
             </FlatList>

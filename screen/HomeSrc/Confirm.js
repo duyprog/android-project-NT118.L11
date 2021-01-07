@@ -1,42 +1,10 @@
 import React, { Component } from 'react'
 import { Text, View, Image, FlatList, TouchableOpacity, StyleSheet , SafeAreaView, Alert } from 'react-native'
+import {connect} from 'react-redux';
+import {fetchDetailById} from '../../redux/actions/receiptDetailActions';
+import {fetchTotalPriceById} from '../../redux/actions/receiptActions';
 
 
-const order = [
-    {
-        id: 1,
-        foodName: 'Pizza',
-        price: 300000,
-        image: [
-            {
-                url: 'https://www.thucphamsachhd.com/uploads/files/2017/10/03/Steak-meat-34450442-1302-1020.jpg'
-            }
-        ],
-        sl: 3,
-        total: 900000
-    },
-    {
-        id: 2,
-        foodName: 'Beefsteak',
-        price: 240000,
-        image: [
-            {
-                url: 'https://img-global.cpcdn.com/recipes/39ca2c2a0e1fb011/751x532cq70/mi-y-s%E1%BB%91t-bo-bam-spaghetti-bolognese-recipe-main-photo.jpg'
-            }
-            
-        ],
-        sl: 2,
-        total: 480000
-    }
-]
-
-const details = 
-    {
-        id: 1,
-        name: 'Bàn 01',
-        time: '10:45 AM',
-        code: '0001'
-    }
 
 const createAlert = () =>
     Alert.alert(
@@ -53,23 +21,25 @@ function List({item}) {
         <View style={{alignSelf: 'center', marginBottom: 10}}>
             <View style={styles.card}>
                 <View style={styles.cardImgWrapper}>
-                    <Image source={{uri: item.image[0].url}}
+                    <Image source={{uri: item.IMAGE_URL}}
                             style={styles.cardImg}
                             resizeMode="cover" />
                 </View>
                 <View style={styles.cardInfo}>
-                    <Text style={styles.cardTitle}> {item.foodName} x{item.sl} </Text>
-                    <Text style={styles.cardDetails}> {item.total} </Text>
+                    <Text style={styles.cardTitle}> {item.ITEM_NAME} x{item.QUANTITY} </Text>
+                    <Text style={styles.cardDetails}> {item.UNITPRICE} đ</Text>
                 </View>
             </View>
         </View>
     )
 }
 
-const Confirm = ({navigation}) => {
+const Confirm = ({navigation, fetchDetailById, currentReceiptID, receiptDetail, fetchTotalPriceById, totalPrice}) => {
+    fetchDetailById(currentReceiptID);
+    fetchTotalPriceById(currentReceiptID);
     return(
         <SafeAreaView>
-            <View style={styles.container}>
+            {/* <View style={styles.container}>
                 <Text style={styles.label}> Thông tin bàn </Text>
                 <View style={styles.labelView}></View>
                 <View style={styles.infoTable}>
@@ -77,17 +47,18 @@ const Confirm = ({navigation}) => {
                     <Text style={{fontSize: 18}}> Thời gian: {details.time} </Text>
                     <Text style={{fontSize: 18}}> Mã đơn hàng: {details.code} </Text>
                 </View>
-            </View>
+            </View> */}
             <View style={styles.container}>
                 <Text style={styles.label}> Chi tiết đơn hàng </Text>
                 <View style={styles.labelView}></View>
                 <FlatList 
-                    data={order}
+                    data={receiptDetail}
                     renderItem={({item}) => 
                         <View>
                             <List item={item} />
                         </View>}
-                    keyExtractor={(item) => `${item.id}`} />
+                    keyExtractor={(item) => `${item.ITEM_ID}`}/>
+                <Text style={{fontSize: 18, fontWeight: '700', margin: 5}}> Tổng cộng: {totalPrice} đ</Text>
             </View>
             <View style={styles.btnView}>
                 <TouchableOpacity
@@ -189,5 +160,11 @@ const styles = StyleSheet.create({
         fontSize: 17
     }
 })
-
-export default Confirm
+const mapStateToProps = (state) => {
+    return{
+        currentReceiptID: state.receiptDetailReducer.receiptDetailData.currentReceiptID,
+        receiptDetail: state.receiptDetailReducer.receiptDetailData.receiptDetail, 
+        totalPrice: state.receiptReducer.receiptData.totalPrice
+    }
+}
+export default connect(mapStateToProps,{fetchDetailById, fetchTotalPriceById}) (Confirm);
