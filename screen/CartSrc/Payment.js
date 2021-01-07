@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { Text, View, TouchableOpacity, SafeAreaView, StyleSheet, Alert } from 'react-native'
 import CartDetail from './CartDetail'
 import {connect} from 'react-redux';
-import {updateDoneReceipt} from '../../redux/actions/receiptActions';
+import {updateDoneReceipt } from '../../redux/actions/receiptActions';
+import {changeTableToZero} from '../../redux/actions/tableActions';
 const createAlert = () =>
     Alert.alert(
       "Xác nhận",
@@ -13,7 +14,7 @@ const createAlert = () =>
       { cancelable: false }
     );
 
-function Payment({navigation, chooseReceipt, updateDoneReceipt}){
+function Payment({navigation, chooseReceipt, updateDoneReceipt, changeTableToZero}){
     return(
         <SafeAreaView>
             <CartDetail></CartDetail>
@@ -29,6 +30,7 @@ function Payment({navigation, chooseReceipt, updateDoneReceipt}){
                                 onPress: () =>{ 
                                 navigation.navigate("Cart");
                                 updateDoneReceipt(chooseReceipt);
+                                changeTableToZero();
                                 },
                                 style: "default" },
                               { text: "Cancel",
@@ -74,4 +76,4 @@ const mapStateToProps = state => {
         chooseReceipt: state.receiptReducer.receiptData.chooseReceipt, 
     }
 }
-export default connect(mapStateToProps, {updateDoneReceipt}) (Payment);
+export default connect(mapStateToProps, {updateDoneReceipt, changeTableToZero}) (Payment);
