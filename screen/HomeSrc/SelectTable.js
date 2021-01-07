@@ -66,7 +66,7 @@ SelectTable.propTypes = {
     fetchTable: PropTypes.func.isRequired,
     chooseATable: PropTypes.func.isRequired, 
     table: PropTypes.array.isRequired,
-    choosedTable: PropTypes.string.isRequired,
+    choosedTable: PropTypes.number.isRequired,
 }
 
 const mapStateToProps = state => {
