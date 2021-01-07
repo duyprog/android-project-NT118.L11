@@ -94,9 +94,12 @@ const styles = StyleSheet.create({
     },
     container: {
         backgroundColor: '#fff',
-        borderBottomWidth: 1,
-        borderBottomColor: '#dddddd',
-        padding: 5
+        padding: 5,
+        borderRadius: 10,
+        marginTop: 10,
+        elevation: 8,
+        width: "90%",
+        alignSelf: 'center'
     },
     infoTable: {
         marginBottom: 5,
