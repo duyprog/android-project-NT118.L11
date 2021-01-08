@@ -4,6 +4,7 @@ import { TextInput } from 'react-native-gesture-handler';
 import { connect } from 'react-redux';
 import  PropTypes  from 'prop-types';
 import {insertNewCustomer} from '../../redux/actions/customerActions';
+import {insertTakeAwayReceipt} from '../../redux/actions/receiptActions';
 
 
 const createAlert = () =>

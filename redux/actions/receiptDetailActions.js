@@ -4,7 +4,8 @@ import {
     FETCHING_CURRENT_RECEIPT_REQUEST,
     INSERT_DETAIL_REQUEST,
     INSERT_DETAIL_FAILURE,
-    INSERT_DETAIL_SUCCESS
+    INSERT_DETAIL_SUCCESS, 
+    CONFIRM_RECEIPT
 } from './types';
 
 import {IP} from '../../components/IP'

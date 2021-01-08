@@ -4,7 +4,9 @@ import CategoryListItems from '../../components/CategoryListItems'
 import {connect} from 'react-redux'; 
 import {updateTotalPrice} from '../../redux/actions/receiptActions';
 import {fetchTotalPriceById} from '../../redux/actions/receiptActions';
-const Categories = ({navigation, updateTotalPrice, fetchTotalPriceById, currentReceiptID}) => {
+import {fetchCurrentReceiptId} from '../../redux/actions/receiptDetailActions';
+const Categories = ({navigation, updateTotalPrice, fetchTotalPriceById, currentReceiptID, fetchCurrentReceiptId}) => {
+    fetchCurrentReceiptId();
     return (
         <View>
             <View style={styles.mainView}>
@@ -129,4 +131,4 @@ const mapStateToProps = (state) => {
         currentReceiptID: state.receiptDetailReducer.receiptDetailData.currentReceiptID,
     }
 }
-export default connect(mapStateToProps, {updateTotalPrice, fetchTotalPriceById}) (Categories)
+export default connect(mapStateToProps, {updateTotalPrice, fetchTotalPriceById, fetchCurrentReceiptId}) (Categories)

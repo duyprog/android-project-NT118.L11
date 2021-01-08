@@ -6,8 +6,10 @@ import AtStore from '../image/mainMenu/dining-table.png'
 import Takeaway from '../image/mainMenu/take-away.png'
 import {connect} from 'react-redux'; 
 import PropTypes from 'prop-types';
+import {insertTakeAwayReceipt} from '../redux/actions/receiptActions';
+
 import {customerChooseAtStore, customerChoosePickup} from '../redux/actions/customerActions';
-const MainMenu = ({ navigation, customerChooseAtStore, customerChoosePickup }) => {
+const MainMenu = ({ navigation, customerChooseAtStore, customerChoosePickup,insertTakeAwayReceipt }) => {
     return (
         <ScrollView>
             <View style={styles.sliderContainer}>
@@ -61,7 +63,8 @@ const MainMenu = ({ navigation, customerChooseAtStore, customerChoosePickup }) =
                 <TouchableOpacity
                     activeOpacity={0.5}
                     onPress={ () => {
-                        navigation.navigate('Info');
+                        insertTakeAwayReceipt();
+                        navigation.navigate('Food Menu');
                         customerChoosePickup();
                     }}>
                     <View  style={styles.viewStyle}>
@@ -229,4 +232,5 @@ const styles = StyleSheet.create({
     }
 })
 
-export default connect(null, {customerChooseAtStore, customerChoosePickup}) (MainMenu);
+export default connect(null, {customerChooseAtStore, customerChoosePickup, insertTakeAwayReceipt}) (MainMenu);
+

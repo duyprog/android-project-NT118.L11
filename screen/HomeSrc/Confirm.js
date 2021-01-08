@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, Image, FlatList, TouchableOpacity, StyleSheet , SafeAreaView, Alert } from 'react-native'
 import {connect} from 'react-redux';
-import {fetchDetailById} from '../../redux/actions/receiptDetailActions';
+import {fetchDetailById, confirmReceipt} from '../../redux/actions/receiptDetailActions';
 import {fetchTotalPriceById} from '../../redux/actions/receiptActions';
 
 var isAtStore = true
@@ -45,7 +45,7 @@ function List({item}) {
     )
 }
 
-const Confirm = ({navigation, fetchDetailById, currentReceiptID, receiptDetail, fetchTotalPriceById, totalPrice}) => {
+const Confirm = ({navigation, fetchDetailById, currentReceiptID, receiptDetail, fetchTotalPriceById, totalPrice, confirmReceipt}) => {
     fetchDetailById(currentReceiptID);
     fetchTotalPriceById(currentReceiptID);
     return(
@@ -185,4 +185,4 @@ const mapStateToProps = (state) => {
         totalPrice: state.receiptReducer.receiptData.totalPrice
     }
 }
-export default connect(mapStateToProps,{fetchDetailById, fetchTotalPriceById}) (Confirm);
+export default connect(mapStateToProps,{fetchDetailById, fetchTotalPriceById, confirmReceipt}) (Confirm);

@@ -2,17 +2,17 @@ import React, { Component } from 'react'
 import { Text, View, StyleSheet, FlatList, Animated, TouchableOpacity, Image } from 'react-native'
 import CartL from '../../components/CartL';
 import {connect} from 'react-redux';
-import {fetchInCompleteReceipt} from '../../redux/actions/receiptActions';
+import {fetchTakeAway} from '../../redux/actions/receiptActions';
 import PropTypes from 'prop-types'
 
 class TakeAway extends Component {
     componentDidMount(){
-        this.props.fetchInCompleteReceipt();
+        this.props.fetchTakeAway();
     }
     render() {
         return (
             <FlatList
-                data={this.props.incompleteReceipt}
+                data={this.props.takeAwayReceipt}
                 renderItem={({item}) =>
                     <View>                  
                         <CartL item={item} nav={'CartDetail'} ></CartL>
@@ -30,8 +30,8 @@ TakeAway.propsTypes = {
 
 const mapStateToProps = state =>{
     return{
-        incompleteReceipt: state.receiptReducer.receiptData.incompleteReceipt
+        takeAwayReceipt: state.receiptReducer.receiptData.takeAwayReceipt
     }
 }
 
-export default connect(mapStateToProps, {fetchInCompleteReceipt}) (TakeAway);
+export default connect(mapStateToProps, {fetchTakeAway}) (TakeAway);
